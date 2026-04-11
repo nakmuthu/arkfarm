@@ -28,7 +28,19 @@ for (const [catName, cat] of Object.entries(categories)) {
       const nameKey = `plant_name_${slug}`;
       const scientificKey = `plant_scientific_${slug}`;
       const descKey = `plant_desc_${slug}`;
-      return `      <a class="card" href="${href}">
+
+      // Extract hero image from plant HTML
+      const htmlPath = p.url.replace('/arkfarm/', '');
+      let imgTag = '';
+      if (fs.existsSync(htmlPath)) {
+        const html = fs.readFileSync(htmlPath, 'utf8');
+        const match = html.match(/src="(https:\/\/upload\.wikimedia\.org\/[^"]+)"/);
+        if (match) {
+          imgTag = `\n        <img src="${match[1]}" alt="${p.name}">`;
+        }
+      }
+
+      return `      <a class="card" href="${href}">${imgTag}
         <div class="card-body">
           <h3 data-i18n="${nameKey}" data-en="${p.name}">${p.name}</h3>
           <p><em data-i18n="${scientificKey}" data-en="${p.scientific}">${p.scientific}</em></p>
