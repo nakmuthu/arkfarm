@@ -27,13 +27,15 @@ a:hover { text-decoration: underline; }
 img { max-width: 100%; height: auto; display: block; }
 
 /* ===== Header / Nav ===== */
+#site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 .site-header {
   background: var(--green-dark);
   color: #fff;
   padding: 0 15px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
 }
 .site-header .container {
   max-width: 1000px;
