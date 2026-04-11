@@ -134,7 +134,7 @@ img { max-width: 100%; height: auto; display: block; }
   box-shadow: var(--shadow);
 }
 
-.top-card img { width: 100%; border-radius: var(--radius); margin-bottom: 10px; }
+.top-card img { width: 100%; max-height: 400px; object-fit: cover; border-radius: var(--radius); margin-bottom: 10px; }
 .top-card h1 { color: var(--green-mid); margin-top: 0; }
 .key-grid p { margin: 5px 0; font-size: 14px; }
 
@@ -159,7 +159,7 @@ details[open] summary::after { content: " ▲"; }
 table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px; }
 table td { padding: 8px; border-bottom: 1px solid #eee; vertical-align: top; }
 
-.photo-gallery img { width: 100%; margin-bottom: 10px; border-radius: 10px; }
+.photo-gallery img { width: 100%; max-height: 350px; object-fit: cover; margin-bottom: 10px; border-radius: 10px; }
 
 .search-box {
   width: 100%;
