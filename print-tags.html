@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant Name Tags - ArkFarm</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #f4f8f4; color: #333; margin: 0; padding: 20px;
+    }
+
+    /* Controls bar */
+    .controls {
+      max-width: 900px; margin: 0 auto 20px; padding: 15px;
+      background: #fff; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .controls h1 { color: #2e7d32; margin: 0 0 10px; font-size: 1.4em; }
+    .controls p { color: #666; margin: 0 0 12px; font-size: 14px; }
+    .controls-row {
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 12px;
+    }
+    .controls-row label { font-size: 14px; cursor: pointer; }
+    .controls-row input[type="checkbox"] { margin-right: 4px; cursor: pointer; }
+    .btn {
+      background: #2e7d32; color: #fff; border: none;
+      padding: 10px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;
+    }
+    .btn:hover { background: #1b5e20; }
+    .btn-outline {
+      background: #fff; color: #2e7d32; border: 2px solid #2e7d32;
+      padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer;
+    }
+    .btn-outline:hover { background: #e8f5e9; }
+    .search-tags {
+      padding: 8px 14px; border: 2px solid #4caf50; border-radius: 8px;
+      font-size: 14px; outline: none; width: 220px;
+    }
+    .search-tags:focus { border-color: #2e7d32; }
+    .count-label { font-size: 13px; color: #666; margin-left: auto; }
+    .category-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+    .cat-btn {
+      padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;
+      border: 1.5px solid #4caf50; background: #fff; color: #2e7d32; cursor: pointer;
+    }
+    .cat-btn.active { background: #2e7d32; color: #fff; }
+    .back-link { display: inline-block; margin-top: 8px; color: #2e7d32; font-size: 14px; }
+
+    /* Tag wrapper with checkbox */
+    .tag-wrapper { position: relative; display: inline-block; }
+    .tag-check {
+      position: absolute; top: 4px; right: 4px; z-index: 10;
+      width: 18px; height: 18px; cursor: pointer; accent-color: #2e7d32;
+    }
+    .tag-wrapper.deselected { opacity: 0.35; }
+
+    .tag-grid {
+      display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
+    }
+
+    .plant-tag {
+      width: 54mm; height: 85.6mm;
+      border: 1.5px solid #2e7d32; border-radius: 3mm;
+      background: #fff; box-sizing: border-box; overflow: hidden;
+      display: flex; flex-direction: column; position: relative;
+    }
+    .tag-side-logo {
+      position: absolute; left: 2mm; bottom: 3mm;
+      writing-mode: vertical-rl; transform: rotate(180deg);
+      font-size: 5.5pt; color: #a5d6a7; font-weight: 700;
+      letter-spacing: 1.5px; white-space: nowrap;
+    }
+    .tag-hole {
+      height: 8mm; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0;
+    }
+    .tag-hole-dot {
+      width: 5mm; height: 5mm; border-radius: 50%; border: 0.5px dashed #ccc;
+    }
+    .tag-image {
+      width: 100%; height: 28mm; object-fit: cover; flex-shrink: 0;
+    }
+    .tag-no-image {
+      width: 100%; height: 28mm;
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24pt; flex-shrink: 0;
+    }
+    .tag-info {
+      flex: 1; padding: 2mm 3mm 1mm;
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center; justify-content: center;
+    }
+    .tag-name {
+      font-size: 15pt; font-weight: 700; color: #1b5e20;
+      line-height: 1.15; margin-bottom: 1mm;
+    }
+    .tag-scientific {
+      font-size: 7.5pt; font-style: italic; color: #555;
+    }
+    .tag-bottom {
+      display: flex; align-items: center; justify-content: center;
+      padding: 0 3mm 2.5mm; flex-shrink: 0;
+    }
+    .tag-qr { width: 22mm; height: 22mm; flex-shrink: 0; }
+    .tag-qr img, .tag-qr canvas { width: 22mm !important; height: 22mm !important; }
+
+    @media print {
+      body { background: #fff; padding: 0; margin: 0; }
+      .controls { display: none; }
+      .tag-check { display: none; }
+      .tag-wrapper.deselected { display: none !important; }
+      .tag-grid { gap: 5mm; justify-content: flex-start; padding: 5mm; }
+      .plant-tag { page-break-inside: avoid; }
+      @page { size: A4; margin: 10mm; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="controls">
+    <h1>🌳 ArkFarm Plant Name Tags</h1>
+    <p>Select the tags you want to print. Portrait ID card size (54mm × 85.6mm).</p>
+
+    <div class="category-filters" id="cat-filters"></div>
+
+    <div class="controls-row">
+      <input type="search" class="search-tags" id="tag-search" placeholder="Filter by name...">
+      <button class="btn-outline" onclick="selectAll()">Select All</button>
+      <button class="btn-outline" onclick="deselectAll()">Deselect All</button>
+      <button class="btn" onclick="window.print()">🖨️ Print Selected</button>
+      <span class="count-label" id="count-label"></span>
+    </div>
+    <a href="index.html" class="back-link">← Back to ArkFarm</a>
+  </div>
+
+  <div class="tag-grid" id="tag-grid"></div>
+
+  <script>
+    var plants = [
+  {
+    "name": "Passion Fruit",
+    "scientific": "Passiflora edulis",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/passion-fruit.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Passion_fruits_-_whole_and_halved.jpg/500px-Passion_fruits_-_whole_and_halved.jpg"
+  },
+  {
+    "name": "Mango - Malkova",
+    "scientific": "Mangifera indica 'Malgova'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/malkova-mango.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/250px-Mangos_-_single_and_halved.jpg"
+  },
+  {
+    "name": "Apple - Water Apple (Green)",
+    "scientific": "Syzygium samarangense",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/apple-water-green.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Syzygium_fruit.jpg/500px-Syzygium_fruit.jpg"
+  },
+  {
+    "name": "Apple - Water Apple (Dahai / Chamba)",
+    "scientific": "Syzygium samarangense 'Dahai'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/apple-water-dahai.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Syzygium_fruit.jpg/500px-Syzygium_fruit.jpg"
+  },
+  {
+    "name": "Apple - Star Apple (Milk Fruit – Purple)",
+    "scientific": "Chrysophyllum cainito",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/apple-star.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Chrusophyllum_cainito.jpg/500px-Chrusophyllum_cainito.jpg"
+  },
+  {
+    "name": "Apple Ber (Red)",
+    "scientific": "Ziziphus mauritiana 'Apple Ber Red'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/apple-ber-red.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Indian_jujube_%28fruit%29.jpg/500px-Indian_jujube_%28fruit%29.jpg"
+  },
+  {
+    "name": "Apple Ber (Green / Indian Jujube)",
+    "scientific": "Ziziphus mauritiana",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/apple-ber-green.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Indian_jujube_%28fruit%29.jpg/500px-Indian_jujube_%28fruit%29.jpg"
+  },
+  {
+    "name": "Plum - Coco",
+    "scientific": "Chrysobalanus icaco",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/plum-coco.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Oleta_River_State_Park_-_Chrysobalanus_icaco_-_Cocoplum_fruit_03.jpg/120px-Oleta_River_State_Park_-_Chrysobalanus_icaco_-_Cocoplum_fruit_03.jpg"
+  },
+  {
+    "name": "Plum - Natal",
+    "scientific": "Carissa macrocarpa",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/plum-natal.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Starr_010820-0009_Carissa_macrocarpa.jpg/500px-Starr_010820-0009_Carissa_macrocarpa.jpg"
+  },
+  {
+    "name": "Plum - Governor / Madagascar",
+    "scientific": "Flacourtia indica",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/plum-governor.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Flacourtia_indica_fruit_in_Hyderabad_W_IMG_7482.jpg/500px-Flacourtia_indica_fruit_in_Hyderabad_W_IMG_7482.jpg"
+  },
+  {
+    "name": "Plum - Santa Rosa",
+    "scientific": "Prunus salicina 'Santa Rosa'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/plum-santa-rosa.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Plums_African_Rose_-_whole%2C_halved_and_slice.jpg/120px-Plums_African_Rose_-_whole%2C_halved_and_slice.jpg"
+  },
+  {
+    "name": "Plum - Rain Forest",
+    "scientific": "Prunus africana",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/plum-rain-forest.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Prunus_africana_MS_3588.jpg/500px-Prunus_africana_MS_3588.jpg"
+  },
+  {
+    "name": "Plum - Loquat / Lokat",
+    "scientific": "Eriobotrya japonica",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/plum-loquat.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Loquat_-_whole_and_cross_section.jpg/500px-Loquat_-_whole_and_cross_section.jpg"
+  },
+  {
+    "name": "Cherry - Surinam Black",
+    "scientific": "Eugenia uniflora (black variety)",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/cherry-surinam-black.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Eugenia_uniflora_fruits.jpg/120px-Eugenia_uniflora_fruits.jpg"
+  },
+  {
+    "name": "Paneer Rose",
+    "scientific": "Rosa damascena",
+    "category": "Flowering Plants",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/flowering-plants/paneer-rose.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/%D9%85%D8%B1%D8%A7%D8%B3%D9%85_%DA%AF%D9%84%D8%A7%D8%A8%DA%AF%DB%8C%D8%B1%DB%8C_%D8%AF%D8%B1_%D9%82%D9%85%D8%B5%D8%B1_%DA%A9%D8%A7%D8%B4%D8%A7%D9%86_Golabgiri_%28%22making_Rosewater%22%29_-_Ghamsar-_Kashan-_Iran_19.jpg/500px-%D9%85%D8%B1%D8%A7%D8%B3%D9%85_%DA%AF%D9%84%D8%A7%D8%A8%DA%AF%DB%8C%D8%B1%DB%8C_%D8%AF%D8%B1_%D9%82%D9%85%D8%B5%D8%B1_%DA%A9%D8%A7%D8%B4%D8%A7%D9%86_Golabgiri_%28%22making_Rosewater%22%29_-_Ghamsar-_Kashan-_Iran_19.jpg"
+  },
+  {
+    "name": "Moringa Tree",
+    "scientific": "Moringa oleifera",
+    "category": "Medicinal Plants",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/medicinal-plants/moringa-tree.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/DrumstickFlower.jpg/500px-DrumstickFlower.jpg"
+  },
+  {
+    "name": "Jasmine",
+    "scientific": "Jasminum sambac",
+    "category": "Flowering Plants",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/flowering-plants/jasmine.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Sampaguita_Flower_Necklace.png/120px-Sampaguita_Flower_Necklace.png"
+  },
+  {
+    "name": "Clove",
+    "scientific": "Syzygium aromaticum",
+    "category": "Spices & Herbs",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/spices-herbs/clove.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/ClovesDried.jpg/500px-ClovesDried.jpg"
+  },
+  {
+    "name": "Bay Leaf",
+    "scientific": "Laurus nobilis",
+    "category": "Spices & Herbs",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/spices-herbs/bay-leaf.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Starr-071024-0195-Laurus_nobilis-leaves-Enchanting_Floral_Gardens_of_Kula-Maui_%2824867859296%29.jpg/500px-Starr-071024-0195-Laurus_nobilis-leaves-Enchanting_Floral_Gardens_of_Kula-Maui_%2824867859296%29.jpg"
+  },
+  {
+    "name": "Allspice",
+    "scientific": "Pimenta dioica",
+    "category": "Spices & Herbs",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/spices-herbs/allspice.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/AllspiceBowl.JPG/500px-AllspiceBowl.JPG"
+  },
+  {
+    "name": "Cinnamon",
+    "scientific": "Cinnamomum verum",
+    "category": "Spices & Herbs",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/spices-herbs/cinnamon.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Cinnamomum_verum_leaves.JPG/330px-Cinnamomum_verum_leaves.JPG"
+  },
+  {
+    "name": "Cardamom / Elaichi",
+    "scientific": "Elettaria cardamomum",
+    "category": "Spices & Herbs",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/spices-herbs/cardamom.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Cardamom_pods_-_Green_BNC.jpg/500px-Cardamom_pods_-_Green_BNC.jpg"
+  },
+  {
+    "name": "Nutmeg",
+    "scientific": "Myristica fragrans",
+    "category": "Spices & Herbs",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/spices-herbs/nutmeg.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Myristica_fragrans_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-097.jpg/330px-Myristica_fragrans_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-097.jpg"
+  },
+  {
+    "name": "Pepper - Panniyur",
+    "scientific": "Piper nigrum 'Panniyur'",
+    "category": "Spices & Herbs",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/spices-herbs/pepper-panniyur.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Dried_Peppercorns.jpg/250px-Dried_Peppercorns.jpg"
+  },
+  {
+    "name": "Pepper - Karimunda",
+    "scientific": "Piper nigrum 'Karimunda'",
+    "category": "Spices & Herbs",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/spices-herbs/pepper-karimunda.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Dried_Peppercorns.jpg/250px-Dried_Peppercorns.jpg"
+  },
+  {
+    "name": "Pepper - Bush",
+    "scientific": "Piper nigrum (bush type)",
+    "category": "Spices & Herbs",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/spices-herbs/pepper-bush.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Dried_Peppercorns.jpg/250px-Dried_Peppercorns.jpg"
+  },
+  {
+    "name": "Rambai Leaf / Pandan",
+    "scientific": "Pandanus amaryllifolius",
+    "category": "Spices & Herbs",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/spices-herbs/pandan.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Chottola.jpg/500px-Chottola.jpg"
+  },
+  {
+    "name": "Curry Leaf",
+    "scientific": "Murraya koenigii",
+    "category": "Spices & Herbs",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/spices-herbs/curry-leaf.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Fresh_curry_Leaf_%2849697684423%29.jpg/500px-Fresh_curry_Leaf_%2849697684423%29.jpg"
+  },
+  {
+    "name": "Herbal - Lemongrass",
+    "scientific": "Cymbopogon citratus",
+    "category": "Spices & Herbs",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/spices-herbs/lemongrass.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gardenology.org-IMG_2892_rbgs11jan.jpg/500px-Gardenology.org-IMG_2892_rbgs11jan.jpg"
+  },
+  {
+    "name": "Herbal - Avarampoo / Tanner's Cassia",
+    "scientific": "Senna auriculata",
+    "category": "Spices & Herbs",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/spices-herbs/avarampoo.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Ranawara_or_Avaram-_Senna_auriculata_at_Sindhrot_near_Vadodara%2C_Gujrat_Pix_044.jpg/500px-Ranawara_or_Avaram-_Senna_auriculata_at_Sindhrot_near_Vadodara%2C_Gujrat_Pix_044.jpg"
+  },
+  {
+    "name": "Herbal - Henna / Maruthani",
+    "scientific": "Lawsonia inermis",
+    "category": "Spices & Herbs",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/spices-herbs/henna.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Lawsonia_inermis_%283709419835%29.jpg/500px-Lawsonia_inermis_%283709419835%29.jpg"
+  },
+  {
+    "name": "Timber - Mahogany",
+    "scientific": "Swietenia macrophylla",
+    "category": "Timber Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/timber-trees/mahogany.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Young_tree_I_IMG_8665.jpg/60px-Young_tree_I_IMG_8665.jpg"
+  },
+  {
+    "name": "Coconut",
+    "scientific": "Cocos nucifera",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/coconut.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Cocos_nucifera_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-187.jpg/500px-Cocos_nucifera_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-187.jpg"
+  },
+  {
+    "name": "Lemon - Native",
+    "scientific": "Citrus limon",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/lemon-native.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/P1030323.JPG/500px-P1030323.JPG"
+  },
+  {
+    "name": "Sweet Lime - Nagpur",
+    "scientific": "Citrus limetta 'Nagpur'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/sweet-lime-nagpur.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/A_road_side_fruit_juice_stall.jpg/500px-A_road_side_fruit_juice_stall.jpg"
+  },
+  {
+    "name": "Sweet Lime - Vietnam",
+    "scientific": "Citrus limetta 'Vietnam'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/sweet-lime-vietnam.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/A_road_side_fruit_juice_stall.jpg/500px-A_road_side_fruit_juice_stall.jpg"
+  },
+  {
+    "name": "Sweet Lime - Bali",
+    "scientific": "Citrus limetta 'Bali'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/sweet-lime-bali.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/A_road_side_fruit_juice_stall.jpg/500px-A_road_side_fruit_juice_stall.jpg"
+  },
+  {
+    "name": "Mango - Kalapadi",
+    "scientific": "Mangifera indica 'Kalapadi'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/mango-kalapadi.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/250px-Mangos_-_single_and_halved.jpg"
+  },
+  {
+    "name": "Mango - Himam Pasand",
+    "scientific": "Mangifera indica 'Himam Pasand'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/mango-himam-pasand.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/250px-Mangos_-_single_and_halved.jpg"
+  },
+  {
+    "name": "Mango - Banganapalli",
+    "scientific": "Mangifera indica 'Banganapalli'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/mango-banganapalli.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/250px-Mangos_-_single_and_halved.jpg"
+  },
+  {
+    "name": "Mango - Bangalore",
+    "scientific": "Mangifera indica 'Bangalore'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/mango-bangalore.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/250px-Mangos_-_single_and_halved.jpg"
+  },
+  {
+    "name": "Mango - Neelam",
+    "scientific": "Mangifera indica 'Neelam'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/mango-neelam.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/250px-Mangos_-_single_and_halved.jpg"
+  },
+  {
+    "name": "Mango - Nam Doc Mai Gold",
+    "scientific": "Mangifera indica 'Nam Doc Mai'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/mango-nam-doc-mai.html",
+    "image": ""
+  },
+  {
+    "name": "Mango - Sweet Katimon",
+    "scientific": "Mangifera indica 'Katimon'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/mango-sweet-katimon.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/250px-Mangos_-_single_and_halved.jpg"
+  },
+  {
+    "name": "Mango - Kotturkonam",
+    "scientific": "Mangifera indica 'Kotturkonam'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/mango-kotturkonam.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/250px-Mangos_-_single_and_halved.jpg"
+  },
+  {
+    "name": "Mango - Miyazaki",
+    "scientific": "Mangifera indica 'Miyazaki'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/mango-miyazaki.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/250px-Mangos_-_single_and_halved.jpg"
+  },
+  {
+    "name": "Mango - All Season",
+    "scientific": "Mangifera indica 'All Season'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/mango-all-season.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/250px-Mangos_-_single_and_halved.jpg"
+  },
+  {
+    "name": "Apple - Malayan",
+    "scientific": "Syzygium malaccense",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/apple-malayan.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Pommerac.cut.jpg/120px-Pommerac.cut.jpg"
+  },
+  {
+    "name": "Apple - Rose / Panneer",
+    "scientific": "Syzygium jambos",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/apple-rose.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Syzygium_jambos_Fruit_and_seeds_IMG_4906.JPG/500px-Syzygium_jambos_Fruit_and_seeds_IMG_4906.JPG"
+  },
+  {
+    "name": "Apple - Velvet",
+    "scientific": "Diospyros blancoi",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/apple-velvet.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Mabolo_%28Diospyros_blancoi%29_fruit.jpg/250px-Mabolo_%28Diospyros_blancoi%29_fruit.jpg"
+  },
+  {
+    "name": "Apple - Wood",
+    "scientific": "Limonia acidissima",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/apple-wood.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Wood-apple_tree.JPG/500px-Wood-apple_tree.JPG"
+  },
+  {
+    "name": "Apple - Sweet Wood",
+    "scientific": "Limonia acidissima (sweet variety)",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/apple-sweet-wood.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Bael_fruit_%28Aegle_marmelos%29_seeds.jpg/330px-Bael_fruit_%28Aegle_marmelos%29_seeds.jpg"
+  },
+  {
+    "name": "Cherry - Red Surinam",
+    "scientific": "Eugenia uniflora (red variety)",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/cherry-red-surinam.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Eugenia_uniflora_fruits.jpg/120px-Eugenia_uniflora_fruits.jpg"
+  },
+  {
+    "name": "Cherry - Manila Tennis Ball",
+    "scientific": "Muntingia calabura",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/cherry-manila.html",
+    "image": ""
+  },
+  {
+    "name": "Cherry - Cedar Bay",
+    "scientific": "Eugenia reinwardtiana",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/cherry-cedar-bay.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Eugenia_carissoides_fruit1.JPG/500px-Eugenia_carissoides_fruit1.JPG"
+  },
+  {
+    "name": "Cherry - Cherry of the Rio Grande",
+    "scientific": "Eugenia involucrata",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/cherry-rio-grande.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/RFVC_024.jpg/500px-RFVC_024.jpg"
+  },
+  {
+    "name": "Cherry - Barbados",
+    "scientific": "Malpighia emarginata",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/cherry-barbados.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Malpighia_glabra_blossom_and_unripe_fruits.jpg/500px-Malpighia_glabra_blossom_and_unripe_fruits.jpg"
+  },
+  {
+    "name": "Cherry - Grumichama / Brazil Cherry",
+    "scientific": "Eugenia brasiliensis",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/cherry-grumichama.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Starr-130304-2013-Eugenia_brasiliensis-fruit_and_leaves-Montrose_Crater_Rd_Kula-Maui_%2825206186385%29.jpg/120px-Starr-130304-2013-Eugenia_brasiliensis-fruit_and_leaves-Montrose_Crater_Rd_Kula-Maui_%2825206186385%29.jpg"
+  },
+  {
+    "name": "Cherry - Savannah",
+    "scientific": "Eugenia punicifolia",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/cherry-savannah.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Eugenia_punicifolia_%281%29.jpg/500px-Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Eugenia_punicifolia_%281%29.jpg"
+  },
+  {
+    "name": "Cherry - Baraba / Lemon Drop Mangosteen",
+    "scientific": "Garcinia intermedia",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/cherry-baraba.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Garcinia_intermedia_14.JPG/500px-Garcinia_intermedia_14.JPG"
+  },
+  {
+    "name": "Guava - Purple Forest",
+    "scientific": "Psidium cattleianum (purple)",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/guava-purple-forest.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Starr-120120-1791-Psidium_cattleianum-ripe_fruit_in_hand_showing_inside-Enchanting_Floral_Gardens_of_Kula-Maui_%2824764914269%29.jpg/250px-Starr-120120-1791-Psidium_cattleianum-ripe_fruit_in_hand_showing_inside-Enchanting_Floral_Gardens_of_Kula-Maui_%2824764914269%29.jpg"
+  },
+  {
+    "name": "Guava - Taiwan Pink",
+    "scientific": "Psidium guajava 'Taiwan Pink'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/guava-taiwan-pink.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Psidium_guajava_fruit.jpg/500px-Psidium_guajava_fruit.jpg"
+  },
+  {
+    "name": "Guava - Small Beetroot",
+    "scientific": "Psidium guajava 'Beetroot'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/guava-small-beetroot.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Psidium_guajava_fruit.jpg/500px-Psidium_guajava_fruit.jpg"
+  },
+  {
+    "name": "Guava - Grape",
+    "scientific": "Psidium guajava 'Grape'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/guava-grape.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Myrciaria_vexator_10zz.jpg/500px-Myrciaria_vexator_10zz.jpg"
+  },
+  {
+    "name": "Guava - L-49",
+    "scientific": "Psidium guajava 'L-49'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/guava-l49.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Psidium_guajava_fruit.jpg/500px-Psidium_guajava_fruit.jpg"
+  },
+  {
+    "name": "Guava - Native",
+    "scientific": "Psidium guajava",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/guava-native.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Psidium_guajava_fruit.jpg/500px-Psidium_guajava_fruit.jpg"
+  },
+  {
+    "name": "Guava - Strawberry",
+    "scientific": "Psidium cattleianum",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/guava-strawberry.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Starr-120120-1791-Psidium_cattleianum-ripe_fruit_in_hand_showing_inside-Enchanting_Floral_Gardens_of_Kula-Maui_%2824764914269%29.jpg/250px-Starr-120120-1791-Psidium_cattleianum-ripe_fruit_in_hand_showing_inside-Enchanting_Floral_Gardens_of_Kula-Maui_%2824764914269%29.jpg"
+  },
+  {
+    "name": "Berry - Blackberry",
+    "scientific": "Rubus fruticosus",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/berry-blackberry.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Halved_blackberry_%28Rubus_fruticosus%29.jpg/500px-Halved_blackberry_%28Rubus_fruticosus%29.jpg"
+  },
+  {
+    "name": "Berry - Star Gooseberry",
+    "scientific": "Phyllanthus acidus",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/berry-star-gooseberry.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Otaheite_gooseberry.JPG/500px-Otaheite_gooseberry.JPG"
+  },
+  {
+    "name": "Berry - Strawberry",
+    "scientific": "Fragaria × ananassa",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/berry-strawberry.html",
+    "image": ""
+  },
+  {
+    "name": "Berry - Blueberry",
+    "scientific": "Vaccinium corymbosum",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/berry-blueberry.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Vaccinium_corymbosum%2801%29.jpg/500px-Vaccinium_corymbosum%2801%29.jpg"
+  },
+  {
+    "name": "Berry - Mulberry",
+    "scientific": "Morus alba",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/berry-mulberry.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FruitlessMulberry-3965.jpg/120px-FruitlessMulberry-3965.jpg"
+  },
+  {
+    "name": "Berry - Long Mulberry",
+    "scientific": "Morus alba 'Long'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/berry-long-mulberry.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FruitlessMulberry-3965.jpg/120px-FruitlessMulberry-3965.jpg"
+  },
+  {
+    "name": "Berry - Himalayan Mulberry",
+    "scientific": "Morus serrata",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/berry-himalayan-mulberry.html",
+    "image": ""
+  },
+  {
+    "name": "Berry - Pakistan Mulberry",
+    "scientific": "Morus macroura 'Pakistan'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/berry-pakistan-mulberry.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/FruitlessMulberry-3965.jpg/120px-FruitlessMulberry-3965.jpg"
+  },
+  {
+    "name": "Berry - Brazilian Long Mulberry",
+    "scientific": "Morus nigra 'Brazilian Long'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/berry-brazilian-mulberry.html",
+    "image": ""
+  },
+  {
+    "name": "Berry - Red Gooseberry / Amla",
+    "scientific": "Phyllanthus emblica",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/berry-red-gooseberry.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Phyllanthus_emblica_-_whole_and_cross_section.jpg/500px-Phyllanthus_emblica_-_whole_and_cross_section.jpg"
+  },
+  {
+    "name": "Jamun - Killi Naval",
+    "scientific": "Syzygium cumini 'Killi Naval'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/jamun-killi-naval.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Ripe_jamun_fruits.jpg/120px-Ripe_jamun_fruits.jpg"
+  },
+  {
+    "name": "Jamun - Thai King",
+    "scientific": "Syzygium cumini 'Thai King'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/jamun-thai-king.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Ripe_jamun_fruits.jpg/120px-Ripe_jamun_fruits.jpg"
+  },
+  {
+    "name": "Jamun - White Jamun",
+    "scientific": "Syzygium cumini (white variety)",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/jamun-white.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Ripe_jamun_fruits.jpg/120px-Ripe_jamun_fruits.jpg"
+  },
+  {
+    "name": "Jamun - Jumbo Jamun / Bardoli",
+    "scientific": "Syzygium cumini 'Bardoli'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/jamun-jumbo-bardoli.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Ripe_jamun_fruits.jpg/120px-Ripe_jamun_fruits.jpg"
+  },
+  {
+    "name": "Custard Apple - Ram Seetha",
+    "scientific": "Annona reticulata",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/custard-apple-ram-seetha.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Annona_reticulata_Blanco1.197-cropped.jpg/500px-Annona_reticulata_Blanco1.197-cropped.jpg"
+  },
+  {
+    "name": "Custard Apple - Purple / Red",
+    "scientific": "Annona squamosa (purple variety)",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/custard-apple-purple.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Sugar_apple_with_cross_section.jpg/500px-Sugar_apple_with_cross_section.jpg"
+  },
+  {
+    "name": "Custard Apple - Atemoya",
+    "scientific": "Annona × atemoya",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/custard-apple-atemoya.html",
+    "image": ""
+  },
+  {
+    "name": "Custard Apple - Soursop / Mullu Seetha",
+    "scientific": "Annona muricata",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/custard-apple-soursop.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Soursop%2C_Annona_muricata.jpg/500px-Soursop%2C_Annona_muricata.jpg"
+  },
+  {
+    "name": "Jackfruit - J-33",
+    "scientific": "Artocarpus heterophyllus 'J-33'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/jackfruit-j33.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Unripe_Jackfruit.jpg/250px-Unripe_Jackfruit.jpg"
+  },
+  {
+    "name": "Jackfruit - Vietnam Super Early",
+    "scientific": "Artocarpus heterophyllus 'Vietnam Super Early'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/jackfruit-vietnam-super-early.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Unripe_Jackfruit.jpg/250px-Unripe_Jackfruit.jpg"
+  },
+  {
+    "name": "Jackfruit - Honey Red",
+    "scientific": "Artocarpus heterophyllus 'Honey Red'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/jackfruit-honey-red.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Unripe_Jackfruit.jpg/250px-Unripe_Jackfruit.jpg"
+  },
+  {
+    "name": "Jackfruit - Panruti",
+    "scientific": "Artocarpus heterophyllus 'Panruti'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/jackfruit-panruti.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Unripe_Jackfruit.jpg/250px-Unripe_Jackfruit.jpg"
+  },
+  {
+    "name": "Jackfruit - Nongadak",
+    "scientific": "Artocarpus heterophyllus 'Nongadak'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/jackfruit-nongadak.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Unripe_Jackfruit.jpg/250px-Unripe_Jackfruit.jpg"
+  },
+  {
+    "name": "Sapota - Thai King",
+    "scientific": "Manilkara zapota 'Thai King'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/sapota-thai-king.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Manilkara_zapota_-_Nispero_fruit_and_leaves_01.jpg/120px-Manilkara_zapota_-_Nispero_fruit_and_leaves_01.jpg"
+  },
+  {
+    "name": "Orange - Dekopon",
+    "scientific": "Citrus reticulata 'Dekopon'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/orange-dekopon.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Fresh_Fruit_Dessert.jpg/250px-Fresh_Fruit_Dessert.jpg"
+  },
+  {
+    "name": "Longan - Diamond River",
+    "scientific": "Dimocarpus longan 'Diamond River'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/longan-diamond-river.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Longan_%28Dimocarpus_longan%29_baby_fruits_and_leaves.jpg/500px-Longan_%28Dimocarpus_longan%29_baby_fruits_and_leaves.jpg"
+  },
+  {
+    "name": "Longan - All Season",
+    "scientific": "Dimocarpus longan 'All Season'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/longan-all-season.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Longan_%28Dimocarpus_longan%29_baby_fruits_and_leaves.jpg/500px-Longan_%28Dimocarpus_longan%29_baby_fruits_and_leaves.jpg"
+  },
+  {
+    "name": "Longan - Ruby",
+    "scientific": "Dimocarpus longan 'Ruby'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/longan-ruby.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Longan_%28Dimocarpus_longan%29_baby_fruits_and_leaves.jpg/500px-Longan_%28Dimocarpus_longan%29_baby_fruits_and_leaves.jpg"
+  },
+  {
+    "name": "Pomelo - Bablimas",
+    "scientific": "Citrus maxima 'Bablimas'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/pomelo-bablimas.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Pomelo_seedling.jpg/250px-Pomelo_seedling.jpg"
+  },
+  {
+    "name": "Avocado - Arka Supreme",
+    "scientific": "Persea americana 'Arka Supreme'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/avocado-arka-supreme.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/2015-08-08_09.11.34_unusual_avocado_%28the_fertility_testicle_fruit%29_variety_from_Cebu_Philippines_2.jpg/500px-2015-08-08_09.11.34_unusual_avocado_%28the_fertility_testicle_fruit%29_variety_from_Cebu_Philippines_2.jpg"
+  },
+  {
+    "name": "Avocado - Kendil",
+    "scientific": "Persea americana 'Kendil'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/avocado-kendil.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/2015-08-08_09.11.34_unusual_avocado_%28the_fertility_testicle_fruit%29_variety_from_Cebu_Philippines_2.jpg/500px-2015-08-08_09.11.34_unusual_avocado_%28the_fertility_testicle_fruit%29_variety_from_Cebu_Philippines_2.jpg"
+  },
+  {
+    "name": "Star Fruit - Sweet",
+    "scientific": "Averrhoa carambola (sweet variety)",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/star-fruit-sweet.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Fruits%2C_leaves_%26_Trunk_I_IMG_8445.jpg/330px-Fruits%2C_leaves_%26_Trunk_I_IMG_8445.jpg"
+  },
+  {
+    "name": "Star Fruit (Regular)",
+    "scientific": "Averrhoa carambola",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/star-fruit-regular.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Fruits%2C_leaves_%26_Trunk_I_IMG_8445.jpg/330px-Fruits%2C_leaves_%26_Trunk_I_IMG_8445.jpg"
+  },
+  {
+    "name": "Sea Grape",
+    "scientific": "Coccoloba uvifera",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/sea-grape.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Coccoloba_uvifera_01A_-_green_fruit.jpg/120px-Coccoloba_uvifera_01A_-_green_fruit.jpg"
+  },
+  {
+    "name": "Bilimbi",
+    "scientific": "Averrhoa bilimbi",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/bilimbi.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Averrhoa_bilimbi_dsc03692.jpg/500px-Averrhoa_bilimbi_dsc03692.jpg"
+  },
+  {
+    "name": "Sweet Luvi",
+    "scientific": "Flacourtia inermis",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/sweet-luvi.html",
+    "image": ""
+  },
+  {
+    "name": "Rambutan - Rongrien",
+    "scientific": "Nephelium lappaceum 'Rongrien'",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/rambutan-rongrien.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Rambutan_white_background_alt.jpg/500px-Rambutan_white_background_alt.jpg"
+  },
+  {
+    "name": "Ambalam",
+    "scientific": "Spondias pinnata",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/ambalam.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Spondias_pinnata_01.JPG/500px-Spondias_pinnata_01.JPG"
+  },
+  {
+    "name": "Ambalam (Sweet)",
+    "scientific": "Spondias dulcis",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/ambalam-sweet.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Starr_980529-4218_Spondias_dulcis.jpg/500px-Starr_980529-4218_Spondias_dulcis.jpg"
+  },
+  {
+    "name": "Lipote",
+    "scientific": "Syzygium polycephaloides",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/lipote.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Starr_070321-6132_Syzygium_malaccense.jpg/500px-Starr_070321-6132_Syzygium_malaccense.jpg"
+  },
+  {
+    "name": "Jaboticaba / Brazilian Grape",
+    "scientific": "Plinia cauliflora",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/jaboticaba.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Jabuticaba_%28do_tupi_%C3%AEabotikaba%2C_%27gordura_de_jabuti%27%29_07.jpg/500px-Jabuticaba_%28do_tupi_%C3%AEabotikaba%2C_%27gordura_de_jabuti%27%29_07.jpg"
+  },
+  {
+    "name": "Araza Boi",
+    "scientific": "Eugenia stipitata",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/araza-boi.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Eugenia_stipitata%2C_the_Guayaba_Amazonica_%2810841002575%29.jpg/500px-Eugenia_stipitata%2C_the_Guayaba_Amazonica_%2810841002575%29.jpg"
+  },
+  {
+    "name": "Litchi",
+    "scientific": "Litchi chinensis",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/litchi.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Litchi_chinensis_fruits.JPG/500px-Litchi_chinensis_fruits.JPG"
+  },
+  {
+    "name": "Abiu",
+    "scientific": "Pouteria caimito",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/abiu.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Abiu_fruits.jpg/500px-Abiu_fruits.jpg"
+  },
+  {
+    "name": "Kodakapuli / Manila Tamarind",
+    "scientific": "Pithecellobium dulce",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/kodakapuli.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Tree_I_IMG_2896.jpg/330px-Tree_I_IMG_2896.jpg"
+  },
+  {
+    "name": "Egg Fruit",
+    "scientific": "Pouteria campechiana",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/egg-fruit.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Egg_fruit_cross_section_DS.jpg/500px-Egg_fruit_cross_section_DS.jpg"
+  },
+  {
+    "name": "Ice Cream Bean",
+    "scientific": "Inga edulis",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/ice-cream-bean.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Inga_edulis_04.jpg/500px-Inga_edulis_04.jpg"
+  },
+  {
+    "name": "Miracle Fruit",
+    "scientific": "Synsepalum dulcificum",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/miracle-fruit.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/MiracleBerry.jpg/500px-MiracleBerry.jpg"
+  },
+  {
+    "name": "Sweet Santol / Cotton Fruit",
+    "scientific": "Sandoricum koetjape",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/sweet-santol.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Gratorn_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%97%E0%B9%89%E0%B8%AD%E0%B8%99_fruit%2C_Santol.jpg/500px-Gratorn_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%97%E0%B9%89%E0%B8%AD%E0%B8%99_fruit%2C_Santol.jpg"
+  },
+  {
+    "name": "Bignay / Currant Tree Fruit",
+    "scientific": "Antidesma bunius",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/bignay.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Bignay_Ripe_Fruit.jpg/500px-Bignay_Ripe_Fruit.jpg"
+  },
+  {
+    "name": "Olosapo",
+    "scientific": "Couepia polyandra",
+    "category": "Fruit Trees",
+    "url": "https://nakmuthu.github.io/arkfarm/plants/fruit-trees/olosapo.html",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Couepia_grandiflora_1_Jo%C3%A3o_de_Deus_Medeiros.jpg/500px-Couepia_grandiflora_1_Jo%C3%A3o_de_Deus_Medeiros.jpg"
+  }
+];
+    var categories = ["Flowering Plants","Fruit Trees","Medicinal Plants","Spices & Herbs","Timber Trees"];
+    var activeCategory = 'all';
+
+    function generateQR(text) {
+      var qr = qrcode(0, 'M');
+      qr.addData(text);
+      qr.make();
+      return qr.createImgTag(4, 0);
+    }
+
+    function updateCount() {
+      var total = document.querySelectorAll('.tag-wrapper:not([style*="display: none"])').length;
+      var selected = document.querySelectorAll('.tag-wrapper:not(.deselected):not([style*="display: none"])').length;
+      document.getElementById('count-label').textContent = selected + ' of ' + total + ' selected';
+    }
+
+    function selectAll() {
+      document.querySelectorAll('.tag-wrapper:not([style*="display: none"])').forEach(function(w) {
+        w.classList.remove('deselected');
+        w.querySelector('.tag-check').checked = true;
+      });
+      updateCount();
+    }
+
+    function deselectAll() {
+      document.querySelectorAll('.tag-wrapper:not([style*="display: none"])').forEach(function(w) {
+        w.classList.add('deselected');
+        w.querySelector('.tag-check').checked = false;
+      });
+      updateCount();
+    }
+
+    function filterByCategory(cat) {
+      activeCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(function(b) {
+        b.classList.toggle('active', b.dataset.cat === cat);
+      });
+      applyFilters();
+    }
+
+    function applyFilters() {
+      var search = document.getElementById('tag-search').value.toLowerCase().trim();
+      document.querySelectorAll('.tag-wrapper').forEach(function(w) {
+        var name = w.dataset.name.toLowerCase();
+        var cat = w.dataset.category;
+        var matchCat = activeCategory === 'all' || cat === activeCategory;
+        var matchSearch = !search || name.includes(search);
+        w.style.display = (matchCat && matchSearch) ? '' : 'none';
+      });
+      updateCount();
+    }
+
+    function renderCategoryFilters() {
+      var container = document.getElementById('cat-filters');
+      var allBtn = '<button class="cat-btn active" data-cat="all" onclick="filterByCategory(\'all\')">All (' + plants.length + ')</button>';
+      var catBtns = categories.map(function(c) {
+        var count = plants.filter(function(p) { return p.category === c; }).length;
+        return '<button class="cat-btn" data-cat="' + c + '" onclick="filterByCategory(\'' + c.replace(/'/g, "\\'") + '\')">' + c + ' (' + count + ')</button>';
+      }).join('');
+      container.innerHTML = allBtn + catBtns;
+    }
+
+    function renderTags() {
+      var grid = document.getElementById('tag-grid');
+      plants.forEach(function(plant, i) {
+        var wrapper = document.createElement('div');
+        wrapper.className = 'tag-wrapper';
+        wrapper.dataset.name = plant.name;
+        wrapper.dataset.category = plant.category;
+
+        var imgHtml = plant.image
+          ? '<img class="tag-image" src="' + plant.image + '" alt="' + plant.name + '">'
+          : '<div class="tag-no-image">🌱</div>';
+
+        wrapper.innerHTML =
+          '<input type="checkbox" class="tag-check" checked onchange="this.parentElement.classList.toggle(\'deselected\', !this.checked); updateCount();">' +
+          '<div class="plant-tag">' +
+            '<div class="tag-side-logo">🌳 ARKFARM</div>' +
+            '<div class="tag-hole"><div class="tag-hole-dot"></div></div>' +
+            imgHtml +
+            '<div class="tag-info">' +
+              '<div class="tag-name">' + plant.name + '</div>' +
+              '<div class="tag-scientific">' + plant.scientific + '</div>' +
+            '</div>' +
+            '<div class="tag-bottom">' +
+              '<div class="tag-qr">' + generateQR(plant.url) + '</div>' +
+            '</div>' +
+          '</div>';
+
+        grid.appendChild(wrapper);
+      });
+      updateCount();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderCategoryFilters();
+      renderTags();
+      document.getElementById('tag-search').addEventListener('input', applyFilters);
+    });
+  </script>
+</body>
+</html>
