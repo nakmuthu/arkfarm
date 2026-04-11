@@ -53,6 +53,27 @@ for (const dir of dirs) {
       }
     }
 
+    // Check for <summary> tags without data-i18n
+    const bareSummaries = html.match(/<summary>([^<]+)<\/summary>/g);
+    if (bareSummaries) {
+      issues.push('ERROR: ' + bareSummaries.length + ' <summary> tags without data-i18n');
+      errors++;
+    }
+
+    // Check for <strong> label tags without data-i18n (in table rows)
+    const bareStrongs = html.match(/<td><strong>[^<]+<\/strong><\/td>/g);
+    if (bareStrongs) {
+      issues.push('ERROR: ' + bareStrongs.length + ' <strong> labels without data-i18n in table rows');
+      errors++;
+    }
+
+    // Check for key-grid <strong> without data-i18n
+    const bareKeyGrid = html.match(/<strong>[A-Z][^<]*:<\/strong>\s*(?!<span data-i18n)/g);
+    if (bareKeyGrid) {
+      issues.push('ERROR: ' + bareKeyGrid.length + ' key-grid labels without data-i18n');
+      errors++;
+    }
+
     // Check Tamil file exists
     const tamilFile = 'data/i18n-ta-' + slug + '.json';
     if (!fs.existsSync(tamilFile)) {
