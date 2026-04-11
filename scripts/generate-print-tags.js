@@ -46,6 +46,9 @@ const plantEntries = plants.map(p => {
 
 const categories = [...new Set(plantEntries.map(p => p.category))].sort();
 
+// Sort by name
+plantEntries.sort((a, b) => a.name.localeCompare(b.name));
+
 const html = `<!DOCTYPE html>
 <html lang="en">
 <head>

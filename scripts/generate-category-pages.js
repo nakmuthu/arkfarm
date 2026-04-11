@@ -18,7 +18,7 @@ const categories = {
 };
 
 for (const [catName, cat] of Object.entries(categories)) {
-  const catPlants = plants.filter(p => p.category === catName);
+  const catPlants = plants.filter(p => p.category === catName).sort((a, b) => a.name.localeCompare(b.name));
   
   let cards = '';
   if (catPlants.length > 0) {
