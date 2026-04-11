@@ -1,120 +1,1973 @@
 [
-  {"name": "Passion Fruit", "scientific": "Passiflora edulis", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/passion-fruit.html", "keywords": ["passion", "vine", "fruit", "tropical"], "description": "Tropical climbing vine producing aromatic purple or yellow fruit."},
-  {"name": "Mango - Malkova", "scientific": "Mangifera indica 'Malgova'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/malkova-mango.html", "keywords": ["mango", "malgova", "malkova", "fruit"], "description": "Premium South Indian mango variety known for its rich flavor and large fruit."},
-  {"name": "Apple - Water Apple (Green)", "scientific": "Syzygium samarangense", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/apple-water-green.html", "keywords": ["water apple", "java apple", "wax apple", "neer sathukudi", "syzygium"], "description": "Tropical bell-shaped fruit with crisp, watery green flesh."},
-  {"name": "Apple - Water Apple (Dahai / Chamba)", "scientific": "Syzygium samarangense 'Dahai'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/apple-water-dahai.html", "keywords": ["water apple", "dahai", "chamba", "thai wax apple", "syzygium"], "description": "Premium Thai water apple cultivar with large deep red fruit."},
-  {"name": "Apple - Star Apple (Milk Fruit – Purple)", "scientific": "Chrysophyllum cainito", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/apple-star.html", "keywords": ["star apple", "milk fruit", "caimito", "chrysophyllum", "purple"], "description": "Tropical tree with purple fruit containing sweet milky-white pulp."},
-  {"name": "Apple Ber (Red)", "scientific": "Ziziphus mauritiana 'Apple Ber Red'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/apple-ber-red.html", "keywords": ["apple ber", "red ber", "jujube", "ilanthai", "ziziphus"], "description": "Large-fruited red Indian jujube with crisp apple-like texture."},
-  {"name": "Apple Ber (Green / Indian Jujube)", "scientific": "Ziziphus mauritiana", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/apple-ber-green.html", "keywords": ["apple ber", "green ber", "indian jujube", "ilanthai", "ziziphus"], "description": "Classic green Indian jujube with sweet-tart crisp flesh."},
-  {"name": "Plum - Coco", "scientific": "Chrysobalanus icaco", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/plum-coco.html", "keywords": ["coco plum", "icaco", "paradise plum", "coastal fruit"], "description": "Tropical coastal fruit with sweet cottony flesh and edible kernel."},
-  {"name": "Plum - Natal", "scientific": "Carissa macrocarpa", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/plum-natal.html", "keywords": ["natal plum", "num-num", "carissa", "amatungulu"], "description": "South African thorny shrub with fragrant flowers and sweet red fruit."},
-  {"name": "Plum - Governor / Madagascar", "scientific": "Flacourtia indica", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/plum-governor.html", "keywords": ["governor plum", "madagascar plum", "ramontchi", "flacourtia"], "description": "Tropical thorny tree with small tart dark red-purple fruit."},
-  {"name": "Plum - Santa Rosa", "scientific": "Prunus salicina 'Santa Rosa'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/plum-santa-rosa.html", "keywords": ["santa rosa", "japanese plum", "prunus", "stone fruit", "alubukhara"], "description": "Popular Japanese plum variety with sweet red-purple fruit."},
-  {"name": "Plum - Rain Forest", "scientific": "Prunus africana", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/plum-rain-forest.html", "keywords": ["rain forest plum", "african cherry", "pygeum", "prunus africana"], "description": "Tropical African highland tree valued for medicinal bark."},
-  {"name": "Plum - Loquat / Lokat", "scientific": "Eriobotrya japonica", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/plum-loquat.html", "keywords": ["loquat", "lokat", "biwa", "japanese medlar", "nispero"], "description": "Subtropical evergreen tree producing sweet orange fruit clusters."},
-  {"name": "Cherry - Surinam Black", "scientific": "Eugenia uniflora (black variety)", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/cherry-surinam-black.html", "keywords": ["surinam cherry", "pitanga", "black cherry", "eugenia", "brazilian cherry"], "description": "Tropical shrub with ribbed dark purple-black cherry fruit."},
-  {"name": "Paneer Rose", "scientific": "Rosa damascena", "category": "Flowering Plants", "url": "/arkfarm/plants/flowering-plants/paneer-rose.html", "keywords": ["rose", "paneer", "flower", "fragrant", "damask"], "description": "Highly fragrant damask rose used in perfumery and traditional medicine."},
-  {"name": "Moringa Tree", "scientific": "Moringa oleifera", "category": "Medicinal Plants", "url": "/arkfarm/plants/medicinal-plants/moringa-tree.html", "keywords": ["moringa", "drumstick", "superfood", "medicinal"], "description": "Fast-growing nutritional powerhouse known as the drumstick tree."},
-  {"name": "Jasmine", "scientific": "Jasminum sambac", "category": "Flowering Plants", "url": "/arkfarm/plants/flowering-plants/jasmine.html", "keywords": ["jasmine", "mullai", "flower", "fragrant"], "description": "Beloved fragrant flowering plant used in garlands, perfumes, and tea."},
-  {"name": "Clove", "scientific": "Syzygium aromaticum", "category": "Spices & Herbs", "url": "/arkfarm/plants/spices-herbs/clove.html", "keywords": ["clove", "kirambu", "spice"], "description": "Aromatic flower buds used as a spice worldwide."},
-  {"name": "Bay Leaf", "scientific": "Laurus nobilis", "category": "Spices & Herbs", "url": "/arkfarm/plants/spices-herbs/bay-leaf.html", "keywords": ["bay", "leaf", "brinji", "tej patta"], "description": "Aromatic leaf used in cooking and traditional medicine."},
-  {"name": "Allspice", "scientific": "Pimenta dioica", "category": "Spices & Herbs", "url": "/arkfarm/plants/spices-herbs/allspice.html", "keywords": ["allspice", "pimento"], "description": "Dried unripe berry with combined flavor of cinnamon, nutmeg, and cloves."},
-  {"name": "Cinnamon", "scientific": "Cinnamomum verum", "category": "Spices & Herbs", "url": "/arkfarm/plants/spices-herbs/cinnamon.html", "keywords": ["cinnamon", "pattai", "dalchini"], "description": "Aromatic bark spice used in cooking and medicine."},
-  {"name": "Cardamom / Elaichi", "scientific": "Elettaria cardamomum", "category": "Spices & Herbs", "url": "/arkfarm/plants/spices-herbs/cardamom.html", "keywords": ["cardamom", "elaichi", "elakkai"], "description": "Queen of spices from the Western Ghats."},
-  {"name": "Nutmeg", "scientific": "Myristica fragrans", "category": "Spices & Herbs", "url": "/arkfarm/plants/spices-herbs/nutmeg.html", "keywords": ["nutmeg", "jathikkai", "jaiphal"], "description": "Aromatic seed used as spice and in traditional medicine."},
-  {"name": "Pepper - Panniyur", "scientific": "Piper nigrum 'Panniyur'", "category": "Spices & Herbs", "url": "/arkfarm/plants/spices-herbs/pepper-panniyur.html", "keywords": ["pepper", "panniyur", "milagu", "kali mirch"], "description": "High-yielding pepper variety from Kerala."},
-  {"name": "Pepper - Karimunda", "scientific": "Piper nigrum 'Karimunda'", "category": "Spices & Herbs", "url": "/arkfarm/plants/spices-herbs/pepper-karimunda.html", "keywords": ["pepper", "karimunda", "milagu"], "description": "Hardy traditional pepper variety with strong flavor."},
-  {"name": "Pepper - Bush", "scientific": "Piper nigrum (bush type)", "category": "Spices & Herbs", "url": "/arkfarm/plants/spices-herbs/pepper-bush.html", "keywords": ["pepper", "bush", "dwarf", "milagu"], "description": "Compact bush pepper suitable for pots and small gardens."},
-  {"name": "Rambai Leaf / Pandan", "scientific": "Pandanus amaryllifolius", "category": "Spices & Herbs", "url": "/arkfarm/plants/spices-herbs/pandan.html", "keywords": ["pandan", "rambai", "rampe", "fragrant leaf"], "description": "Fragrant tropical leaf used in Southeast Asian cooking."},
-  {"name": "Curry Leaf", "scientific": "Murraya koenigii", "category": "Spices & Herbs", "url": "/arkfarm/plants/spices-herbs/curry-leaf.html", "keywords": ["curry", "karuveppilai", "kadi patta"], "description": "Essential aromatic leaf in South Indian cooking."},
-  {"name": "Herbal - Lemongrass", "scientific": "Cymbopogon citratus", "category": "Spices & Herbs", "url": "/arkfarm/plants/spices-herbs/lemongrass.html", "keywords": ["lemongrass", "elumichai pul", "herb", "tea"], "description": "Aromatic grass used in teas, cooking, and traditional medicine."},
-  {"name": "Herbal - Avarampoo / Tanner's Cassia", "scientific": "Senna auriculata", "category": "Spices & Herbs", "url": "/arkfarm/plants/spices-herbs/avarampoo.html", "keywords": ["avarampoo", "tanners cassia", "tarwar", "medicinal"], "description": "Traditional medicinal herb with bright yellow flowers."},
-  {"name": "Herbal - Henna / Maruthani", "scientific": "Lawsonia inermis", "category": "Spices & Herbs", "url": "/arkfarm/plants/spices-herbs/henna.html", "keywords": ["henna", "maruthani", "mehndi", "body art"], "description": "Shrub used for body art, hair dye, and traditional medicine."},
-  {"name": "Timber - Mahogany", "scientific": "Swietenia macrophylla", "category": "Timber Trees", "url": "/arkfarm/plants/timber-trees/mahogany.html", "keywords": ["mahogany", "timber", "hardwood"], "description": "Valuable tropical hardwood timber species."},
-  {"name": "Coconut", "scientific": "Cocos nucifera", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/coconut.html", "keywords": ["coconut", "thennai", "nariyal", "copra", "palm"], "description": "Versatile tropical palm yielding coconut water, milk, oil, and coir."},
-  {"name": "Lemon - Native", "scientific": "Citrus limon", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/lemon-native.html", "keywords": ["lemon", "elumichai", "nimbu", "citrus", "native"], "description": "Hardy native lemon variety with intense sour flavor and high juice content."},
-  {"name": "Sweet Lime - Nagpur", "scientific": "Citrus limetta 'Nagpur'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/sweet-lime-nagpur.html", "keywords": ["sweet lime", "mosambi", "sathukudi", "nagpur", "citrus"], "description": "Popular Nagpur sweet lime with mild sweet juice, widely grown in India."},
-  {"name": "Sweet Lime - Vietnam", "scientific": "Citrus limetta 'Vietnam'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/sweet-lime-vietnam.html", "keywords": ["sweet lime", "mosambi", "sathukudi", "vietnam", "citrus"], "description": "Vietnamese sweet lime cultivar with thin skin and abundant sweet juice."},
-  {"name": "Sweet Lime - Bali", "scientific": "Citrus limetta 'Bali'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/sweet-lime-bali.html", "keywords": ["sweet lime", "mosambi", "sathukudi", "bali", "citrus"], "description": "Bali sweet lime variety known for large fruit and refreshing flavor."},
-  {"name": "Mango - Kalapadi", "scientific": "Mangifera indica 'Kalapadi'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/mango-kalapadi.html", "keywords": ["mango", "kalapadi", "maampazham", "aam", "south indian"], "description": "Traditional South Indian mango variety with sweet aromatic flesh."},
-  {"name": "Mango - Himam Pasand", "scientific": "Mangifera indica 'Himam Pasand'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/mango-himam-pasand.html", "keywords": ["mango", "himam pasand", "imam pasand", "maampazham", "hyderabad"], "description": "Prized Hyderabadi mango with rich creamy pulp and royal heritage."},
-  {"name": "Mango - Banganapalli", "scientific": "Mangifera indica 'Banganapalli'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/mango-banganapalli.html", "keywords": ["mango", "banganapalli", "benishan", "safeda", "andhra"], "description": "Large golden Andhra mango with fiberless sweet pulp."},
-  {"name": "Mango - Bangalore", "scientific": "Mangifera indica 'Bangalore'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/mango-bangalore.html", "keywords": ["mango", "bangalore", "totapuri", "ginimoothi", "karnataka"], "description": "Oblong Karnataka mango used fresh and for processing."},
-  {"name": "Mango - Neelam", "scientific": "Mangifera indica 'Neelam'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/mango-neelam.html", "keywords": ["mango", "neelam", "neelum", "maampazham", "late season"], "description": "Late-season small mango with intense sweetness and strong aroma."},
-  {"name": "Mango - Nam Doc Mai Gold", "scientific": "Mangifera indica 'Nam Doc Mai'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/mango-nam-doc-mai.html", "keywords": ["mango", "nam doc mai", "thai mango", "golden", "fiberless"], "description": "Premium Thai mango with golden fiberless flesh and floral sweetness."},
-  {"name": "Mango - Sweet Katimon", "scientific": "Mangifera indica 'Katimon'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/mango-sweet-katimon.html", "keywords": ["mango", "katimon", "sweet", "philippine", "tropical"], "description": "Sweet Philippine mango variety with compact growth habit."},
-  {"name": "Mango - Kotturkonam", "scientific": "Mangifera indica 'Kotturkonam'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/mango-kotturkonam.html", "keywords": ["mango", "kotturkonam", "kerala", "maampazham", "rare"], "description": "Rare Kerala mango variety with distinctive flavor profile."},
-  {"name": "Mango - Miyazaki", "scientific": "Mangifera indica 'Miyazaki'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/mango-miyazaki.html", "keywords": ["mango", "miyazaki", "egg of the sun", "taiyo no tamago", "japanese", "red"], "description": "Ultra-premium Japanese red mango known as Egg of the Sun."},
-  {"name": "Mango - All Season", "scientific": "Mangifera indica 'All Season'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/mango-all-season.html", "keywords": ["mango", "all season", "sadabahar", "year round", "everbearing"], "description": "Everbearing mango variety that fruits multiple times a year."},
-  {"name": "Apple - Malayan", "scientific": "Syzygium malaccense", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/apple-malayan.html", "keywords": ["malayan apple", "malay apple", "mountain apple", "syzygium", "jambu"], "description": "Tropical tree with bell-shaped red fruit and rose-scented flesh."},
-  {"name": "Apple - Rose / Panneer", "scientific": "Syzygium jambos", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/apple-rose.html", "keywords": ["rose apple", "panneer", "jambu", "gulab jamun", "syzygium"], "description": "Fragrant rose-scented tropical apple with crisp watery flesh."},
-  {"name": "Apple - Velvet", "scientific": "Diospyros blancoi", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/apple-velvet.html", "keywords": ["velvet apple", "mabolo", "diospyros", "butter fruit"], "description": "Tropical fruit with velvety red skin and creamy sweet flesh."},
-  {"name": "Apple - Wood", "scientific": "Limonia acidissima", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/apple-wood.html", "keywords": ["wood apple", "vilam palam", "kaitha", "limonia", "bael"], "description": "Hard-shelled Indian fruit with tangy aromatic pulp used in chutneys."},
-  {"name": "Apple - Sweet Wood", "scientific": "Limonia acidissima (sweet variety)", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/apple-sweet-wood.html", "keywords": ["sweet wood apple", "vilam palam", "kaitha", "limonia"], "description": "Sweet cultivar of wood apple with milder, sweeter pulp."},
-  {"name": "Cherry - Red Surinam", "scientific": "Eugenia uniflora (red variety)", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/cherry-red-surinam.html", "keywords": ["surinam cherry", "pitanga", "red cherry", "eugenia"], "description": "Tropical shrub with ribbed bright red cherry fruit and tangy flavor."},
-  {"name": "Cherry - Manila Tennis Ball", "scientific": "Muntingia calabura", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/cherry-manila.html", "keywords": ["manila cherry", "tennis ball", "muntingia", "jamaican cherry", "thaen pazham"], "description": "Fast-growing tropical tree with small sweet red berries."},
-  {"name": "Cherry - Cedar Bay", "scientific": "Eugenia reinwardtiana", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/cherry-cedar-bay.html", "keywords": ["cedar bay cherry", "beach cherry", "eugenia", "australian"], "description": "Australian native cherry with sweet red fruit and compact growth."},
-  {"name": "Cherry - Cherry of the Rio Grande", "scientific": "Eugenia involucrata", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/cherry-rio-grande.html", "keywords": ["rio grande cherry", "eugenia", "brazilian", "cerejeira"], "description": "Brazilian cherry tree with dark purple sweet fruit."},
-  {"name": "Cherry - Barbados", "scientific": "Malpighia emarginata", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/cherry-barbados.html", "keywords": ["barbados cherry", "acerola", "vitamin c", "malpighia", "west indian cherry"], "description": "Vitamin C-rich tropical cherry used in juices and supplements."},
-  {"name": "Cherry - Grumichama / Brazil Cherry", "scientific": "Eugenia brasiliensis", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/cherry-grumichama.html", "keywords": ["grumichama", "brazil cherry", "eugenia", "brazilian"], "description": "Brazilian cherry tree with sweet dark purple grape-like fruit."},
-  {"name": "Cherry - Savannah", "scientific": "Eugenia punicifolia", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/cherry-savannah.html", "keywords": ["savannah cherry", "eugenia", "cerrado cherry", "brazilian"], "description": "Hardy Brazilian savannah cherry with small sweet red fruit."},
-  {"name": "Cherry - Baraba / Lemon Drop Mangosteen", "scientific": "Garcinia intermedia", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/cherry-baraba.html", "keywords": ["baraba", "lemon drop mangosteen", "garcinia", "monkey fruit"], "description": "Tropical tree with tangy lemon-flavored yellow fruit."},
-  {"name": "Guava - Purple Forest", "scientific": "Psidium cattleianum (purple)", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/guava-purple-forest.html", "keywords": ["guava", "purple forest", "strawberry guava", "psidium", "koiyaa"], "description": "Compact guava with deep purple skin and sweet strawberry-like flavor."},
-  {"name": "Guava - Taiwan Pink", "scientific": "Psidium guajava 'Taiwan Pink'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/guava-taiwan-pink.html", "keywords": ["guava", "taiwan pink", "koiyaa", "amrood", "psidium"], "description": "Large crisp guava with pink flesh and mild sweet flavor."},
-  {"name": "Guava - Small Beetroot", "scientific": "Psidium guajava 'Beetroot'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/guava-small-beetroot.html", "keywords": ["guava", "beetroot", "red flesh", "koiyaa", "amrood"], "description": "Small guava with deep red beetroot-colored flesh and rich flavor."},
-  {"name": "Guava - Grape", "scientific": "Psidium guajava 'Grape'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/guava-grape.html", "keywords": ["guava", "grape", "purple", "koiyaa", "amrood"], "description": "Unique guava variety with grape-like purple skin and sweet pulp."},
-  {"name": "Guava - L-49", "scientific": "Psidium guajava 'L-49'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/guava-l49.html", "keywords": ["guava", "l-49", "lucknow", "sardar", "koiyaa", "amrood"], "description": "High-yielding Lucknow guava with white flesh and excellent sweetness."},
-  {"name": "Guava - Native", "scientific": "Psidium guajava", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/guava-native.html", "keywords": ["guava", "native", "desi", "koiyaa", "amrood"], "description": "Traditional native guava with aromatic fruit and hardy growth."},
-  {"name": "Guava - Strawberry", "scientific": "Psidium cattleianum", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/guava-strawberry.html", "keywords": ["guava", "strawberry", "cattley", "psidium", "koiyaa"], "description": "Small fruited guava with intense strawberry-like flavor."},
-  {"name": "Berry - Blackberry", "scientific": "Rubus fruticosus", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/berry-blackberry.html", "keywords": ["blackberry", "rubus", "bramble", "berry"], "description": "Thorny shrub producing sweet-tart dark purple aggregate berries."},
-  {"name": "Berry - Star Gooseberry", "scientific": "Phyllanthus acidus", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/berry-star-gooseberry.html", "keywords": ["star gooseberry", "arunelli", "harfarauri", "phyllanthus", "sour"], "description": "Tropical tree with clusters of small sour star-shaped fruit."},
-  {"name": "Berry - Strawberry", "scientific": "Fragaria × ananassa", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/berry-strawberry.html", "keywords": ["strawberry", "fragaria", "berry", "red fruit"], "description": "Popular red berry with sweet juicy flesh grown as ground cover."},
-  {"name": "Berry - Blueberry", "scientific": "Vaccinium corymbosum", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/berry-blueberry.html", "keywords": ["blueberry", "vaccinium", "antioxidant", "berry"], "description": "Antioxidant-rich blue berry shrub prized for health benefits."},
-  {"name": "Berry - Mulberry", "scientific": "Morus alba", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/berry-mulberry.html", "keywords": ["mulberry", "morus", "silkworm", "mucukkattai", "shahtoot"], "description": "Fast-growing tree with sweet elongated berries in white, red, or black."},
-  {"name": "Berry - Long Mulberry", "scientific": "Morus alba 'Long'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/berry-long-mulberry.html", "keywords": ["mulberry", "long mulberry", "morus", "shahtoot"], "description": "Mulberry cultivar producing extra-long sweet fruit clusters."},
-  {"name": "Berry - Himalayan Mulberry", "scientific": "Morus serrata", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/berry-himalayan-mulberry.html", "keywords": ["mulberry", "himalayan", "morus serrata", "mountain", "shahtoot"], "description": "Cold-hardy Himalayan mulberry with intensely flavored dark berries."},
-  {"name": "Berry - Pakistan Mulberry", "scientific": "Morus macroura 'Pakistan'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/berry-pakistan-mulberry.html", "keywords": ["mulberry", "pakistan", "king mulberry", "morus", "long fruit"], "description": "Giant mulberry variety producing very long sweet ruby-red fruit."},
-  {"name": "Berry - Brazilian Long Mulberry", "scientific": "Morus nigra 'Brazilian Long'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/berry-brazilian-mulberry.html", "keywords": ["mulberry", "brazilian", "morus nigra", "long fruit"], "description": "Brazilian mulberry cultivar with elongated dark sweet berries."},
-  {"name": "Berry - Red Gooseberry / Amla", "scientific": "Phyllanthus emblica", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/berry-red-gooseberry.html", "keywords": ["amla", "gooseberry", "nellikai", "amalaki", "vitamin c", "phyllanthus"], "description": "Indian gooseberry rich in Vitamin C, used in Ayurveda and cooking."},
-  {"name": "Jamun - Killi Naval", "scientific": "Syzygium cumini 'Killi Naval'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/jamun-killi-naval.html", "keywords": ["jamun", "killi naval", "naval pazham", "java plum", "syzygium"], "description": "Small-fruited jamun variety with intense purple color and astringent taste."},
-  {"name": "Jamun - Thai King", "scientific": "Syzygium cumini 'Thai King'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/jamun-thai-king.html", "keywords": ["jamun", "thai king", "jumbo jamun", "naval pazham", "syzygium"], "description": "Large-fruited Thai jamun cultivar with sweet juicy purple flesh."},
-  {"name": "Jamun - White Jamun", "scientific": "Syzygium cumini (white variety)", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/jamun-white.html", "keywords": ["jamun", "white jamun", "naval pazham", "syzygium", "rare"], "description": "Rare white-fleshed jamun variety with milder sweeter flavor."},
-  {"name": "Jamun - Jumbo Jamun / Bardoli", "scientific": "Syzygium cumini 'Bardoli'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/jamun-jumbo-bardoli.html", "keywords": ["jamun", "jumbo", "bardoli", "naval pazham", "syzygium", "giant"], "description": "Extra-large Bardoli jamun with plump sweet fruit and small seed."},
-  {"name": "Custard Apple - Ram Seetha", "scientific": "Annona reticulata", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/custard-apple-ram-seetha.html", "keywords": ["custard apple", "ram seetha", "bullock heart", "annona", "seetha pazham"], "description": "Heart-shaped custard apple with smooth creamy sweet pulp."},
-  {"name": "Custard Apple - Purple / Red", "scientific": "Annona squamosa (purple variety)", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/custard-apple-purple.html", "keywords": ["custard apple", "purple", "red", "annona", "seetha pazham", "sitaphal"], "description": "Striking purple-skinned custard apple with sweet fragrant pulp."},
-  {"name": "Custard Apple - Atemoya", "scientific": "Annona × atemoya", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/custard-apple-atemoya.html", "keywords": ["atemoya", "custard apple", "annona", "hybrid", "pineapple sugar apple"], "description": "Hybrid custard apple combining cherimoya and sugar apple flavors."},
-  {"name": "Custard Apple - Soursop / Mullu Seetha", "scientific": "Annona muricata", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/custard-apple-soursop.html", "keywords": ["soursop", "mullu seetha", "graviola", "annona", "hanuman phal"], "description": "Large spiny tropical fruit with tangy-sweet white pulp."},
-  {"name": "Jackfruit - J-33", "scientific": "Artocarpus heterophyllus 'J-33'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/jackfruit-j33.html", "keywords": ["jackfruit", "j-33", "palaa pazham", "kathal", "artocarpus"], "description": "High-yielding jackfruit variety with firm sweet orange flesh."},
-  {"name": "Jackfruit - Vietnam Super Early", "scientific": "Artocarpus heterophyllus 'Vietnam Super Early'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/jackfruit-vietnam-super-early.html", "keywords": ["jackfruit", "vietnam", "super early", "dwarf", "palaa pazham"], "description": "Dwarf early-bearing Vietnamese jackfruit fruiting within 2 years."},
-  {"name": "Jackfruit - Honey Red", "scientific": "Artocarpus heterophyllus 'Honey Red'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/jackfruit-honey-red.html", "keywords": ["jackfruit", "honey red", "red flesh", "palaa pazham", "kathal"], "description": "Premium jackfruit with honey-sweet reddish-orange flesh."},
-  {"name": "Jackfruit - Panruti", "scientific": "Artocarpus heterophyllus 'Panruti'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/jackfruit-panruti.html", "keywords": ["jackfruit", "panruti", "tamil nadu", "palaa pazham", "varikka"], "description": "Famous Panruti jackfruit known for large size and sweet thick flesh."},
-  {"name": "Jackfruit - Nongadak", "scientific": "Artocarpus heterophyllus 'Nongadak'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/jackfruit-nongadak.html", "keywords": ["jackfruit", "nongadak", "meghalaya", "northeast", "palaa pazham"], "description": "Northeast Indian jackfruit variety with unique flavor and texture."},
-  {"name": "Sapota - Thai King", "scientific": "Manilkara zapota 'Thai King'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/sapota-thai-king.html", "keywords": ["sapota", "chikoo", "sapodilla", "thai king", "chikku", "manilkara"], "description": "Large Thai sapota cultivar with brown sugar-sweet grainy flesh."},
-  {"name": "Orange - Dekopon", "scientific": "Citrus reticulata 'Dekopon'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/orange-dekopon.html", "keywords": ["orange", "dekopon", "sumo citrus", "mandarin", "seedless", "japanese"], "description": "Premium seedless Japanese mandarin with intense sweetness and easy peel."},
-  {"name": "Longan - Diamond River", "scientific": "Dimocarpus longan 'Diamond River'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/longan-diamond-river.html", "keywords": ["longan", "diamond river", "dragon eye", "dimocarpus", "paalappazham"], "description": "Premium longan cultivar with large sweet translucent flesh."},
-  {"name": "Longan - All Season", "scientific": "Dimocarpus longan 'All Season'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/longan-all-season.html", "keywords": ["longan", "all season", "everbearing", "dragon eye", "dimocarpus"], "description": "Everbearing longan variety producing fruit throughout the year."},
-  {"name": "Longan - Ruby", "scientific": "Dimocarpus longan 'Ruby'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/longan-ruby.html", "keywords": ["longan", "ruby", "red longan", "dragon eye", "dimocarpus"], "description": "Rare ruby-skinned longan with sweet aromatic flesh."},
-  {"name": "Pomelo - Bablimas", "scientific": "Citrus maxima 'Bablimas'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/pomelo-bablimas.html", "keywords": ["pomelo", "bablimas", "citrus", "pambalimasu", "chakotra"], "description": "Large citrus fruit with sweet pink flesh and thick rind."},
-  {"name": "Avocado - Arka Supreme", "scientific": "Persea americana 'Arka Supreme'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/avocado-arka-supreme.html", "keywords": ["avocado", "arka supreme", "butter fruit", "persea", "vennai pazham"], "description": "Indian avocado variety developed by IIHR with creamy rich flesh."},
-  {"name": "Avocado - Kendil", "scientific": "Persea americana 'Kendil'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/avocado-kendil.html", "keywords": ["avocado", "kendil", "butter fruit", "persea", "vennai pazham"], "description": "Tropical avocado cultivar with large fruit and buttery texture."},
-  {"name": "Star Fruit - Sweet", "scientific": "Averrhoa carambola (sweet variety)", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/star-fruit-sweet.html", "keywords": ["star fruit", "sweet", "carambola", "kamrakh", "averrhoa"], "description": "Sweet variety of star-shaped tropical fruit with mild crisp flesh."},
-  {"name": "Star Fruit (Regular)", "scientific": "Averrhoa carambola", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/star-fruit-regular.html", "keywords": ["star fruit", "carambola", "kamrakh", "averrhoa", "tart"], "description": "Star-shaped tropical fruit with tangy-sweet juicy flesh."},
-  {"name": "Sea Grape", "scientific": "Coccoloba uvifera", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/sea-grape.html", "keywords": ["sea grape", "coccoloba", "coastal", "beach grape"], "description": "Coastal tropical tree with grape-like clusters of sweet-tart fruit."},
-  {"name": "Bilimbi", "scientific": "Averrhoa bilimbi", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/bilimbi.html", "keywords": ["bilimbi", "pulinji", "kamias", "cucumber tree", "averrhoa"], "description": "Sour tropical fruit used in pickles, curries, and traditional remedies."},
-  {"name": "Sweet Luvi", "scientific": "Flacourtia inermis", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/sweet-luvi.html", "keywords": ["sweet luvi", "lovi lovi", "flacourtia", "batoko plum"], "description": "Small tropical tree with clusters of sweet dark red fruit."},
-  {"name": "Rambutan - Rongrien", "scientific": "Nephelium lappaceum 'Rongrien'", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/rambutan-rongrien.html", "keywords": ["rambutan", "rongrien", "nephelium", "hairy fruit", "thai"], "description": "Premium Thai rambutan with sweet translucent flesh and easy seed separation."},
-  {"name": "Ambalam", "scientific": "Spondias pinnata", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/ambalam.html", "keywords": ["ambalam", "wild mango", "spondias", "ambazhanga", "hog plum"], "description": "Tropical tree with sour mango-like fruit used in pickles and curries."},
-  {"name": "Ambalam (Sweet)", "scientific": "Spondias dulcis", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/ambalam-sweet.html", "keywords": ["ambalam", "sweet", "ambarella", "spondias", "golden apple"], "description": "Sweet variety of ambarella with crisp golden-green fruit."},
-  {"name": "Lipote", "scientific": "Syzygium polycephaloides", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/lipote.html", "keywords": ["lipote", "syzygium", "philippine", "rare fruit"], "description": "Rare Philippine fruit tree with small sweet purple berries."},
-  {"name": "Jaboticaba / Brazilian Grape", "scientific": "Plinia cauliflora", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/jaboticaba.html", "keywords": ["jaboticaba", "brazilian grape", "plinia", "cauliflory", "grape tree"], "description": "Unique Brazilian tree bearing grape-like fruit directly on its trunk."},
-  {"name": "Araza Boi", "scientific": "Eugenia stipitata", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/araza-boi.html", "keywords": ["araza", "araca-boi", "eugenia", "amazonian", "sour guava"], "description": "Amazonian fruit with intensely aromatic sour pulp used in juices."},
-  {"name": "Litchi", "scientific": "Litchi chinensis", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/litchi.html", "keywords": ["litchi", "lychee", "litchi chinensis", "vilazi pazham"], "description": "Tropical fruit with rough red shell and sweet translucent juicy flesh."},
-  {"name": "Abiu", "scientific": "Pouteria caimito", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/abiu.html", "keywords": ["abiu", "pouteria", "yellow star apple", "caimito", "amazonian"], "description": "Amazonian fruit with smooth yellow skin and caramel-sweet translucent pulp."},
-  {"name": "Kodakapuli / Manila Tamarind", "scientific": "Pithecellobium dulce", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/kodakapuli.html", "keywords": ["kodakapuli", "manila tamarind", "jungle jalebi", "kodukkapuli", "pithecellobium"], "description": "Tropical tree with coiled pods containing sweet-tart pink and white pulp."},
-  {"name": "Egg Fruit", "scientific": "Pouteria campechiana", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/egg-fruit.html", "keywords": ["egg fruit", "canistel", "pouteria", "yellow sapote", "muttai pazham"], "description": "Tropical fruit with dry egg yolk-like golden flesh and sweet flavor."},
-  {"name": "Ice Cream Bean", "scientific": "Inga edulis", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/ice-cream-bean.html", "keywords": ["ice cream bean", "inga", "guaba", "cotton candy fruit"], "description": "Tropical legume tree with long pods containing sweet cottony white pulp."},
-  {"name": "Miracle Fruit", "scientific": "Synsepalum dulcificum", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/miracle-fruit.html", "keywords": ["miracle fruit", "miracle berry", "synsepalum", "taste modifier"], "description": "West African berry that makes sour foods taste sweet for up to an hour."},
-  {"name": "Sweet Santol / Cotton Fruit", "scientific": "Sandoricum koetjape", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/sweet-santol.html", "keywords": ["santol", "cotton fruit", "sandoricum", "sentul", "wild mangosteen"], "description": "Southeast Asian fruit with cottony sweet-sour pulp around large seeds."},
-  {"name": "Bignay / Currant Tree Fruit", "scientific": "Antidesma bunius", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/bignay.html", "keywords": ["bignay", "currant tree", "antidesma", "chinese laurel", "wild cherry"], "description": "Tropical tree with clusters of small currant-like berries used in jams and wine."},
-  {"name": "Olosapo", "scientific": "Couepia polyandra", "category": "Fruit Trees", "url": "/arkfarm/plants/fruit-trees/olosapo.html", "keywords": ["olosapo", "couepia", "zapote de mico", "rare tropical"], "description": "Rare Central American fruit tree with sweet creamy yellow pulp."}
+  {
+    "name": "Passion Fruit",
+    "scientific": "Passiflora edulis",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/passion-fruit.html",
+    "keywords": [
+      "passion",
+      "vine",
+      "fruit",
+      "tropical",
+      "passion fruit",
+      "purple granadilla",
+      "maracuja",
+      "krishna phal",
+      "thokkudu pandu"
+    ],
+    "description": "Tropical climbing vine producing aromatic purple or yellow fruit."
+  },
+  {
+    "name": "Mango - Malkova",
+    "scientific": "Mangifera indica 'Malgova'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/malkova-mango.html",
+    "keywords": [
+      "mango",
+      "malgova",
+      "malkova",
+      "fruit",
+      "malgoa"
+    ],
+    "description": "Premium South Indian mango variety known for its rich flavor and large fruit."
+  },
+  {
+    "name": "Apple - Water Apple (Green)",
+    "scientific": "Syzygium samarangense",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/apple-water-green.html",
+    "keywords": [
+      "water apple",
+      "java apple",
+      "wax apple",
+      "neer sathukudi",
+      "syzygium",
+      "rose apple",
+      "wax jambu",
+      "amrood"
+    ],
+    "description": "Tropical bell-shaped fruit with crisp, watery green flesh."
+  },
+  {
+    "name": "Apple - Water Apple (Dahai / Chamba)",
+    "scientific": "Syzygium samarangense 'Dahai'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/apple-water-dahai.html",
+    "keywords": [
+      "water apple",
+      "dahai",
+      "chamba",
+      "thai wax apple",
+      "syzygium",
+      "dahai water apple",
+      "thub thim chan",
+      "dahai / chamba",
+      "neer sathukudi"
+    ],
+    "description": "Premium Thai water apple cultivar with large deep red fruit."
+  },
+  {
+    "name": "Apple - Star Apple (Milk Fruit – Purple)",
+    "scientific": "Chrysophyllum cainito",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/apple-star.html",
+    "keywords": [
+      "star apple",
+      "milk fruit",
+      "caimito",
+      "chrysophyllum",
+      "purple",
+      "golden leaf tree",
+      "paal pazham",
+      "sitaphal"
+    ],
+    "description": "Tropical tree with purple fruit containing sweet milky-white pulp."
+  },
+  {
+    "name": "Apple Ber (Red)",
+    "scientific": "Ziziphus mauritiana 'Apple Ber Red'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/apple-ber-red.html",
+    "keywords": [
+      "apple ber",
+      "red ber",
+      "jujube",
+      "ilanthai",
+      "ziziphus",
+      "apple ber red",
+      "red indian jujube",
+      "thai apple ber",
+      "ber / bor"
+    ],
+    "description": "Large-fruited red Indian jujube with crisp apple-like texture."
+  },
+  {
+    "name": "Apple Ber (Green / Indian Jujube)",
+    "scientific": "Ziziphus mauritiana",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/apple-ber-green.html",
+    "keywords": [
+      "apple ber",
+      "green ber",
+      "indian jujube",
+      "ilanthai",
+      "ziziphus",
+      "chinese date",
+      "ber",
+      "regi pandu"
+    ],
+    "description": "Classic green Indian jujube with sweet-tart crisp flesh."
+  },
+  {
+    "name": "Plum - Coco",
+    "scientific": "Chrysobalanus icaco",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/plum-coco.html",
+    "keywords": [
+      "coco plum",
+      "icaco",
+      "paradise plum",
+      "coastal fruit",
+      "fat pork"
+    ],
+    "description": "Tropical coastal fruit with sweet cottony flesh and edible kernel."
+  },
+  {
+    "name": "Plum - Natal",
+    "scientific": "Carissa macrocarpa",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/plum-natal.html",
+    "keywords": [
+      "natal plum",
+      "num-num",
+      "carissa",
+      "amatungulu",
+      "large num-num",
+      "karonda (hindi",
+      "related species)"
+    ],
+    "description": "South African thorny shrub with fragrant flowers and sweet red fruit."
+  },
+  {
+    "name": "Plum - Governor / Madagascar",
+    "scientific": "Flacourtia indica",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/plum-governor.html",
+    "keywords": [
+      "governor plum",
+      "madagascar plum",
+      "ramontchi",
+      "flacourtia",
+      "governor's plum",
+      "indian plum",
+      "sottai karai",
+      "bilangra"
+    ],
+    "description": "Tropical thorny tree with small tart dark red-purple fruit."
+  },
+  {
+    "name": "Plum - Santa Rosa",
+    "scientific": "Prunus salicina 'Santa Rosa'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/plum-santa-rosa.html",
+    "keywords": [
+      "santa rosa",
+      "japanese plum",
+      "prunus",
+      "stone fruit",
+      "alubukhara",
+      "santa rosa plum",
+      "plum"
+    ],
+    "description": "Popular Japanese plum variety with sweet red-purple fruit."
+  },
+  {
+    "name": "Plum - Rain Forest",
+    "scientific": "Prunus africana",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/plum-rain-forest.html",
+    "keywords": [
+      "rain forest plum",
+      "african cherry",
+      "pygeum",
+      "prunus africana",
+      "red stinkwood",
+      "iron wood",
+      "muiri"
+    ],
+    "description": "Tropical African highland tree valued for medicinal bark."
+  },
+  {
+    "name": "Plum - Loquat / Lokat",
+    "scientific": "Eriobotrya japonica",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/plum-loquat.html",
+    "keywords": [
+      "loquat",
+      "lokat",
+      "biwa",
+      "japanese medlar",
+      "nispero"
+    ],
+    "description": "Subtropical evergreen tree producing sweet orange fruit clusters."
+  },
+  {
+    "name": "Cherry - Surinam Black",
+    "scientific": "Eugenia uniflora (black variety)",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/cherry-surinam-black.html",
+    "keywords": [
+      "surinam cherry",
+      "pitanga",
+      "black cherry",
+      "eugenia",
+      "brazilian cherry",
+      "cayenne cherry"
+    ],
+    "description": "Tropical shrub with ribbed dark purple-black cherry fruit."
+  },
+  {
+    "name": "Paneer Rose",
+    "scientific": "Rosa damascena",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/paneer-rose.html",
+    "keywords": [
+      "rose",
+      "paneer",
+      "flower",
+      "fragrant",
+      "damask",
+      "paneer rose",
+      "damask rose",
+      "rose of castile",
+      "paneer roja",
+      "gulab"
+    ],
+    "description": "Highly fragrant damask rose used in perfumery and traditional medicine."
+  },
+  {
+    "name": "Moringa Tree",
+    "scientific": "Moringa oleifera",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/moringa-tree.html",
+    "keywords": [
+      "moringa",
+      "drumstick",
+      "superfood",
+      "medicinal",
+      "drumstick tree",
+      "horseradish tree",
+      "ben oil tree",
+      "murungai",
+      "sahjan",
+      "munaga"
+    ],
+    "description": "Fast-growing nutritional powerhouse known as the drumstick tree."
+  },
+  {
+    "name": "Jasmine",
+    "scientific": "Jasminum sambac",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/jasmine.html",
+    "keywords": [
+      "jasmine",
+      "mullai",
+      "flower",
+      "fragrant",
+      "arabian jasmine",
+      "mogra",
+      "sampaguita",
+      "mullai / malligai",
+      "malli"
+    ],
+    "description": "Beloved fragrant flowering plant used in garlands, perfumes, and tea."
+  },
+  {
+    "name": "Clove",
+    "scientific": "Syzygium aromaticum",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/clove.html",
+    "keywords": [
+      "clove",
+      "kirambu",
+      "spice",
+      "clove tree",
+      "laung"
+    ],
+    "description": "Aromatic flower buds used as a spice worldwide."
+  },
+  {
+    "name": "Bay Leaf",
+    "scientific": "Laurus nobilis",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/bay-leaf.html",
+    "keywords": [
+      "bay",
+      "leaf",
+      "brinji",
+      "tej patta",
+      "bay leaf",
+      "sweet bay",
+      "bay laurel",
+      "true laurel",
+      "brinji ilai"
+    ],
+    "description": "Aromatic leaf used in cooking and traditional medicine."
+  },
+  {
+    "name": "Allspice",
+    "scientific": "Pimenta dioica",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/allspice.html",
+    "keywords": [
+      "allspice",
+      "pimento",
+      "jamaica pepper",
+      "myrtle pepper",
+      "sarva masala",
+      "kabab chini"
+    ],
+    "description": "Dried unripe berry with combined flavor of cinnamon, nutmeg, and cloves."
+  },
+  {
+    "name": "Cinnamon",
+    "scientific": "Cinnamomum verum",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/cinnamon.html",
+    "keywords": [
+      "cinnamon",
+      "pattai",
+      "dalchini",
+      "true cinnamon",
+      "ceylon cinnamon"
+    ],
+    "description": "Aromatic bark spice used in cooking and medicine."
+  },
+  {
+    "name": "Cardamom / Elaichi",
+    "scientific": "Elettaria cardamomum",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/cardamom.html",
+    "keywords": [
+      "cardamom",
+      "elaichi",
+      "elakkai",
+      "green cardamom",
+      "true cardamom",
+      "queen of spices"
+    ],
+    "description": "Queen of spices from the Western Ghats."
+  },
+  {
+    "name": "Nutmeg",
+    "scientific": "Myristica fragrans",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/nutmeg.html",
+    "keywords": [
+      "nutmeg",
+      "jathikkai",
+      "jaiphal",
+      "mace (aril)",
+      "fragrant nutmeg"
+    ],
+    "description": "Aromatic seed used as spice and in traditional medicine."
+  },
+  {
+    "name": "Pepper - Panniyur",
+    "scientific": "Piper nigrum 'Panniyur'",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/pepper-panniyur.html",
+    "keywords": [
+      "pepper",
+      "panniyur",
+      "milagu",
+      "kali mirch",
+      "black pepper",
+      "panniyur pepper",
+      "panniyur-1",
+      "kurumulaku"
+    ],
+    "description": "High-yielding pepper variety from Kerala."
+  },
+  {
+    "name": "Pepper - Karimunda",
+    "scientific": "Piper nigrum 'Karimunda'",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/pepper-karimunda.html",
+    "keywords": [
+      "pepper",
+      "karimunda",
+      "milagu",
+      "black pepper",
+      "karimunda pepper",
+      "kali mirch",
+      "karimunda kurumulaku"
+    ],
+    "description": "Hardy traditional pepper variety with strong flavor."
+  },
+  {
+    "name": "Pepper - Bush",
+    "scientific": "Piper nigrum (bush type)",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/pepper-bush.html",
+    "keywords": [
+      "pepper",
+      "bush",
+      "dwarf",
+      "milagu",
+      "bush pepper",
+      "dwarf pepper",
+      "compact black pepper",
+      "kali mirch",
+      "kurumulaku"
+    ],
+    "description": "Compact bush pepper suitable for pots and small gardens."
+  },
+  {
+    "name": "Rambai Leaf / Pandan",
+    "scientific": "Pandanus amaryllifolius",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/pandan.html",
+    "keywords": [
+      "pandan",
+      "rambai",
+      "rampe",
+      "fragrant leaf",
+      "screwpine",
+      "fragrant pandan",
+      "rambai leaf",
+      "rambai ilai",
+      "bai toey"
+    ],
+    "description": "Fragrant tropical leaf used in Southeast Asian cooking."
+  },
+  {
+    "name": "Curry Leaf",
+    "scientific": "Murraya koenigii",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/curry-leaf.html",
+    "keywords": [
+      "curry",
+      "karuveppilai",
+      "kadi patta",
+      "curry leaf",
+      "sweet neem",
+      "curry tree",
+      "karivepaku"
+    ],
+    "description": "Essential aromatic leaf in South Indian cooking."
+  },
+  {
+    "name": "Herbal - Lemongrass",
+    "scientific": "Cymbopogon citratus",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/lemongrass.html",
+    "keywords": [
+      "lemongrass",
+      "elumichai pul",
+      "herb",
+      "tea",
+      "west indian lemongrass",
+      "citronella grass",
+      "fever grass",
+      "nimbu ghas",
+      "sera"
+    ],
+    "description": "Aromatic grass used in teas, cooking, and traditional medicine."
+  },
+  {
+    "name": "Herbal - Avarampoo / Tanner's Cassia",
+    "scientific": "Senna auriculata",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/avarampoo.html",
+    "keywords": [
+      "avarampoo",
+      "tanners cassia",
+      "tarwar",
+      "medicinal",
+      "tanner's cassia",
+      "avaram senna",
+      "matura tea tree",
+      "tangedu"
+    ],
+    "description": "Traditional medicinal herb with bright yellow flowers."
+  },
+  {
+    "name": "Herbal - Henna / Maruthani",
+    "scientific": "Lawsonia inermis",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/henna.html",
+    "keywords": [
+      "henna",
+      "maruthani",
+      "mehndi",
+      "body art",
+      "mignonette tree"
+    ],
+    "description": "Shrub used for body art, hair dye, and traditional medicine."
+  },
+  {
+    "name": "Timber - Mahogany",
+    "scientific": "Swietenia macrophylla",
+    "category": "Timber Trees",
+    "url": "/arkfarm/plants/timber-trees/mahogany.html",
+    "keywords": [
+      "mahogany",
+      "timber",
+      "hardwood",
+      "big-leaf mahogany",
+      "honduras mahogany"
+    ],
+    "description": "Valuable tropical hardwood timber species."
+  },
+  {
+    "name": "Coconut",
+    "scientific": "Cocos nucifera",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/coconut.html",
+    "keywords": [
+      "coconut",
+      "thennai",
+      "nariyal",
+      "copra",
+      "palm",
+      "coconut palm",
+      "coco",
+      "thengu"
+    ],
+    "description": "Versatile tropical palm yielding coconut water, milk, oil, and coir."
+  },
+  {
+    "name": "Lemon - Native",
+    "scientific": "Citrus limon",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/lemon-native.html",
+    "keywords": [
+      "lemon",
+      "elumichai",
+      "nimbu",
+      "citrus",
+      "native",
+      "native lemon",
+      "indian lemon",
+      "country lemon",
+      "cherunaranga"
+    ],
+    "description": "Hardy native lemon variety with intense sour flavor and high juice content."
+  },
+  {
+    "name": "Sweet Lime - Nagpur",
+    "scientific": "Citrus limetta 'Nagpur'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/sweet-lime-nagpur.html",
+    "keywords": [
+      "sweet lime",
+      "mosambi",
+      "sathukudi",
+      "nagpur",
+      "citrus",
+      "sweet lemon",
+      "musambi"
+    ],
+    "description": "Popular Nagpur sweet lime with mild sweet juice, widely grown in India."
+  },
+  {
+    "name": "Sweet Lime - Vietnam",
+    "scientific": "Citrus limetta 'Vietnam'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/sweet-lime-vietnam.html",
+    "keywords": [
+      "sweet lime",
+      "mosambi",
+      "sathukudi",
+      "vietnam",
+      "citrus",
+      "vietnam sweet lime",
+      "vietnamese mosambi"
+    ],
+    "description": "Vietnamese sweet lime cultivar with thin skin and abundant sweet juice."
+  },
+  {
+    "name": "Sweet Lime - Bali",
+    "scientific": "Citrus limetta 'Bali'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/sweet-lime-bali.html",
+    "keywords": [
+      "sweet lime",
+      "mosambi",
+      "sathukudi",
+      "bali",
+      "citrus",
+      "bali sweet lime",
+      "balinese sweet lime",
+      "jeruk manis"
+    ],
+    "description": "Bali sweet lime variety known for large fruit and refreshing flavor."
+  },
+  {
+    "name": "Mango - Kalapadi",
+    "scientific": "Mangifera indica 'Kalapadi'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/mango-kalapadi.html",
+    "keywords": [
+      "mango",
+      "kalapadi",
+      "maampazham",
+      "aam",
+      "south indian",
+      "kalapadi mango",
+      "kalapadi maa"
+    ],
+    "description": "Traditional South Indian mango variety with sweet aromatic flesh."
+  },
+  {
+    "name": "Mango - Himam Pasand",
+    "scientific": "Mangifera indica 'Himam Pasand'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/mango-himam-pasand.html",
+    "keywords": [
+      "mango",
+      "himam pasand",
+      "imam pasand",
+      "maampazham",
+      "hyderabad",
+      "himayat"
+    ],
+    "description": "Prized Hyderabadi mango with rich creamy pulp and royal heritage."
+  },
+  {
+    "name": "Mango - Banganapalli",
+    "scientific": "Mangifera indica 'Banganapalli'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/mango-banganapalli.html",
+    "keywords": [
+      "mango",
+      "banganapalli",
+      "benishan",
+      "safeda",
+      "andhra",
+      "bangalora",
+      "banganapalle"
+    ],
+    "description": "Large golden Andhra mango with fiberless sweet pulp."
+  },
+  {
+    "name": "Mango - Bangalore",
+    "scientific": "Mangifera indica 'Bangalore'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/mango-bangalore.html",
+    "keywords": [
+      "mango",
+      "bangalore",
+      "totapuri",
+      "ginimoothi",
+      "karnataka",
+      "bangalore mango",
+      "thothapuri",
+      "collector",
+      "kallamai"
+    ],
+    "description": "Oblong Karnataka mango used fresh and for processing."
+  },
+  {
+    "name": "Mango - Neelam",
+    "scientific": "Mangifera indica 'Neelam'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/mango-neelam.html",
+    "keywords": [
+      "mango",
+      "neelam",
+      "neelum",
+      "maampazham",
+      "late season",
+      "neelam mango"
+    ],
+    "description": "Late-season small mango with intense sweetness and strong aroma."
+  },
+  {
+    "name": "Mango - Nam Doc Mai Gold",
+    "scientific": "Mangifera indica 'Nam Doc Mai'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/mango-nam-doc-mai.html",
+    "keywords": [
+      "mango",
+      "nam doc mai",
+      "thai mango",
+      "golden",
+      "fiberless"
+    ],
+    "description": "Premium Thai mango with golden fiberless flesh and floral sweetness."
+  },
+  {
+    "name": "Mango - Sweet Katimon",
+    "scientific": "Mangifera indica 'Katimon'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/mango-sweet-katimon.html",
+    "keywords": [
+      "mango",
+      "katimon",
+      "sweet",
+      "philippine",
+      "tropical",
+      "sweet katimon",
+      "katimon mango",
+      "katimon manis",
+      "กะทิมน"
+    ],
+    "description": "Sweet Philippine mango variety with compact growth habit."
+  },
+  {
+    "name": "Mango - Kotturkonam",
+    "scientific": "Mangifera indica 'Kotturkonam'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/mango-kotturkonam.html",
+    "keywords": [
+      "mango",
+      "kotturkonam",
+      "kerala",
+      "maampazham",
+      "rare",
+      "kottukonam mango",
+      "kotturkonam manga",
+      "kotturkonam maambazham"
+    ],
+    "description": "Rare Kerala mango variety with distinctive flavor profile."
+  },
+  {
+    "name": "Mango - Miyazaki",
+    "scientific": "Mangifera indica 'Miyazaki'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/mango-miyazaki.html",
+    "keywords": [
+      "mango",
+      "miyazaki",
+      "egg of the sun",
+      "taiyo no tamago",
+      "japanese",
+      "red",
+      "miyazaki mango",
+      "taiyo no tamago (egg of the sun)",
+      "japanese red mango",
+      "irwin mango",
+      "太陽のタマゴ"
+    ],
+    "description": "Ultra-premium Japanese red mango known as Egg of the Sun."
+  },
+  {
+    "name": "Mango - All Season",
+    "scientific": "Mangifera indica 'All Season'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/mango-all-season.html",
+    "keywords": [
+      "mango",
+      "all season",
+      "sadabahar",
+      "year round",
+      "everbearing",
+      "all season mango",
+      "sadabahar mango",
+      "everbearing mango",
+      "12-month mango",
+      "sadabahar aam",
+      "barahmasi mango"
+    ],
+    "description": "Everbearing mango variety that fruits multiple times a year."
+  },
+  {
+    "name": "Apple - Malayan",
+    "scientific": "Syzygium malaccense",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/apple-malayan.html",
+    "keywords": [
+      "malayan apple",
+      "malay apple",
+      "mountain apple",
+      "syzygium",
+      "jambu",
+      "jambu merah",
+      "jambu bol",
+      "malay seb"
+    ],
+    "description": "Tropical tree with bell-shaped red fruit and rose-scented flesh."
+  },
+  {
+    "name": "Apple - Rose / Panneer",
+    "scientific": "Syzygium jambos",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/apple-rose.html",
+    "keywords": [
+      "rose apple",
+      "panneer",
+      "jambu",
+      "gulab jamun",
+      "syzygium",
+      "malabar plum",
+      "plum rose",
+      "jambos",
+      "panneer apple",
+      "champakka"
+    ],
+    "description": "Fragrant rose-scented tropical apple with crisp watery flesh."
+  },
+  {
+    "name": "Apple - Velvet",
+    "scientific": "Diospyros blancoi",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/apple-velvet.html",
+    "keywords": [
+      "velvet apple",
+      "mabolo",
+      "diospyros",
+      "butter fruit",
+      "velvet persimmon"
+    ],
+    "description": "Tropical fruit with velvety red skin and creamy sweet flesh."
+  },
+  {
+    "name": "Apple - Wood",
+    "scientific": "Limonia acidissima",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/apple-wood.html",
+    "keywords": [
+      "wood apple",
+      "vilam palam",
+      "kaitha",
+      "limonia",
+      "bael",
+      "elephant apple",
+      "monkey fruit",
+      "curd fruit",
+      "kaitha / kaith",
+      "belada hannu"
+    ],
+    "description": "Hard-shelled Indian fruit with tangy aromatic pulp used in chutneys."
+  },
+  {
+    "name": "Apple - Sweet Wood",
+    "scientific": "Limonia acidissima (sweet variety)",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/apple-sweet-wood.html",
+    "keywords": [
+      "sweet wood apple",
+      "vilam palam",
+      "kaitha",
+      "limonia",
+      "bael",
+      "bael fruit",
+      "bengal quince",
+      "golden apple",
+      "stone apple",
+      "vilvam",
+      "bael / bel",
+      "koovalam"
+    ],
+    "description": "Sweet cultivar of wood apple with milder, sweeter pulp."
+  },
+  {
+    "name": "Cherry - Red Surinam",
+    "scientific": "Eugenia uniflora (red variety)",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/cherry-red-surinam.html",
+    "keywords": [
+      "surinam cherry",
+      "pitanga",
+      "red cherry",
+      "eugenia",
+      "red surinam cherry",
+      "brazilian cherry",
+      "cayenne cherry",
+      "cereza de cayena"
+    ],
+    "description": "Tropical shrub with ribbed bright red cherry fruit and tangy flavor."
+  },
+  {
+    "name": "Cherry - Manila Tennis Ball",
+    "scientific": "Muntingia calabura",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/cherry-manila.html",
+    "keywords": [
+      "manila cherry",
+      "tennis ball",
+      "muntingia",
+      "jamaican cherry",
+      "thaen pazham"
+    ],
+    "description": "Fast-growing tropical tree with small sweet red berries."
+  },
+  {
+    "name": "Cherry - Cedar Bay",
+    "scientific": "Eugenia reinwardtiana",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/cherry-cedar-bay.html",
+    "keywords": [
+      "cedar bay cherry",
+      "beach cherry",
+      "eugenia",
+      "australian",
+      "australian brush cherry"
+    ],
+    "description": "Australian native cherry with sweet red fruit and compact growth."
+  },
+  {
+    "name": "Cherry - Cherry of the Rio Grande",
+    "scientific": "Eugenia involucrata",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/cherry-rio-grande.html",
+    "keywords": [
+      "rio grande cherry",
+      "eugenia",
+      "brazilian",
+      "cerejeira",
+      "cherry of the rio grande",
+      "cerejeira-do-rio-grande"
+    ],
+    "description": "Brazilian cherry tree with dark purple sweet fruit."
+  },
+  {
+    "name": "Cherry - Barbados",
+    "scientific": "Malpighia emarginata",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/cherry-barbados.html",
+    "keywords": [
+      "barbados cherry",
+      "acerola",
+      "vitamin c",
+      "malpighia",
+      "west indian cherry",
+      "wild crapemyrtle",
+      "seresa"
+    ],
+    "description": "Vitamin C-rich tropical cherry used in juices and supplements."
+  },
+  {
+    "name": "Cherry - Grumichama / Brazil Cherry",
+    "scientific": "Eugenia brasiliensis",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/cherry-grumichama.html",
+    "keywords": [
+      "grumichama",
+      "brazil cherry",
+      "eugenia",
+      "brazilian",
+      "grumixama",
+      "spanish cherry"
+    ],
+    "description": "Brazilian cherry tree with sweet dark purple grape-like fruit."
+  },
+  {
+    "name": "Cherry - Savannah",
+    "scientific": "Eugenia punicifolia",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/cherry-savannah.html",
+    "keywords": [
+      "savannah cherry",
+      "eugenia",
+      "cerrado cherry",
+      "brazilian",
+      "cereja-do-cerrado"
+    ],
+    "description": "Hardy Brazilian savannah cherry with small sweet red fruit."
+  },
+  {
+    "name": "Cherry - Baraba / Lemon Drop Mangosteen",
+    "scientific": "Garcinia intermedia",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/cherry-baraba.html",
+    "keywords": [
+      "baraba",
+      "lemon drop mangosteen",
+      "garcinia",
+      "monkey fruit",
+      "mameyito"
+    ],
+    "description": "Tropical tree with tangy lemon-flavored yellow fruit."
+  },
+  {
+    "name": "Guava - Purple Forest",
+    "scientific": "Psidium cattleianum (purple)",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/guava-purple-forest.html",
+    "keywords": [
+      "guava",
+      "purple forest",
+      "strawberry guava",
+      "psidium",
+      "koiyaa",
+      "purple cattley guava",
+      "cherry guava",
+      "purple forest guava",
+      "araçá-roxo"
+    ],
+    "description": "Compact guava with deep purple skin and sweet strawberry-like flavor."
+  },
+  {
+    "name": "Guava - Taiwan Pink",
+    "scientific": "Psidium guajava 'Taiwan Pink'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/guava-taiwan-pink.html",
+    "keywords": [
+      "guava",
+      "taiwan pink",
+      "koiyaa",
+      "amrood",
+      "psidium",
+      "taiwan pink guava",
+      "thai guava",
+      "pearl guava",
+      "crispy guava",
+      "taiwan koiya",
+      "taiwan amrood"
+    ],
+    "description": "Large crisp guava with pink flesh and mild sweet flavor."
+  },
+  {
+    "name": "Guava - Small Beetroot",
+    "scientific": "Psidium guajava 'Beetroot'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/guava-small-beetroot.html",
+    "keywords": [
+      "guava",
+      "beetroot",
+      "red flesh",
+      "koiyaa",
+      "amrood",
+      "beetroot guava",
+      "red guava",
+      "pink guava",
+      "lal amrood",
+      "sivappu koiya"
+    ],
+    "description": "Small guava with deep red beetroot-colored flesh and rich flavor."
+  },
+  {
+    "name": "Guava - Grape",
+    "scientific": "Psidium guajava 'Grape'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/guava-grape.html",
+    "keywords": [
+      "guava",
+      "grape",
+      "purple",
+      "koiyaa",
+      "amrood",
+      "grape guava",
+      "false jaboticaba",
+      "blue grape",
+      "vexator"
+    ],
+    "description": "Unique guava variety with grape-like purple skin and sweet pulp."
+  },
+  {
+    "name": "Guava - L-49",
+    "scientific": "Psidium guajava 'L-49'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/guava-l49.html",
+    "keywords": [
+      "guava",
+      "l-49",
+      "lucknow",
+      "sardar",
+      "koiyaa",
+      "amrood",
+      "l-49 guava",
+      "lucknow-49",
+      "sardar guava",
+      "sardar koiya",
+      "sardar amrood"
+    ],
+    "description": "High-yielding Lucknow guava with white flesh and excellent sweetness."
+  },
+  {
+    "name": "Guava - Native",
+    "scientific": "Psidium guajava",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/guava-native.html",
+    "keywords": [
+      "guava",
+      "native",
+      "desi",
+      "koiyaa",
+      "amrood",
+      "native guava",
+      "desi guava",
+      "common guava",
+      "apple of the tropics",
+      "koiya",
+      "jaamapandu",
+      "perala"
+    ],
+    "description": "Traditional native guava with aromatic fruit and hardy growth."
+  },
+  {
+    "name": "Guava - Strawberry",
+    "scientific": "Psidium cattleianum",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/guava-strawberry.html",
+    "keywords": [
+      "guava",
+      "strawberry",
+      "cattley",
+      "psidium",
+      "koiyaa",
+      "strawberry guava",
+      "cattley guava",
+      "cherry guava",
+      "strawberry koiya",
+      "lal amrood"
+    ],
+    "description": "Small fruited guava with intense strawberry-like flavor."
+  },
+  {
+    "name": "Berry - Blackberry",
+    "scientific": "Rubus fruticosus",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/berry-blackberry.html",
+    "keywords": [
+      "blackberry",
+      "rubus",
+      "bramble",
+      "berry",
+      "european blackberry",
+      "jamun ber"
+    ],
+    "description": "Thorny shrub producing sweet-tart dark purple aggregate berries."
+  },
+  {
+    "name": "Berry - Star Gooseberry",
+    "scientific": "Phyllanthus acidus",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/berry-star-gooseberry.html",
+    "keywords": [
+      "star gooseberry",
+      "arunelli",
+      "harfarauri",
+      "phyllanthus",
+      "sour",
+      "otaheite gooseberry",
+      "malay gooseberry",
+      "cermai",
+      "chalmeri"
+    ],
+    "description": "Tropical tree with clusters of small sour star-shaped fruit."
+  },
+  {
+    "name": "Berry - Strawberry",
+    "scientific": "Fragaria × ananassa",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/berry-strawberry.html",
+    "keywords": [
+      "strawberry",
+      "fragaria",
+      "berry",
+      "red fruit",
+      "garden strawberry",
+      "jharberi"
+    ],
+    "description": "Popular red berry with sweet juicy flesh grown as ground cover."
+  },
+  {
+    "name": "Berry - Blueberry",
+    "scientific": "Vaccinium corymbosum",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/berry-blueberry.html",
+    "keywords": [
+      "blueberry",
+      "vaccinium",
+      "antioxidant",
+      "berry",
+      "highbush blueberry",
+      "northern highbush blueberry",
+      "neelabadari"
+    ],
+    "description": "Antioxidant-rich blue berry shrub prized for health benefits."
+  },
+  {
+    "name": "Berry - Mulberry",
+    "scientific": "Morus alba",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/berry-mulberry.html",
+    "keywords": [
+      "mulberry",
+      "morus",
+      "silkworm",
+      "mucukkattai",
+      "shahtoot",
+      "white mulberry",
+      "tuti"
+    ],
+    "description": "Fast-growing tree with sweet elongated berries in white, red, or black."
+  },
+  {
+    "name": "Berry - Long Mulberry",
+    "scientific": "Morus alba 'Long'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/berry-long-mulberry.html",
+    "keywords": [
+      "mulberry",
+      "long mulberry",
+      "morus",
+      "shahtoot",
+      "long fruit mulberry",
+      "shahtoot long",
+      "neelambu shahtoot",
+      "lambi shahtoot"
+    ],
+    "description": "Mulberry cultivar producing extra-long sweet fruit clusters."
+  },
+  {
+    "name": "Berry - Himalayan Mulberry",
+    "scientific": "Morus serrata",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/berry-himalayan-mulberry.html",
+    "keywords": [
+      "mulberry",
+      "himalayan",
+      "morus serrata",
+      "mountain",
+      "shahtoot",
+      "himalayan mulberry",
+      "mountain mulberry",
+      "indian mulberry",
+      "kimu / tut",
+      "himshahtoot"
+    ],
+    "description": "Cold-hardy Himalayan mulberry with intensely flavored dark berries."
+  },
+  {
+    "name": "Berry - Pakistan Mulberry",
+    "scientific": "Morus macroura 'Pakistan'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/berry-pakistan-mulberry.html",
+    "keywords": [
+      "mulberry",
+      "pakistan",
+      "king mulberry",
+      "morus",
+      "long fruit",
+      "pakistan mulberry",
+      "pakistan long mulberry",
+      "pakistan shahtoot"
+    ],
+    "description": "Giant mulberry variety producing very long sweet ruby-red fruit."
+  },
+  {
+    "name": "Berry - Brazilian Long Mulberry",
+    "scientific": "Morus nigra 'Brazilian Long'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/berry-brazilian-mulberry.html",
+    "keywords": [
+      "mulberry",
+      "brazilian",
+      "morus nigra",
+      "long fruit"
+    ],
+    "description": "Brazilian mulberry cultivar with elongated dark sweet berries."
+  },
+  {
+    "name": "Berry - Red Gooseberry / Amla",
+    "scientific": "Phyllanthus emblica",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/berry-red-gooseberry.html",
+    "keywords": [
+      "amla",
+      "gooseberry",
+      "nellikai",
+      "amalaki",
+      "vitamin c",
+      "phyllanthus",
+      "indian gooseberry",
+      "emblic myrobalan",
+      "nellikka"
+    ],
+    "description": "Indian gooseberry rich in Vitamin C, used in Ayurveda and cooking."
+  },
+  {
+    "name": "Jamun - Killi Naval",
+    "scientific": "Syzygium cumini 'Killi Naval'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/jamun-killi-naval.html",
+    "keywords": [
+      "jamun",
+      "killi naval",
+      "naval pazham",
+      "java plum",
+      "syzygium",
+      "black plum",
+      "killi naval pazham"
+    ],
+    "description": "Small-fruited jamun variety with intense purple color and astringent taste."
+  },
+  {
+    "name": "Jamun - Thai King",
+    "scientific": "Syzygium cumini 'Thai King'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/jamun-thai-king.html",
+    "keywords": [
+      "jamun",
+      "thai king",
+      "jumbo jamun",
+      "naval pazham",
+      "syzygium",
+      "thai king jamun",
+      "thai java plum",
+      "king jamun",
+      "thai king naval"
+    ],
+    "description": "Large-fruited Thai jamun cultivar with sweet juicy purple flesh."
+  },
+  {
+    "name": "Jamun - White Jamun",
+    "scientific": "Syzygium cumini (white variety)",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/jamun-white.html",
+    "keywords": [
+      "jamun",
+      "white jamun",
+      "naval pazham",
+      "syzygium",
+      "rare",
+      "safed jamun",
+      "white java plum",
+      "vellai naval"
+    ],
+    "description": "Rare white-fleshed jamun variety with milder sweeter flavor."
+  },
+  {
+    "name": "Jamun - Jumbo Jamun / Bardoli",
+    "scientific": "Syzygium cumini 'Bardoli'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/jamun-jumbo-bardoli.html",
+    "keywords": [
+      "jamun",
+      "jumbo",
+      "bardoli",
+      "naval pazham",
+      "syzygium",
+      "giant",
+      "jumbo jamun",
+      "bardoli jamun",
+      "giant java plum",
+      "jumbo naval"
+    ],
+    "description": "Extra-large Bardoli jamun with plump sweet fruit and small seed."
+  },
+  {
+    "name": "Custard Apple - Ram Seetha",
+    "scientific": "Annona reticulata",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/custard-apple-ram-seetha.html",
+    "keywords": [
+      "custard apple",
+      "ram seetha",
+      "bullock heart",
+      "annona",
+      "seetha pazham",
+      "bullock's heart",
+      "ramphal",
+      "netted custard apple",
+      "ramseethai / rampalam",
+      "ramaphala"
+    ],
+    "description": "Heart-shaped custard apple with smooth creamy sweet pulp."
+  },
+  {
+    "name": "Custard Apple - Purple / Red",
+    "scientific": "Annona squamosa (purple variety)",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/custard-apple-purple.html",
+    "keywords": [
+      "custard apple",
+      "purple",
+      "red",
+      "annona",
+      "seetha pazham",
+      "sitaphal",
+      "purple custard apple",
+      "red sugar apple",
+      "purple sitaphal",
+      "sharifa"
+    ],
+    "description": "Striking purple-skinned custard apple with sweet fragrant pulp."
+  },
+  {
+    "name": "Custard Apple - Atemoya",
+    "scientific": "Annona × atemoya",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/custard-apple-atemoya.html",
+    "keywords": [
+      "atemoya",
+      "custard apple",
+      "annona",
+      "hybrid",
+      "pineapple sugar apple",
+      "custard apple (australia)",
+      "hybrid sitaphal"
+    ],
+    "description": "Hybrid custard apple combining cherimoya and sugar apple flavors."
+  },
+  {
+    "name": "Custard Apple - Soursop / Mullu Seetha",
+    "scientific": "Annona muricata",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/custard-apple-soursop.html",
+    "keywords": [
+      "soursop",
+      "mullu seetha",
+      "graviola",
+      "annona",
+      "hanuman phal",
+      "guanábana",
+      "prickly custard apple",
+      "laxman phal"
+    ],
+    "description": "Large spiny tropical fruit with tangy-sweet white pulp."
+  },
+  {
+    "name": "Jackfruit - J-33",
+    "scientific": "Artocarpus heterophyllus 'J-33'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/jackfruit-j33.html",
+    "keywords": [
+      "jackfruit",
+      "j-33",
+      "palaa pazham",
+      "kathal",
+      "artocarpus",
+      "chakka"
+    ],
+    "description": "High-yielding jackfruit variety with firm sweet orange flesh."
+  },
+  {
+    "name": "Jackfruit - Vietnam Super Early",
+    "scientific": "Artocarpus heterophyllus 'Vietnam Super Early'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/jackfruit-vietnam-super-early.html",
+    "keywords": [
+      "jackfruit",
+      "vietnam",
+      "super early",
+      "dwarf",
+      "palaa pazham",
+      "vietnam super early jackfruit",
+      "mít siêu sớm"
+    ],
+    "description": "Dwarf early-bearing Vietnamese jackfruit fruiting within 2 years."
+  },
+  {
+    "name": "Jackfruit - Honey Red",
+    "scientific": "Artocarpus heterophyllus 'Honey Red'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/jackfruit-honey-red.html",
+    "keywords": [
+      "jackfruit",
+      "honey red",
+      "red flesh",
+      "palaa pazham",
+      "kathal",
+      "honey red jackfruit",
+      "red jackfruit",
+      "sivappu palaa",
+      "lal kathal"
+    ],
+    "description": "Premium jackfruit with honey-sweet reddish-orange flesh."
+  },
+  {
+    "name": "Jackfruit - Panruti",
+    "scientific": "Artocarpus heterophyllus 'Panruti'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/jackfruit-panruti.html",
+    "keywords": [
+      "jackfruit",
+      "panruti",
+      "tamil nadu",
+      "palaa pazham",
+      "varikka",
+      "panruti jackfruit",
+      "panruti palaa",
+      "panruti palaa pazham",
+      "panruti kathal"
+    ],
+    "description": "Famous Panruti jackfruit known for large size and sweet thick flesh."
+  },
+  {
+    "name": "Jackfruit - Nongadak",
+    "scientific": "Artocarpus heterophyllus 'Nongadak'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/jackfruit-nongadak.html",
+    "keywords": [
+      "jackfruit",
+      "nongadak",
+      "meghalaya",
+      "northeast",
+      "palaa pazham",
+      "nongadak jackfruit",
+      "meghalaya jackfruit",
+      "kathal"
+    ],
+    "description": "Northeast Indian jackfruit variety with unique flavor and texture."
+  },
+  {
+    "name": "Sapota - Thai King",
+    "scientific": "Manilkara zapota 'Thai King'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/sapota-thai-king.html",
+    "keywords": [
+      "sapota",
+      "chikoo",
+      "sapodilla",
+      "thai king",
+      "chikku",
+      "manilkara",
+      "thai king sapota",
+      "lamoot"
+    ],
+    "description": "Large Thai sapota cultivar with brown sugar-sweet grainy flesh."
+  },
+  {
+    "name": "Orange - Dekopon",
+    "scientific": "Citrus reticulata 'Dekopon'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/orange-dekopon.html",
+    "keywords": [
+      "orange",
+      "dekopon",
+      "sumo citrus",
+      "mandarin",
+      "seedless",
+      "japanese",
+      "shiranuhi",
+      "hallabong"
+    ],
+    "description": "Premium seedless Japanese mandarin with intense sweetness and easy peel."
+  },
+  {
+    "name": "Longan - Diamond River",
+    "scientific": "Dimocarpus longan 'Diamond River'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/longan-diamond-river.html",
+    "keywords": [
+      "longan",
+      "diamond river",
+      "dragon eye",
+      "dimocarpus",
+      "paalappazham",
+      "diamond river longan",
+      "dragon eye fruit",
+      "puvatti pazham"
+    ],
+    "description": "Premium longan cultivar with large sweet translucent flesh."
+  },
+  {
+    "name": "Longan - All Season",
+    "scientific": "Dimocarpus longan 'All Season'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/longan-all-season.html",
+    "keywords": [
+      "longan",
+      "all season",
+      "everbearing",
+      "dragon eye",
+      "dimocarpus",
+      "all season longan",
+      "everbearing longan",
+      "four season longan",
+      "puvatti pazham"
+    ],
+    "description": "Everbearing longan variety producing fruit throughout the year."
+  },
+  {
+    "name": "Longan - Ruby",
+    "scientific": "Dimocarpus longan 'Ruby'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/longan-ruby.html",
+    "keywords": [
+      "longan",
+      "ruby",
+      "red longan",
+      "dragon eye",
+      "dimocarpus",
+      "ruby longan",
+      "red dragon eye",
+      "puvatti pazham"
+    ],
+    "description": "Rare ruby-skinned longan with sweet aromatic flesh."
+  },
+  {
+    "name": "Pomelo - Bablimas",
+    "scientific": "Citrus maxima 'Bablimas'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/pomelo-bablimas.html",
+    "keywords": [
+      "pomelo",
+      "bablimas",
+      "citrus",
+      "pambalimasu",
+      "chakotra",
+      "bablimas pomelo",
+      "indonesian pomelo",
+      "jeruk bali",
+      "jeruk bali bablimas"
+    ],
+    "description": "Large citrus fruit with sweet pink flesh and thick rind."
+  },
+  {
+    "name": "Avocado - Arka Supreme",
+    "scientific": "Persea americana 'Arka Supreme'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/avocado-arka-supreme.html",
+    "keywords": [
+      "avocado",
+      "arka supreme",
+      "butter fruit",
+      "persea",
+      "vennai pazham",
+      "arka supreme avocado",
+      "makhan phal"
+    ],
+    "description": "Indian avocado variety developed by IIHR with creamy rich flesh."
+  },
+  {
+    "name": "Avocado - Kendil",
+    "scientific": "Persea americana 'Kendil'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/avocado-kendil.html",
+    "keywords": [
+      "avocado",
+      "kendil",
+      "butter fruit",
+      "persea",
+      "vennai pazham",
+      "kendil avocado",
+      "alpukat kendil"
+    ],
+    "description": "Tropical avocado cultivar with large fruit and buttery texture."
+  },
+  {
+    "name": "Star Fruit - Sweet",
+    "scientific": "Averrhoa carambola (sweet variety)",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/star-fruit-sweet.html",
+    "keywords": [
+      "star fruit",
+      "sweet",
+      "carambola",
+      "kamrakh",
+      "averrhoa",
+      "sweet star fruit",
+      "sweet carambola",
+      "five finger fruit",
+      "thambratham pazham"
+    ],
+    "description": "Sweet variety of star-shaped tropical fruit with mild crisp flesh."
+  },
+  {
+    "name": "Star Fruit (Regular)",
+    "scientific": "Averrhoa carambola",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/star-fruit-regular.html",
+    "keywords": [
+      "star fruit",
+      "carambola",
+      "kamrakh",
+      "averrhoa",
+      "tart",
+      "five finger fruit",
+      "five corner fruit",
+      "thambratham pazham",
+      "kamaranga"
+    ],
+    "description": "Star-shaped tropical fruit with tangy-sweet juicy flesh."
+  },
+  {
+    "name": "Sea Grape",
+    "scientific": "Coccoloba uvifera",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/sea-grape.html",
+    "keywords": [
+      "sea grape",
+      "coccoloba",
+      "coastal",
+      "beach grape",
+      "baygrape",
+      "uva de playa"
+    ],
+    "description": "Coastal tropical tree with grape-like clusters of sweet-tart fruit."
+  },
+  {
+    "name": "Bilimbi",
+    "scientific": "Averrhoa bilimbi",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/bilimbi.html",
+    "keywords": [
+      "bilimbi",
+      "pulinji",
+      "kamias",
+      "cucumber tree",
+      "averrhoa",
+      "tree sorrel",
+      "pulicha kaai",
+      "irumban puli"
+    ],
+    "description": "Sour tropical fruit used in pickles, curries, and traditional remedies."
+  },
+  {
+    "name": "Sweet Luvi",
+    "scientific": "Flacourtia inermis",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/sweet-luvi.html",
+    "keywords": [
+      "sweet luvi",
+      "lovi lovi",
+      "flacourtia",
+      "batoko plum",
+      "lovi-lovi",
+      "lobi-lobi",
+      "thamatta"
+    ],
+    "description": "Small tropical tree with clusters of sweet dark red fruit."
+  },
+  {
+    "name": "Rambutan - Rongrien",
+    "scientific": "Nephelium lappaceum 'Rongrien'",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/rambutan-rongrien.html",
+    "keywords": [
+      "rambutan",
+      "rongrien",
+      "nephelium",
+      "hairy fruit",
+      "thai",
+      "rongrien rambutan",
+      "thai rambutan",
+      "ngo rong rien"
+    ],
+    "description": "Premium Thai rambutan with sweet translucent flesh and easy seed separation."
+  },
+  {
+    "name": "Ambalam",
+    "scientific": "Spondias pinnata",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/ambalam.html",
+    "keywords": [
+      "ambalam",
+      "wild mango",
+      "spondias",
+      "ambazhanga",
+      "hog plum",
+      "indian hog plum",
+      "amra"
+    ],
+    "description": "Tropical tree with sour mango-like fruit used in pickles and curries."
+  },
+  {
+    "name": "Ambalam (Sweet)",
+    "scientific": "Spondias dulcis",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/ambalam-sweet.html",
+    "keywords": [
+      "ambalam",
+      "sweet",
+      "ambarella",
+      "spondias",
+      "golden apple",
+      "june plum",
+      "kedondong",
+      "great hog plum",
+      "ambazhanga",
+      "amra"
+    ],
+    "description": "Sweet variety of ambarella with crisp golden-green fruit."
+  },
+  {
+    "name": "Lipote",
+    "scientific": "Syzygium polycephaloides",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/lipote.html",
+    "keywords": [
+      "lipote",
+      "syzygium",
+      "philippine",
+      "rare fruit",
+      "philippine lipote"
+    ],
+    "description": "Rare Philippine fruit tree with small sweet purple berries."
+  },
+  {
+    "name": "Jaboticaba / Brazilian Grape",
+    "scientific": "Plinia cauliflora",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/jaboticaba.html",
+    "keywords": [
+      "jaboticaba",
+      "brazilian grape",
+      "plinia",
+      "cauliflory",
+      "grape tree",
+      "jabuticaba",
+      "brazilian grape tree"
+    ],
+    "description": "Unique Brazilian tree bearing grape-like fruit directly on its trunk."
+  },
+  {
+    "name": "Araza Boi",
+    "scientific": "Eugenia stipitata",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/araza-boi.html",
+    "keywords": [
+      "araza",
+      "araca-boi",
+      "eugenia",
+      "amazonian",
+      "sour guava",
+      "araza boi",
+      "araçá-boi",
+      "guayaba amazónica",
+      "arazá"
+    ],
+    "description": "Amazonian fruit with intensely aromatic sour pulp used in juices."
+  },
+  {
+    "name": "Litchi",
+    "scientific": "Litchi chinensis",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/litchi.html",
+    "keywords": [
+      "litchi",
+      "lychee",
+      "litchi chinensis",
+      "vilazi pazham",
+      "lichee",
+      "litchi / lichi"
+    ],
+    "description": "Tropical fruit with rough red shell and sweet translucent juicy flesh."
+  },
+  {
+    "name": "Abiu",
+    "scientific": "Pouteria caimito",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/abiu.html",
+    "keywords": [
+      "abiu",
+      "pouteria",
+      "yellow star apple",
+      "caimito",
+      "amazonian",
+      "abiú",
+      "caimito (not to be confused with star apple)"
+    ],
+    "description": "Amazonian fruit with smooth yellow skin and caramel-sweet translucent pulp."
+  },
+  {
+    "name": "Kodakapuli / Manila Tamarind",
+    "scientific": "Pithecellobium dulce",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/kodakapuli.html",
+    "keywords": [
+      "kodakapuli",
+      "manila tamarind",
+      "jungle jalebi",
+      "kodukkapuli",
+      "pithecellobium",
+      "madras thorn",
+      "monkeypod",
+      "camachile",
+      "seema chintakaya"
+    ],
+    "description": "Tropical tree with coiled pods containing sweet-tart pink and white pulp."
+  },
+  {
+    "name": "Egg Fruit",
+    "scientific": "Pouteria campechiana",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/egg-fruit.html",
+    "keywords": [
+      "egg fruit",
+      "canistel",
+      "pouteria",
+      "yellow sapote",
+      "muttai pazham",
+      "tiesa"
+    ],
+    "description": "Tropical fruit with dry egg yolk-like golden flesh and sweet flavor."
+  },
+  {
+    "name": "Ice Cream Bean",
+    "scientific": "Inga edulis",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/ice-cream-bean.html",
+    "keywords": [
+      "ice cream bean",
+      "inga",
+      "guaba",
+      "cotton candy fruit",
+      "guama",
+      "joaquiniquil",
+      "pacay",
+      "ingá-cipó"
+    ],
+    "description": "Tropical legume tree with long pods containing sweet cottony white pulp."
+  },
+  {
+    "name": "Miracle Fruit",
+    "scientific": "Synsepalum dulcificum",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/miracle-fruit.html",
+    "keywords": [
+      "miracle fruit",
+      "miracle berry",
+      "synsepalum",
+      "taste modifier",
+      "sweet berry",
+      "agbayun (yoruba",
+      "west africa)"
+    ],
+    "description": "West African berry that makes sour foods taste sweet for up to an hour."
+  },
+  {
+    "name": "Sweet Santol / Cotton Fruit",
+    "scientific": "Sandoricum koetjape",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/sweet-santol.html",
+    "keywords": [
+      "santol",
+      "cotton fruit",
+      "sandoricum",
+      "sentul",
+      "wild mangosteen",
+      "sweet santol",
+      "kechapi",
+      "lolly fruit"
+    ],
+    "description": "Southeast Asian fruit with cottony sweet-sour pulp around large seeds."
+  },
+  {
+    "name": "Bignay / Currant Tree Fruit",
+    "scientific": "Antidesma bunius",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/bignay.html",
+    "keywords": [
+      "bignay",
+      "currant tree",
+      "antidesma",
+      "chinese laurel",
+      "wild cherry",
+      "bugnay",
+      "herbert river cherry"
+    ],
+    "description": "Tropical tree with clusters of small currant-like berries used in jams and wine."
+  },
+  {
+    "name": "Olosapo",
+    "scientific": "Couepia polyandra",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/olosapo.html",
+    "keywords": [
+      "olosapo",
+      "couepia",
+      "zapote de mico",
+      "rare tropical",
+      "monkey sapote"
+    ],
+    "description": "Rare Central American fruit tree with sweet creamy yellow pulp."
+  }
 ]
