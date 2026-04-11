@@ -13,7 +13,7 @@
       const results = document.getElementById('test-results');
       
       try {
-        const response = await fetch('data/i18n-ta.json');
+        const response = await fetch('/arkfarm/data/i18n-ta.json');
         const tamilDict = await response.json();
         
         const tests = [
