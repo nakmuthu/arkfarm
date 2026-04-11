@@ -190,3 +190,29 @@ table td { padding: 8px; border-bottom: 1px solid #eee; vertical-align: top; }
   border-top: 1px solid #e0e0e0;
   margin-top: 20px;
 }
+
+/* ===== Share Button ===== */
+.share-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--green-mid);
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.share-btn:hover { background: var(--green-dark); }
+
+@media print {
+  .share-btn { display: none; }
+}

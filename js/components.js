@@ -60,4 +60,29 @@ document.addEventListener('DOMContentLoaded', function () {
   var footerEl = document.getElementById('site-footer');
   if (headerEl) headerEl.innerHTML = renderHeader();
   if (footerEl) footerEl.innerHTML = renderFooter();
+
+  // Add share button on plant pages (pages with data-plant attribute)
+  if (document.querySelector('[data-plant]')) {
+    var shareBtn = document.createElement('button');
+    shareBtn.className = 'share-btn';
+    shareBtn.innerHTML = '📤';
+    shareBtn.setAttribute('aria-label', 'Share this plant');
+    shareBtn.onclick = function () {
+      var title = document.querySelector('h1') ? document.querySelector('h1').textContent : 'ArkFarm Plant';
+      var text = title + ' - ArkFarm Digital Orchard';
+      var url = window.location.href;
+
+      if (navigator.share) {
+        navigator.share({ title: title, text: text, url: url }).catch(function () {});
+      } else {
+        navigator.clipboard.writeText(url).then(function () {
+          shareBtn.innerHTML = '✓';
+          setTimeout(function () { shareBtn.innerHTML = '📤'; }, 2000);
+        }).catch(function () {
+          prompt('Copy this link:', url);
+        });
+      }
+    };
+    document.body.appendChild(shareBtn);
+  }
 });
