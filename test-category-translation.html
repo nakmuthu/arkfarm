@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category Translation Test</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .card { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+    .pass { color: green; }
+    .fail { color: red; }
+    button { padding: 10px 20px; font-size: 16px; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <h1>Category Translation Test</h1>
+  <button onclick="toggleLanguage()">Toggle Language (தமிழ் / English)</button>
+  <div id="lang-status"></div>
+  
+  <div class="card">
+    <h3 data-i18n="plant_name_clove" data-en="Clove">Clove</h3>
+    <p><em data-i18n="plant_scientific_clove" data-en="Syzygium aromaticum">Syzygium aromaticum</em></p>
+    <p data-i18n="plant_desc_clove" data-en="Aromatic flower buds used as a spice worldwide.">Aromatic flower buds used as a spice worldwide.</p>
+  </div>
+
+  <div class="card">
+    <h3 data-i18n="plant_name_coconut" data-en="Coconut">Coconut</h3>
+    <p><em data-i18n="plant_scientific_coconut" data-en="Cocos nucifera">Cocos nucifera</em></p>
+    <p data-i18n="plant_desc_coconut" data-en="Versatile tropical palm yielding coconut water, milk, oil, and coir.">Versatile tropical palm yielding coconut water, milk, oil, and coir.</p>
+  </div>
+
+  <div id="debug-info"></div>
+
+  <script src="/arkfarm/js/i18n.js"></script>
+  <script>
+    function toggleLanguage() {
+      const currentLang = window.ArkI18n.getLang();
+      const newLang = currentLang === 'en' ? 'ta' : 'en';
+      window.ArkI18n.setLang(newLang);
+      updateStatus();
+    }
+
+    function updateStatus() {
+      const lang = window.ArkI18n.getLang();
+      const status = document.getElementById('lang-status');
+      status.innerHTML = `<p>Current Language: <strong>${lang === 'en' ? 'English' : 'Tamil'}</strong></p>`;
+    }
+
+    async function debugInfo() {
+      const debug = document.getElementById('debug-info');
+      
+      try {
+        const response = await fetch('/arkfarm/data/i18n-ta.json');
+        const tamilDict = await response.json();
+        
+        debug.innerHTML = `
+          <hr>
+          <h3>Debug Info:</h3>
+          <p>Total translation keys: ${Object.keys(tamilDict).length}</p>
+          <p>plant_name_clove: ${tamilDict['plant_name_clove'] || 'NOT FOUND'}</p>
+          <p>plant_desc_clove: ${tamilDict['plant_desc_clove']?.substring(0, 50) || 'NOT FOUND'}...</p>
+          <p>plant_name_coconut: ${tamilDict['plant_name_coconut'] || 'NOT FOUND'}</p>
+          <p>plant_desc_coconut: ${tamilDict['plant_desc_coconut']?.substring(0, 50) || 'NOT FOUND'}...</p>
+        `;
+      } catch (e) {
+        debug.innerHTML = `<p class="fail">Error loading translations: ${e.message}</p>`;
+      }
+    }
+
+    // Initialize
+    updateStatus();
+    debugInfo();
+  </script>
+</body>
+</html>
