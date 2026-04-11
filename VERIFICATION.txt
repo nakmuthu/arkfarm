@@ -1,0 +1,15 @@
+=== TRANSLATION FIX VERIFICATION ===
+
+1. DATA FILE CHECK
+   Total keys: 354
+   Plant name keys: 118
+   Plant desc keys: 118
+   Sample: plant_name_clove = கிராம்பு
+
+2. CATEGORY PAGE CHECK
+   Spices & Herbs cards with i18n: 14
+   Fruit Trees cards with i18n: 100
+
+3. GITHUB CHECK
+   GitHub keys: 354
+   GitHub plant_name_clove: கிராம்பு
