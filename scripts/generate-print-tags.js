@@ -151,12 +151,18 @@ const html = `<!DOCTYPE html>
     .tag-qr img, .tag-qr canvas { width: 22mm !important; height: 22mm !important; }
 
     @media print {
-      body { padding-top: 0; }
+      body { padding-top: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .controls { display: none; }
       .tag-check { display: none; }
       .tag-wrapper.deselected { display: none !important; }
       .tag-grid { gap: 5mm; justify-content: flex-start; padding: 5mm; }
-      .plant-tag { page-break-inside: avoid; }
+      .plant-tag { page-break-inside: avoid; width: 54mm !important; height: 85.6mm !important; }
+      .tag-image { height: 28mm !important; }
+      .tag-no-image { height: 28mm !important; }
+      .tag-hole { height: 8mm !important; }
+      .tag-qr { width: 22mm !important; height: 22mm !important; }
+      .tag-name { font-size: 15pt !important; }
+      .tag-scientific { font-size: 7.5pt !important; }
       @page { size: A4; margin: 10mm; }
     }
 
