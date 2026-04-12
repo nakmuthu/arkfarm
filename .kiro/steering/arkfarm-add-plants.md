@@ -54,34 +54,34 @@ Before creating any files, gather accurate botanical information. Use web search
 
 Reference credible sources: Wikipedia, university extension services (e.g., IIHR, TNAU, Kerala Agricultural University), FAO, botanical databases.
 
-## Step 2: Find Images
+## Step 2: Add Hero Image
 
-### Automated (preferred for bulk):
-After creating the HTML page (Step 3), run:
+All plant images are stored locally — no external URLs (Wikimedia or otherwise).
+
+### Image location:
+```
+images/categories/plants/<category-folder>/<slug>.jpg
+```
+Example: `images/categories/plants/fruit-trees/mango-miyazaki.jpg`
+
+### Recommended image spec:
+- Size: 800×600px (landscape, 4:3 ratio)
+- Format: JPEG at ~80% quality (~100–150KB)
+- Content: clear photo of the fruit, flower, or whole plant
+
+### After adding the image file, run:
 ```bash
-node scripts/add-images.js
+node scripts/use-local-images.js
 ```
 This script automatically:
-- Finds all plant pages without Wikimedia images
-- Looks up each plant's scientific name on the Wikipedia media API
-- Inserts a hero image and up to 4 gallery images
-- Skips pages where no images are found
+- Detects all images under `images/categories/plants/`
+- Updates the hero `<img src>` in the plant HTML page (handles both plain and `data-plant` variants of the top-card div)
+- Updates the card image in the relevant category page
+- Updates the `"image"` field in `print-tags.html` inline JS data
 
-### Manual (for single plants or when script misses):
-Use the Wikipedia media API to get verified, working image URLs:
-```
-https://en.wikipedia.org/api/rest_v1/page/media-list/<Scientific_Name_with_underscores>
-```
+**Do NOT hardcode image paths manually** — always run the script to ensure correct relative paths.
 
-From the JSON response, extract URLs from `items[].srcset[].src`. Use 500px thumbnails (the `1x` scale).
-
-Select:
-- 1 hero image (best overall photo — fruit, flower, or whole plant depending on what the plant is grown for)
-- 2-4 gallery images (different parts: flower, fruit, leaves, tree/habit, seeds)
-
-**CRITICAL**: Verify each image URL actually works by fetching it. If it returns `image/jpeg` or `image/png` content type, it's valid. If 404, skip it.
-
-If Wikipedia has no images for the plant, leave the hero image area empty (no `<img>` tag) and skip the Photo Gallery section entirely. Do NOT use placeholder paths like `../../images/plants/xxx.jpg`.
+If no image is available yet, leave the hero `<img>` tag with an empty `src=""` or omit it entirely. Do NOT use external URLs.
 
 ## Step 3: Create the Plant HTML Page
 
@@ -291,7 +291,6 @@ After pushing, verify:
 - [ ] Create `plants/<category>/<slug>.html` with full content and all data-i18n attributes (NO photo gallery)
 - [ ] Use ONLY standard data-i18n keys (never invent section.*, label.*, plant.* formats)
 - [ ] Run `node scripts/add-plant.js` — handles everything else automatically:
-  - Fetches Wikimedia images
   - Generates Tamil translations (batched Google Translate)
   - Updates search index
   - Enriches search keywords
@@ -299,6 +298,7 @@ After pushing, verify:
   - Updates homepage counts
   - Rebuilds print tags
   - Validates i18n
+- [ ] Add image file to `images/categories/plants/<category>/<slug>.jpg` and run `node scripts/use-local-images.js`
 - [ ] Run `node scripts/add-plant.js --push` to also auto-push to GitHub
 
 ## Recommended Order for Bulk Additions
@@ -337,11 +337,10 @@ That's it — the master script handles all remaining steps in one command.
 | Script | Purpose | When to run |
 |--------|---------|-------------|
 | `node scripts/enrich-search-index.js` | Extracts common/local names from HTML into search keywords | After adding plants to plants.json |
-| `node scripts/add-images.js` | Fetches Wikimedia images for all pages missing them | After creating new plant HTML pages |
+| `node scripts/use-local-images.js` | Updates hero, category card, and name tag image paths from local image files | After adding/replacing images under `images/categories/plants/` |
 | `node scripts/generate-category-pages.js` | Rebuilds ALL category pages from plants.json | After adding/removing plants from plants.json |
 | `node scripts/update-homepage-counts.js` | Updates species counts on homepage | After adding/removing plants |
 | `node scripts/generate-print-tags.js` | Rebuilds print-tags.html with all plants and images | After adding plants, changing images, or any hero image update |
 | `node scripts/generate-tamil.js` | Generates Tamil files for pages with data-i18n on values | After creating new plant HTML pages |
 | `node scripts/generate-tamil-fallback.js` | Generates Tamil files for remaining pages | After generate-tamil.js if some pages still missing |
 | `node scripts/validate-i18n.js` | Validates all pages use standard i18n keys | After creating new plant pages, BEFORE pushing |
-| `node scripts/fix-images.js` | Removes broken placeholder image references | If any pages have `../../images/plants/` paths |
