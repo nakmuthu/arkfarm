@@ -2033,5 +2033,520 @@
       "champakam"
     ],
     "description": "Sacred fragrant tree with intensely aromatic golden-yellow flowers used in perfumery and religious offerings."
+  },
+  {
+    "name": "Banana - Karpuravalli",
+    "scientific": "Musa acuminata",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/banana-karpuravalli.html",
+    "keywords": [
+      "banana-karpuravalli",
+      "karpuravalli banana",
+      "camphor banana",
+      "aromatic banana",
+      "karpuravalli vazhai",
+      "karpooravalli"
+    ],
+    "description": "Karpuravalli Banana, Camphor Banana, Aromatic Banana"
+  },
+  {
+    "name": "Banana - Nendran",
+    "scientific": "Musa × paradisiaca",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/banana-nendran.html",
+    "keywords": [
+      "banana-nendran",
+      "nendran banana",
+      "kerala banana",
+      "nendrapazham",
+      "plantain banana",
+      "nendran vazhai"
+    ],
+    "description": "Nendran Banana, Kerala Banana, Nendrapazham, Plantain Banana"
+  },
+  {
+    "name": "Banana - Peyan",
+    "scientific": "Musa × paradisiaca",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/banana-peyan.html",
+    "keywords": [
+      "banana-peyan",
+      "peyan banana",
+      "monthan banana",
+      "cooking banana",
+      "plantain",
+      "peyan vazhai",
+      "monthan"
+    ],
+    "description": "Peyan Banana, Monthan Banana, Cooking Banana, Plantain"
+  },
+  {
+    "name": "Banana - Poongathali",
+    "scientific": "Musa × paradisiaca",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/banana-poongathali.html",
+    "keywords": [
+      "banana-poongathali",
+      "poongathali banana",
+      "poonkathali banana",
+      "poongathali vazhai"
+    ],
+    "description": "Poongathali Banana, Poonkathali Banana"
+  },
+  {
+    "name": "Banana - Poovan",
+    "scientific": "Musa acuminata",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/banana-poovan.html",
+    "keywords": [
+      "banana-poovan",
+      "poovan banana",
+      "mysore banana",
+      "lady finger banana",
+      "pisang mas",
+      "poovan vazhai"
+    ],
+    "description": "Poovan Banana, Mysore Banana, Lady Finger Banana, Pisang Mas"
+  },
+  {
+    "name": "Banana - Rasthali",
+    "scientific": "Musa × paradisiaca",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/banana-rasthali.html",
+    "keywords": [
+      "banana-rasthali",
+      "rasthali banana",
+      "silk banana",
+      "apple banana",
+      "ambon banana",
+      "rasthali vazhai",
+      "champa kela",
+      "chinia champa"
+    ],
+    "description": "Rasthali Banana, Silk Banana, Apple Banana, Ambon Banana"
+  },
+  {
+    "name": "Banana - Red",
+    "scientific": "Musa acuminata",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/banana-red.html",
+    "keywords": [
+      "banana-red",
+      "red banana",
+      "red dacca",
+      "lal kela",
+      "claret banana",
+      "sivappu vazhai"
+    ],
+    "description": "Red Banana, Red Dacca, Lal Kela, Claret Banana"
+  },
+  {
+    "name": "Banana - Yelakki",
+    "scientific": "Musa acuminata",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/banana-yelakki.html",
+    "keywords": [
+      "banana-yelakki",
+      "yelakki banana",
+      "elaichi banana",
+      "cardamom banana",
+      "lady finger banana",
+      "yelakki vazhai",
+      "elaichi kela"
+    ],
+    "description": "Yelakki Banana, Elaichi Banana, Cardamom Banana, Lady Finger Banana"
+  },
+  {
+    "name": "Cashew Nut",
+    "scientific": "Anacardium occidentale",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/cashew-nut.html",
+    "keywords": [
+      "cashew-nut",
+      "cashew",
+      "cashew nut",
+      "cashew apple tree",
+      "mundhiri",
+      "kaju",
+      "godambi"
+    ],
+    "description": "Cashew, Cashew Nut, Cashew Apple Tree"
+  },
+  {
+    "name": "Dragon Fruit - Purple",
+    "scientific": "Hylocereus costaricensis",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/dragon-fruit-purple.html",
+    "keywords": [
+      "dragon-fruit-purple",
+      "purple dragon fruit",
+      "red dragon fruit",
+      "costa rican pitaya",
+      "purple pitaya",
+      "dragon pazham",
+      "dragon fruit"
+    ],
+    "description": "Purple Dragon Fruit, Red Dragon Fruit, Costa Rican Pitaya, Purple Pitaya"
+  },
+  {
+    "name": "Dragon Fruit - Yellow",
+    "scientific": "Selenicereus megalanthus",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/dragon-fruit-yellow.html",
+    "keywords": [
+      "dragon-fruit-yellow",
+      "yellow dragon fruit",
+      "yellow pitaya",
+      "colombian pitaya",
+      "yellow pitahaya",
+      "manja dragon pazham"
+    ],
+    "description": "Yellow Dragon Fruit, Yellow Pitaya, Colombian Pitaya, Yellow Pitahaya"
+  },
+  {
+    "name": "Fig - Brown Turkey",
+    "scientific": "Ficus carica",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/fig-brown-turkey.html",
+    "keywords": [
+      "fig-brown-turkey",
+      "brown turkey fig",
+      "common fig",
+      "purple fig",
+      "anjeer",
+      "atti pazham",
+      "anjura"
+    ],
+    "description": "Brown Turkey Fig, Common Fig, Purple Fig"
+  },
+  {
+    "name": "Fig - Elephant Ear / Timla",
+    "scientific": "Ficus auriculata",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/fig-elephant-ear.html",
+    "keywords": [
+      "fig-elephant-ear",
+      "elephant ear fig",
+      "timla",
+      "roxburgh fig",
+      "giant himalayan fig",
+      "atthi",
+      "dumur"
+    ],
+    "description": "Elephant Ear Fig, Timla, Roxburgh Fig, Giant Himalayan Fig"
+  },
+  {
+    "name": "Fig - Pune Red",
+    "scientific": "Ficus carica",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/fig-pune-red.html",
+    "keywords": [
+      "fig-pune-red",
+      "pune red fig",
+      "indian red fig",
+      "common fig (pune variety)",
+      "anjeer",
+      "atti pazham",
+      "anjura"
+    ],
+    "description": "Pune Red Fig, Indian Red Fig, Common Fig (Pune variety)"
+  },
+  {
+    "name": "Kamala Orange",
+    "scientific": "Citrus reticulata",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/orange-kamala.html",
+    "keywords": [
+      "orange-kamala",
+      "kamala orange",
+      "mandarin orange",
+      "tangerine",
+      "loose-skin orange",
+      "kamala pazham",
+      "santra",
+      "kamala"
+    ],
+    "description": "Kamala Orange, Mandarin Orange, Tangerine, Loose-skin Orange"
+  },
+  {
+    "name": "Pomegranate",
+    "scientific": "Punica granatum",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/pomegranate.html",
+    "keywords": [
+      "pomegranate",
+      "anar",
+      "dalim",
+      "grenadine",
+      "mathalam pazham",
+      "dalimba"
+    ],
+    "description": "Pomegranate, Anar, Dalim, Grenadine"
+  },
+  {
+    "name": "Sweet Tamarind",
+    "scientific": "Tamarindus indica",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/sweet-tamarind.html",
+    "keywords": [
+      "sweet-tamarind",
+      "sweet tamarind",
+      "tamarind",
+      "imli",
+      "indian date",
+      "inippu puli",
+      "meethi imli",
+      "chintapandu"
+    ],
+    "description": "Sweet Tamarind, Tamarind, Imli, Indian Date"
+  },
+  {
+    "name": "Allamanda - Purple",
+    "scientific": "Allamanda blanchetii",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/allamanda-purple.html",
+    "keywords": [
+      "allamanda-purple",
+      "purple allamanda",
+      "violet allamanda",
+      "pink allamanda",
+      "cherry allamanda"
+    ],
+    "description": "Purple Allamanda, Violet Allamanda, Pink Allamanda, Cherry Allamanda"
+  },
+  {
+    "name": "Allamanda - Yellow",
+    "scientific": "Allamanda cathartica",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/allamanda-yellow.html",
+    "keywords": [
+      "allamanda-yellow",
+      "golden trumpet",
+      "yellow allamanda",
+      "butter cup vine",
+      "yellow bell",
+      "allamanda",
+      "sona champa"
+    ],
+    "description": "Golden Trumpet, Yellow Allamanda, Butter Cup Vine, Yellow Bell"
+  },
+  {
+    "name": "Bougainvillea - Red",
+    "scientific": "Bougainvillea spectabilis",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/bougainvillea-red.html",
+    "keywords": [
+      "bougainvillea-red",
+      "red bougainvillea",
+      "paper flower",
+      "bugambilia",
+      "great bougainvillea",
+      "kagitha poo",
+      "bougainvillea"
+    ],
+    "description": "Red Bougainvillea, Paper Flower, Bugambilia, Great Bougainvillea"
+  },
+  {
+    "name": "Bougainvillea - White",
+    "scientific": "Bougainvillea spectabilis",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/bougainvillea-white.html",
+    "keywords": [
+      "bougainvillea-white",
+      "white bougainvillea",
+      "white paper flower",
+      "snow white bougainvillea",
+      "vella kagitha poo",
+      "safed bougainvillea"
+    ],
+    "description": "White Bougainvillea, White Paper Flower, Snow White Bougainvillea"
+  },
+  {
+    "name": "Butterfly Pea Flower",
+    "scientific": "Clitoria ternatea",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/butterfly-pea.html",
+    "keywords": [
+      "butterfly-pea",
+      "butterfly pea",
+      "blue pea",
+      "asian pigeonwings",
+      "aparajita",
+      "blue tea flower",
+      "sangu pushpam"
+    ],
+    "description": "Butterfly Pea, Blue Pea, Asian Pigeonwings, Aparajita, Blue Tea Flower"
+  },
+  {
+    "name": "Cypress Vine",
+    "scientific": "Ipomoea quamoclit",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/cypress-vine.html",
+    "keywords": [
+      "cypress-vine",
+      "cypress vine",
+      "star glory",
+      "hummingbird vine",
+      "cardinal creeper",
+      "mayil manikkam",
+      "kamal lata"
+    ],
+    "description": "Cypress Vine, Star Glory, Hummingbird Vine, Cardinal Creeper"
+  },
+  {
+    "name": "Hibiscus - Red",
+    "scientific": "Hibiscus rosa-sinensis",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/hibiscus-red.html",
+    "keywords": [
+      "hibiscus-red",
+      "red hibiscus",
+      "shoe flower",
+      "china rose",
+      "tropical hibiscus",
+      "sembaruthi",
+      "gurhal",
+      "japa"
+    ],
+    "description": "Red Hibiscus, Shoe Flower, China Rose, Tropical Hibiscus"
+  },
+  {
+    "name": "Manoranjitham",
+    "scientific": "Artabotrys hexapetalus",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/manoranjitham.html",
+    "keywords": [
+      "manoranjitham",
+      "climbing ylang-ylang",
+      "tail grape",
+      "hook climber",
+      "basket vine",
+      "hara champa",
+      "kathari champaka"
+    ],
+    "description": "Climbing Ylang-Ylang, Tail Grape, Hook Climber, Basket Vine"
+  },
+  {
+    "name": "Petrea Creeper",
+    "scientific": "Petrea volubilis",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/petrea-creeper.html",
+    "keywords": [
+      "petrea-creeper",
+      "purple wreath",
+      "queen's wreath",
+      "sandpaper vine",
+      "blue bird vine",
+      "neela malar kodi"
+    ],
+    "description": "Purple Wreath, Queen's Wreath, Sandpaper Vine, Blue Bird Vine"
+  },
+  {
+    "name": "Neem Tree",
+    "scientific": "Azadirachta indica",
+    "category": "Timber Trees",
+    "url": "/arkfarm/plants/timber-trees/neem-tree.html",
+    "keywords": [
+      "neem-tree",
+      "neem",
+      "indian lilac",
+      "margosa tree",
+      "veppam",
+      "bevu"
+    ],
+    "description": "Neem, Indian Lilac, Margosa Tree"
+  },
+  {
+    "name": "Touch Me Not Plant",
+    "scientific": "Mimosa pudica",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/touch-me-not.html",
+    "keywords": [
+      "touch-me-not",
+      "touch me not",
+      "sensitive plant",
+      "shame plant",
+      "sleeping grass",
+      "humble plant",
+      "thottavadi",
+      "lajwanti",
+      "lajja boti"
+    ],
+    "description": "Touch Me Not, Sensitive Plant, Shame Plant, Sleeping Grass, Humble Plant"
+  },
+  {
+    "name": "Purple Heart",
+    "scientific": "Tradescantia pallida",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/purple-heart.html",
+    "keywords": [
+      "purple-heart",
+      "purple heart",
+      "purple queen",
+      "wandering jew (purple)",
+      "ootha ilai chedi"
+    ],
+    "description": "Purple Heart, Purple Queen, Wandering Jew (purple)"
+  },
+  {
+    "name": "Areca Palm",
+    "scientific": "Dypsis lutescens",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/areca-palm.html",
+    "keywords": [
+      "areca-palm",
+      "areca palm",
+      "butterfly palm",
+      "golden cane palm",
+      "yellow palm",
+      "areca panai",
+      "sona khajur"
+    ],
+    "description": "Areca Palm, Butterfly Palm, Golden Cane Palm, Yellow Palm"
+  },
+  {
+    "name": "Norfolk Island Pine",
+    "scientific": "Araucaria heterophylla",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/norfolk-island-pine.html",
+    "keywords": [
+      "norfolk-island-pine",
+      "norfolk island pine",
+      "star pine",
+      "triangle tree",
+      "living christmas tree",
+      "araucaria"
+    ],
+    "description": "Norfolk Island Pine, Star Pine, Triangle Tree, Living Christmas Tree"
+  },
+  {
+    "name": "Curtain Creeper",
+    "scientific": "Tarlmounia elliptica",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/curtain-creeper.html",
+    "keywords": [
+      "curtain-creeper",
+      "curtain creeper",
+      "parda bel",
+      "green curtain vine",
+      "parda kodi"
+    ],
+    "description": "Curtain Creeper, Parda Bel, Green Curtain Vine"
+  },
+  {
+    "name": "Rubber Plant",
+    "scientific": "Ficus elastica",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/rubber-plant.html",
+    "keywords": [
+      "rubber-plant",
+      "rubber plant",
+      "rubber fig",
+      "rubber tree",
+      "indian rubber bush",
+      "rubber maram",
+      "rubber ka ped"
+    ],
+    "description": "Rubber Plant, Rubber Fig, Rubber Tree, Indian Rubber Bush"
   }
 ]

@@ -19,7 +19,7 @@ const args = process.argv.slice(2);
 const shouldPush = args.includes('--push');
 const slugFilter = args.includes('--slug') ? args[args.indexOf('--slug') + 1] : null;
 
-const PLANT_DIRS = ['plants/fruit-trees', 'plants/spices-herbs', 'plants/medicinal-plants', 'plants/flowering-plants', 'plants/timber-trees'];
+const PLANT_DIRS = ['plants/fruit-trees', 'plants/spices-herbs', 'plants/medicinal-plants', 'plants/flowering-plants', 'plants/timber-trees', 'plants/ornamental-plants'];
 const HAND_CRAFTED = new Set(['passion-fruit', 'malkova-mango', 'paneer-rose', 'moringa-tree', 'jasmine']);
 
 // ─── Utilities ───────────────────────────────────────────────────────────────
@@ -298,7 +298,8 @@ async function main() {
       : dir.includes('spices-herbs') ? 'Spices & Herbs'
       : dir.includes('medicinal-plants') ? 'Medicinal Plants'
       : dir.includes('flowering-plants') ? 'Flowering Plants'
-      : dir.includes('timber-trees') ? 'Timber Trees' : 'Other';
+      : dir.includes('timber-trees') ? 'Timber Trees'
+      : dir.includes('ornamental-plants') ? 'Ornamental Plants' : 'Other';
 
     process.stdout.write(`  ${slug}... `);
 
