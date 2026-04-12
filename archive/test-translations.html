@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Translation Test</title>
+</head>
+<body>
+  <h1>Translation Test</h1>
+  <div id="test-results"></div>
+  
+  <script>
+    async function testTranslations() {
+      const results = document.getElementById('test-results');
+      
+      try {
+        const response = await fetch('/arkfarm/data/i18n-ta.json');
+        const tamilDict = await response.json();
+        
+        const tests = [
+          { key: 'plant_name_clove', expected: 'கிராம்பு' },
+          { key: 'plant_scientific_clove', expected: 'Syzygium aromaticum' },
+          { key: 'plant_desc_clove', contains: 'நறுமண' },
+          { key: 'plant_name_coconut', expected: 'தேங்காய்' },
+          { key: 'plant_desc_coconut', contains: 'வெப்பமண்டல' }
+        ];
+        
+        let passed = 0;
+        let failed = 0;
+        
+        tests.forEach(test => {
+          const value = tamilDict[test.key];
+          let result = false;
+          
+          if (test.expected && value === test.expected) {
+            result = true;
+          } else if (test.contains && value && value.includes(test.contains)) {
+            result = true;
+          }
+          
+          const status = result ? '✓ PASS' : '✗ FAIL';
+          const color = result ? 'green' : 'red';
+          results.innerHTML += `<p style="color: ${color}">${status}: ${test.key}</p>`;
+          
+          if (result) passed++;
+          else failed++;
+        });
+        
+        results.innerHTML += `<hr><p><strong>Results: ${passed} passed, ${failed} failed</strong></p>`;
+      } catch (e) {
+        results.innerHTML = `<p style="color: red">Error: ${e.message}</p>`;
+      }
+    }
+    
+    testTranslations();
+  </script>
+</body>
+</html>
