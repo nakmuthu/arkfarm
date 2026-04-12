@@ -41,9 +41,11 @@ for (const [slug, localPath] of Object.entries(localImages)) {
     let html = fs.readFileSync(file, 'utf8');
     const original = html;
     // Replace the top-card hero img src (first img in .section.top-card)
+    // Build a relative path from the plant file's directory to the image
+    const relToFile = path.relative(path.dirname(file), path.join(ROOT, localPath)).replace(/\\/g, '/');
     html = html.replace(
       /(<div class="section top-card">\s*<img\s+src=")[^"]+(")/,
-      `$1/${localPath}$2`
+      `$1${relToFile}$2`
     );
     if (html !== original) {
       fs.writeFileSync(file, html, 'utf8');
@@ -62,7 +64,8 @@ for (const catFile of walk(path.join(ROOT, 'categories'), '.html')) {
     const re = new RegExp(
       `(href="[^"]*/${slug}\\.html"[^>]*>\\s*<img\\s+src=")[^"]+(")`,'g'
     );
-    html = html.replace(re, `$1/${localPath}$2`);
+    const relToCat = path.relative(path.dirname(catFile), path.join(ROOT, localPath)).replace(/\\/g, '/');
+    html = html.replace(re, `$1${relToCat}$2`);
   }
 
   if (html !== original) {
