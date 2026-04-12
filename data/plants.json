@@ -694,7 +694,10 @@
       "nam doc mai",
       "thai mango",
       "golden",
-      "fiberless"
+      "fiberless",
+      "nam doc mai gold",
+      "golden nam doc mai",
+      "น้ำดอกไม้"
     ],
     "description": "Premium Thai mango with golden fiberless flesh and floral sweetness."
   },
@@ -890,7 +893,13 @@
       "tennis ball",
       "muntingia",
       "jamaican cherry",
-      "thaen pazham"
+      "thaen pazham",
+      "jamaica cherry",
+      "panama berry",
+      "singapore cherry",
+      "cotton candy berry",
+      "strawberry tree",
+      "nakkaraegu"
     ],
     "description": "Fast-growing tropical tree with small sweet red berries."
   },
@@ -1259,7 +1268,11 @@
       "mulberry",
       "brazilian",
       "morus nigra",
-      "long fruit"
+      "long fruit",
+      "brazilian long mulberry",
+      "black mulberry (brazilian)",
+      "amora preta",
+      "amora"
     ],
     "description": "Brazilian mulberry cultivar with elongated dark sweet berries."
   },
@@ -1969,5 +1982,56 @@
       "monkey sapote"
     ],
     "description": "Rare Central American fruit tree with sweet creamy yellow pulp."
+  },
+  {
+    "name": "Bleeding Heart",
+    "scientific": "Lamprocapnos spectabilis",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/bleeding-heart.html",
+    "keywords": [
+      "bleeding heart",
+      "lamprocapnos",
+      "dicentra",
+      "shade perennial",
+      "heart flower",
+      "old-fashioned bleeding heart",
+      "venus's car",
+      "lyre flower"
+    ],
+    "description": "Shade-loving perennial with iconic heart-shaped pink and white flowers."
+  },
+  {
+    "name": "Gold Shower / Thryallis",
+    "scientific": "Galphimia glauca",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/gold-shower.html",
+    "keywords": [
+      "gold shower",
+      "thryallis",
+      "galphimia",
+      "rain of gold",
+      "yellow flowers",
+      "shower of gold"
+    ],
+    "description": "Drought-tolerant evergreen shrub with year-round bright yellow flowers."
+  },
+  {
+    "name": "Champak",
+    "scientific": "Magnolia champaca",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/champak.html",
+    "keywords": [
+      "champak",
+      "champaca",
+      "shenbagam",
+      "champa",
+      "magnolia",
+      "fragrant tree",
+      "sacred tree",
+      "golden champa",
+      "joy perfume tree",
+      "champakam"
+    ],
+    "description": "Sacred fragrant tree with intensely aromatic golden-yellow flowers used in perfumery and religious offerings."
   }
 ]
