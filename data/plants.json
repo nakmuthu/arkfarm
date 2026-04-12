@@ -2548,5 +2548,357 @@
       "rubber ka ped"
     ],
     "description": "Rubber Plant, Rubber Fig, Rubber Tree, Indian Rubber Bush"
+  },
+  {
+    "name": "Cat Eye Fruit",
+    "scientific": "Syzygium zeylanicum",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/cat-eye-fruit.html",
+    "keywords": [
+      "cat-eye-fruit",
+      "cat eye fruit",
+      "ceylon syzygium",
+      "wild jamun",
+      "puli nondi",
+      "neer naval"
+    ],
+    "description": "Cat Eye Fruit, Ceylon Syzygium, Wild Jamun"
+  },
+  {
+    "name": "Grape - Black",
+    "scientific": "Vitis vinifera",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/grape-black.html",
+    "keywords": [
+      "grape-black",
+      "black grape",
+      "dark grape",
+      "wine grape",
+      "karuppu thirakshai",
+      "kala angoor"
+    ],
+    "description": "Black Grape, Dark Grape, Wine Grape"
+  },
+  {
+    "name": "Banana - Sirumalai",
+    "scientific": "Musa acuminata",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/banana-sirumalai.html",
+    "keywords": [
+      "banana-sirumalai",
+      "sirumalai banana",
+      "hill banana",
+      "small banana",
+      "sirumalai vazhai"
+    ],
+    "description": "Sirumalai Banana, Hill Banana, Small Banana"
+  },
+  {
+    "name": "Chitharathai / Lesser Galangal",
+    "scientific": "Alpinia officinarum",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/chitharathai.html",
+    "keywords": [
+      "chitharathai",
+      "lesser galangal",
+      "small galangal",
+      "kulanjan"
+    ],
+    "description": "Lesser Galangal, Chitharathai, Small Galangal"
+  },
+  {
+    "name": "Vasambu / Sweet Flag",
+    "scientific": "Acorus calamus",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/vasambu.html",
+    "keywords": [
+      "vasambu",
+      "sweet flag",
+      "calamus",
+      "வசம்பு",
+      "bach"
+    ],
+    "description": "Sweet Flag, Calamus, Vasambu"
+  },
+  {
+    "name": "Adathodai / Malabar Nut",
+    "scientific": "Justicia adhatoda",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/adathodai.html",
+    "keywords": [
+      "adathodai",
+      "malabar nut",
+      "vasaka",
+      "ஆடாதோடை",
+      "adusa / vasaka"
+    ],
+    "description": "Malabar Nut, Adathodai, Vasaka"
+  },
+  {
+    "name": "Vathanarayanan / Peacock Flower",
+    "scientific": "Caesalpinia pulcherrima",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/vathanarayanan.html",
+    "keywords": [
+      "vathanarayanan",
+      "peacock flower",
+      "pride of barbados",
+      "dwarf poinciana",
+      "மயில் கொன்றை / வாதநாராயணன்",
+      "gulmohar lata"
+    ],
+    "description": "Peacock Flower, Pride of Barbados, Dwarf Poinciana"
+  },
+  {
+    "name": "Karunochi / Chaste Tree",
+    "scientific": "Vitex negundo",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/karunochi.html",
+    "keywords": [
+      "karunochi",
+      "chaste tree",
+      "five-leaved chaste tree",
+      "நொச்சி / கருநொச்சி",
+      "nirgundi"
+    ],
+    "description": "Chaste Tree, Five-leaved Chaste Tree, Karunochi"
+  },
+  {
+    "name": "Maha Vilvam / Bael",
+    "scientific": "Aegle marmelos",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/maha-vilvam.html",
+    "keywords": [
+      "maha-vilvam",
+      "bael",
+      "bengal quince",
+      "stone apple",
+      "maha vilvam",
+      "வில்வம்",
+      "bel / bael"
+    ],
+    "description": "Bael, Bengal Quince, Stone Apple, Maha Vilvam"
+  },
+  {
+    "name": "Vetiver / Cuscus Grass",
+    "scientific": "Chrysopogon zizanioides",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/vetiver.html",
+    "keywords": [
+      "vetiver",
+      "cuscus grass",
+      "khus grass",
+      "வெட்டிவேர்",
+      "khus"
+    ],
+    "description": "Vetiver, Cuscus Grass, Khus Grass"
+  },
+  {
+    "name": "Aloe Vera",
+    "scientific": "Aloe vera",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/aloe-vera.html",
+    "keywords": [
+      "aloe-vera",
+      "aloe vera",
+      "true aloe",
+      "barbados aloe",
+      "கற்றாழை",
+      "ghritkumari"
+    ],
+    "description": "Aloe Vera, True Aloe, Barbados Aloe"
+  },
+  {
+    "name": "Aloe Vera - Red",
+    "scientific": "Aloe cameronii",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/aloe-vera-red.html",
+    "keywords": [
+      "aloe-vera-red",
+      "red aloe",
+      "cameron's ruwari aloe",
+      "சிவப்பு கற்றாழை",
+      "lal ghritkumari"
+    ],
+    "description": "Red Aloe, Cameron's Ruwari Aloe"
+  },
+  {
+    "name": "Ranakalli",
+    "scientific": "Kalanchoe pinnata",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/ranakalli.html",
+    "keywords": [
+      "ranakalli",
+      "miracle leaf",
+      "cathedral bells",
+      "life plant",
+      "ரணகள்ளி / இலை வழி முளை",
+      "patharchatta"
+    ],
+    "description": "Miracle Leaf, Cathedral Bells, Life Plant, Ranakalli"
+  },
+  {
+    "name": "Pirandai",
+    "scientific": "Cissus quadrangularis",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/pirandai.html",
+    "keywords": [
+      "pirandai",
+      "veldt grape",
+      "devil's backbone",
+      "bone setter",
+      "பிரண்டை",
+      "hadjod"
+    ],
+    "description": "Veldt Grape, Devil's Backbone, Bone Setter, Pirandai"
+  },
+  {
+    "name": "Elumbu Otti Ilai / Bone Joint Leaves",
+    "scientific": "Mukia maderaspatana",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/elumbu-otti-ilai.html",
+    "keywords": [
+      "elumbu-otti-ilai",
+      "bone joint leaves",
+      "madras pea pumpkin",
+      "elumbu otti ilai",
+      "எலும்பு ஒட்டி இலை",
+      "muktavan"
+    ],
+    "description": "Bone Joint Leaves, Madras Pea Pumpkin, Elumbu Otti Ilai"
+  },
+  {
+    "name": "Thippili / Indian Long Pepper",
+    "scientific": "Piper longum",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/thippili.html",
+    "keywords": [
+      "thippili",
+      "indian long pepper",
+      "long pepper",
+      "திப்பிலி",
+      "pipli"
+    ],
+    "description": "Indian Long Pepper, Long Pepper, Thippili"
+  },
+  {
+    "name": "Poonai Meesai / Java Tea",
+    "scientific": "Orthosiphon aristatus",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/poonai-meesai.html",
+    "keywords": [
+      "poonai-meesai",
+      "java tea",
+      "cat's whiskers",
+      "kidney tea plant",
+      "poonai meesai",
+      "பூனை மீசை",
+      "kumari booti"
+    ],
+    "description": "Java Tea, Cat's Whiskers, Kidney Tea Plant, Poonai Meesai"
+  },
+  {
+    "name": "Murungai - Kalyana / Indian Coral Tree",
+    "scientific": "Erythrina variegata",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/murungai-kalyana.html",
+    "keywords": [
+      "murungai-kalyana",
+      "indian coral tree",
+      "tiger's claw",
+      "variegated coral tree",
+      "முருங்கை - கல்யாண முருங்கை",
+      "pangara"
+    ],
+    "description": "Indian Coral Tree, Tiger's Claw, Variegated Coral Tree"
+  },
+  {
+    "name": "Murungai - Karumbu / Drumstick Tree",
+    "scientific": "Moringa oleifera",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/murungai-karumbu.html",
+    "keywords": [
+      "murungai-karumbu",
+      "drumstick tree",
+      "horseradish tree",
+      "moringa (karumbu variety)",
+      "முருங்கை - கரும்பு முருங்கை",
+      "sahjan"
+    ],
+    "description": "Drumstick Tree, Horseradish Tree, Moringa (Karumbu variety)"
+  },
+  {
+    "name": "Mint",
+    "scientific": "Mentha arvensis",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/mint.html",
+    "keywords": [
+      "mint",
+      "field mint",
+      "corn mint",
+      "wild mint",
+      "pudina"
+    ],
+    "description": "Mint, Field Mint, Corn Mint, Wild Mint"
+  },
+  {
+    "name": "Coriander",
+    "scientific": "Coriandrum sativum",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/coriander.html",
+    "keywords": [
+      "coriander",
+      "cilantro",
+      "dhania",
+      "chinese parsley",
+      "kothamalli"
+    ],
+    "description": "Coriander, Cilantro, Dhania, Chinese Parsley"
+  },
+  {
+    "name": "Thiruneetru Pachilai / Sweet Basil",
+    "scientific": "Ocimum basilicum",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/sweet-basil.html",
+    "keywords": [
+      "sweet-basil",
+      "sweet basil",
+      "common basil",
+      "italian basil",
+      "thiruneetru pachilai",
+      "sabja / tulsi"
+    ],
+    "description": "Sweet Basil, Common Basil, Italian Basil"
+  },
+  {
+    "name": "Basil - Black / Karu Tulsi",
+    "scientific": "Ocimum tenuiflorum",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/basil-black.html",
+    "keywords": [
+      "basil-black",
+      "holy basil",
+      "tulsi",
+      "krishna tulsi",
+      "black basil",
+      "karu tulsi / thulasi"
+    ],
+    "description": "Holy Basil, Tulsi, Krishna Tulsi, Black Basil"
+  },
+  {
+    "name": "Karpuravalli / Indian Borage",
+    "scientific": "Plectranthus amboinicus",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/karpuravalli.html",
+    "keywords": [
+      "karpuravalli",
+      "indian borage",
+      "country borage",
+      "mexican mint",
+      "cuban oregano",
+      "karpuravalli / omavalli",
+      "patharchur"
+    ],
+    "description": "Indian Borage, Country Borage, Mexican Mint, Cuban Oregano"
   }
 ]
