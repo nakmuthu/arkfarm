@@ -20,8 +20,13 @@ const plantEntries = plants.map(p => {
   let image = '';
   if (fs.existsSync(htmlPath)) {
     const html = fs.readFileSync(htmlPath, 'utf8');
-    const match = html.match(/src="(https:\/\/[^"]+\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|webp)[^"]*)"/i);
-    if (match) image = match[1];
+    const match = html.match(/class="section top-card[^"]*"[^>]*>[\s\S]{0,100}<img\s+src="([^"]+)"/i);
+    if (match) {
+      let imgSrc = match[1];
+      // Convert relative path to absolute GitHub Pages URL
+      if (imgSrc.startsWith('../../')) imgSrc = 'https://nakmuthu.github.io/arkfarm/' + imgSrc.replace('../../', '');
+      image = imgSrc;
+    }
   }
 
   // Get Tamil name

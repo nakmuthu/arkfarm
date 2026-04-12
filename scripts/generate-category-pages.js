@@ -34,9 +34,12 @@ for (const [catName, cat] of Object.entries(categories)) {
       let imgTag = '';
       if (fs.existsSync(htmlPath)) {
         const html = fs.readFileSync(htmlPath, 'utf8');
-        const match = html.match(/src="(https:\/\/[^"]+\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|webp)[^"]*)"/i);
+        const match = html.match(/class="section top-card[^"]*"[^>]*>[\s\S]{0,100}<img\s+src="([^"]+)"/i);
         if (match) {
-          imgTag = `\n        <img src="${match[1]}" alt="${p.name}">`;
+          let imgSrc = match[1];
+          // Convert relative path from plant page depth (../../images/...) to category page depth (../images/...)
+          if (imgSrc.startsWith('../../')) imgSrc = imgSrc.replace('../../', '../');
+          imgTag = `\n        <img src="${imgSrc}" alt="${p.name}">`;
         }
       }
 
