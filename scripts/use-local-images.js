@@ -42,10 +42,18 @@ for (const [slug, localPath] of Object.entries(localImages)) {
     const original = html;
     // Replace the top-card hero img src — div may have extra attributes like data-plant
     const relToFile = path.relative(path.dirname(file), path.join(ROOT, localPath)).replace(/\\/g, '/');
-    html = html.replace(
-      /(<div class="section top-card"[^>]*>\s*<img\s+src=")[^"]+(")/,
-      `$1${relToFile}$2`
-    );
+    // If img tag exists, replace its src; otherwise insert one after the top-card div opening
+    if (/(<div class="section top-card"[^>]*>[\s\S]{0,100}<img\s+src=")[^"]+(")/m.test(html)) {
+      html = html.replace(
+        /(<div class="section top-card"[^>]*>[\s\S]{0,100}<img\s+src=")[^"]+(")/,
+        `$1${relToFile}$2`
+      );
+    } else {
+      html = html.replace(
+        /(<div class="section top-card"[^>]*>)\s*\n(\s*<h1)/,
+        `$1\n      <img src="${relToFile}" alt="${slug.replace(/-/g,' ')}" style="width:100%;border-radius:12px;margin-bottom:10px;">\n$2`
+      );
+    }
     if (html !== original) {
       fs.writeFileSync(file, html, 'utf8');
       console.log('plant html updated:', path.relative(ROOT, file));
