@@ -118,7 +118,7 @@ Use `#[[file:plants/fruit-trees/passion-fruit.html]]` as the reference template.
 - All collapsible `<details>` sections with `data-i18n` on `<summary>`
 - Every table `<strong>` label has `data-i18n="key_name"`
 - Every value `<td>` has `data-i18n="key_name_val"`
-- Photo gallery with Wikimedia images + attribution line
+- Photo gallery with Wikimedia images + attribution line — **DO NOT add Photo Gallery section; it will be added manually later**
 - Disclaimer on medicinal section: `data-i18n="disclaimer"`
 - Observation notes: `data-i18n="observation_placeholder"`
 
@@ -135,8 +135,9 @@ Use `#[[file:plants/fruit-trees/passion-fruit.html]]` as the reference template.
 | 🌿 Cultural Significance | `cultural_significance` |
 | 🍈 Nutritional Information | `nutritional_info` |
 | 🌿 Medicinal Uses | `medicinal_uses` |
-| 📸 Photo Gallery | `photo_gallery` |
 | 📝 Orchard Observation Notes | `observation_notes` |
+
+**DO NOT include 📸 Photo Gallery section** — galleries will be added manually later.
 
 **Omit sections not relevant** to the plant (e.g., no Nutritional Info for ornamental plants, no Flowering & Fruiting for non-flowering plants).
 
@@ -193,12 +194,26 @@ Add a new entry to the JSON array:
 
 Keywords should include: common names, local names (Tamil, Hindi), category-related terms, and distinctive features.
 
+Then run the enrichment script to auto-extract common names and local names from the HTML pages into the keywords:
+```bash
+node scripts/enrich-search-index.js
+```
+This ensures search works with local names like "karuveppilai", "nimbu", "sahjan", etc.
+
 ## Step 6: Regenerate Category Page
 
 Run the script to rebuild all category pages from plants.json:
 ```bash
 node scripts/generate-category-pages.js
 ```
+
+## Step 6b: Update Homepage Counts
+
+Run the script to update species counts on the homepage:
+```bash
+node scripts/update-homepage-counts.js
+```
+This updates the hero total ("🌱 121 species documented") and per-category counts.
 
 This auto-generates all category pages with correct plant cards. No manual editing needed.
 
@@ -216,6 +231,8 @@ This auto-generates portrait ID card tags (54mm × 85.6mm) for every plant with:
 - 🌳 ARKFARM logo
 
 No manual editing needed — the script reads plants.json and each plant's HTML to build everything.
+
+**IMPORTANT:** This script MUST be re-run whenever a plant's hero image is added or changed, otherwise the name tag will show the old/missing image.
 
 ## Step 8: Push to GitHub
 
@@ -271,28 +288,26 @@ After pushing, verify:
 ## Quick Checklist Per Plant
 
 - [ ] Research plant info from credible sources
-- [ ] Create `plants/<category>/<slug>.html` with full content and all data-i18n attributes
+- [ ] Create `plants/<category>/<slug>.html` with full content and all data-i18n attributes (NO photo gallery)
 - [ ] Use ONLY standard data-i18n keys (never invent section.*, label.*, plant.* formats)
-- [ ] Run `node scripts/add-images.js` to auto-add Wikimedia images (or add manually)
-- [ ] Run `node scripts/generate-tamil.js` then `node scripts/generate-tamil-fallback.js` for Tamil translations
-- [ ] Add entry to `data/plants.json`
-- [ ] Run `node scripts/generate-category-pages.js` to rebuild category pages
-- [ ] Run `node scripts/generate-print-tags.js` to rebuild print tags
-- [ ] Run `node scripts/validate-i18n.js` to catch any i18n issues
-- [ ] If validation shows missing keys in global dict, add them to `data/i18n-ta.json`
-- [ ] Push all files to GitHub (prefer git clone/push for bulk)
-- [ ] Keep local workspace in sync
+- [ ] Run `node scripts/add-plant.js` — handles everything else automatically:
+  - Fetches Wikimedia images
+  - Generates Tamil translations (batched Google Translate)
+  - Updates search index
+  - Enriches search keywords
+  - Rebuilds category pages
+  - Updates homepage counts
+  - Rebuilds print tags
+  - Validates i18n
+- [ ] Run `node scripts/add-plant.js --push` to also auto-push to GitHub
 
 ## Recommended Order for Bulk Additions
 
-When adding multiple plants at once, follow this order for efficiency:
+When adding multiple plants at once:
 1. Create all HTML plant pages first
-2. Add all entries to `data/plants.json`
-3. Run `node scripts/add-images.js` (fetches images for ALL pages missing them)
-4. Run `node scripts/generate-tamil.js && node scripts/generate-tamil-fallback.js`
-5. Run `node scripts/generate-category-pages.js`
-6. Run `node scripts/generate-print-tags.js`
-7. Push everything to GitHub in one commit via git
+2. Run `node scripts/add-plant.js --push`
+
+That's it — the master script handles all remaining steps in one command.
 
 ## File Reference
 
@@ -321,9 +336,11 @@ When adding multiple plants at once, follow this order for efficiency:
 
 | Script | Purpose | When to run |
 |--------|---------|-------------|
+| `node scripts/enrich-search-index.js` | Extracts common/local names from HTML into search keywords | After adding plants to plants.json |
 | `node scripts/add-images.js` | Fetches Wikimedia images for all pages missing them | After creating new plant HTML pages |
 | `node scripts/generate-category-pages.js` | Rebuilds ALL category pages from plants.json | After adding/removing plants from plants.json |
-| `node scripts/generate-print-tags.js` | Rebuilds print-tags.html with all plants and images | After adding plants or images |
+| `node scripts/update-homepage-counts.js` | Updates species counts on homepage | After adding/removing plants |
+| `node scripts/generate-print-tags.js` | Rebuilds print-tags.html with all plants and images | After adding plants, changing images, or any hero image update |
 | `node scripts/generate-tamil.js` | Generates Tamil files for pages with data-i18n on values | After creating new plant HTML pages |
 | `node scripts/generate-tamil-fallback.js` | Generates Tamil files for remaining pages | After generate-tamil.js if some pages still missing |
 | `node scripts/validate-i18n.js` | Validates all pages use standard i18n keys | After creating new plant pages, BEFORE pushing |
