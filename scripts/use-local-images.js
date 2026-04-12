@@ -40,11 +40,10 @@ for (const [slug, localPath] of Object.entries(localImages)) {
   for (const file of matches) {
     let html = fs.readFileSync(file, 'utf8');
     const original = html;
-    // Replace the top-card hero img src (first img in .section.top-card)
-    // Build a relative path from the plant file's directory to the image
+    // Replace the top-card hero img src — div may have extra attributes like data-plant
     const relToFile = path.relative(path.dirname(file), path.join(ROOT, localPath)).replace(/\\/g, '/');
     html = html.replace(
-      /(<div class="section top-card">\s*<img\s+src=")[^"]+(")/,
+      /(<div class="section top-card"[^>]*>\s*<img\s+src=")[^"]+(")/,
       `$1${relToFile}$2`
     );
     if (html !== original) {
