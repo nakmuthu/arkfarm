@@ -29,15 +29,17 @@ const plantEntries = plants.map(p => {
     }
   }
 
-  // Get Tamil name
+  // Get Tamil name — prefer global dict, fall back to per-plant file
   const slug = p.url.split('/').pop().replace('.html', '');
-  let tamilName = '';
-  const tamilFile = `data/i18n-ta-${slug}.json`;
-  if (fs.existsSync(tamilFile)) {
-    const td = JSON.parse(fs.readFileSync(tamilFile, 'utf8'));
-    tamilName = td.plant_name || '';
+  let tamilName = globalTa[`plant_name_${slug}`] || '';
+  // Only use per-plant file if global dict doesn't have it
+  if (!tamilName) {
+    const tamilFile = `data/i18n-ta-${slug}.json`;
+    if (fs.existsSync(tamilFile)) {
+      const td = JSON.parse(fs.readFileSync(tamilFile, 'utf8'));
+      tamilName = td.plant_name || '';
+    }
   }
-  if (!tamilName) tamilName = globalTa[`plant_name_${slug}`] || '';
 
   return {
     name: p.name,
