@@ -243,7 +243,12 @@ function updateSearchIndex(slug, htmlPath, dir) {
   const html = fs.readFileSync(htmlPath, 'utf8');
   const name = (html.match(/<h1[^>]*>([^<]+)</) || [])[1] || slug;
   const scientific = (html.match(/data-i18n="scientific_name">([^<]+)</) || [])[1] || '';
-  const desc = (html.match(/data-i18n="common_names_val">([^<]+)</) || [])[1] || '';
+  // Use meta description for a proper sentence; fall back to common names
+  const metaDesc = (html.match(/<meta name="description" content="([^"]+)"/) || [])[1] || '';
+  const commonNames = (html.match(/data-i18n="common_names_val">([^<]+)</) || [])[1] || '';
+  const desc = metaDesc
+    ? metaDesc.replace(/^Complete guide to [^-]+ - /, '').replace(/^Complete guide to [^(]+\([^)]+\) - /, '')
+    : commonNames;
 
   plants.push({ name: name.trim(), scientific: scientific.trim(), category, url, keywords: [slug], description: desc.trim() });
   fs.writeFileSync('data/plants.json', JSON.stringify(plants, null, 2) + '\n', 'utf8');
