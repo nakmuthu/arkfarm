@@ -26,7 +26,7 @@
   async function loadTamil() {
     if (tamilDict) return tamilDict;
     try {
-      var res = await fetch('/arkfarm/data/i18n-ta.json');
+      var res = await fetch('/arkfarm/data/i18n-ta.json?v=' + Date.now());
       tamilDict = await res.json();
     } catch (e) {
       console.error('Could not load Tamil translations:', e);
