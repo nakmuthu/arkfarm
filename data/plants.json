@@ -2900,5 +2900,53 @@
       "patharchur"
     ],
     "description": "Succulent aromatic herb with camphor-oregano scent; used for coughs and respiratory conditions."
+  },
+  {
+    "name": "Snake Plant",
+    "scientific": "Sansevieria trifasciata",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/snake-plant.html",
+    "keywords": [
+      "snake-plant",
+      "snake plant",
+      "mother-in-law's tongue",
+      "saint george's sword",
+      "viper's bowstring hemp",
+      "pambu kalli",
+      "nagphani"
+    ],
+    "description": "Snake Plant, Mother-in-Law's Tongue, Saint George's Sword, Viper's Bowstring Hemp"
+  },
+  {
+    "name": "ZZ Plant",
+    "scientific": "Zamioculcas zamiifolia",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/zz-plant.html",
+    "keywords": [
+      "zz-plant",
+      "zz plant",
+      "zanzibar gem",
+      "eternity plant",
+      "aroid palm",
+      "emerald palm",
+      "zz chedi"
+    ],
+    "description": "ZZ Plant, Zanzibar Gem, Eternity Plant, Aroid Palm, Emerald Palm"
+  },
+  {
+    "name": "Bird's Eye Chilly",
+    "scientific": "Capsicum frutescens",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/birds-eye-chilly.html",
+    "keywords": [
+      "birds-eye-chilly",
+      "bird's eye chilly",
+      "thai chilli",
+      "tabasco pepper",
+      "malagueta pepper",
+      "kanthari mulagu",
+      "kani mirchi"
+    ],
+    "description": "Bird's Eye Chilly, Thai Chilli, Tabasco Pepper, Malagueta Pepper"
   }
 ]
