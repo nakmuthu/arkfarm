@@ -185,35 +185,42 @@ async function generateTamil(slug, htmlPath) {
   const existing = fs.existsSync(tamilFile) ? JSON.parse(fs.readFileSync(tamilFile, 'utf8')) : {};
 
   // Extract all _val keys and their English text
-  const toTranslate = [];
-  const keys = [];
+  const pairs = {};
   const regex = /data-i18n="([^"]*_val)"[^>]*>([^<]+)/g;
   let m;
   while ((m = regex.exec(html)) !== null) {
     const key = m[1], val = m[2].trim();
-    if (val && !existing[key]) { toTranslate.push(val); keys.push(key); }
+    if (val && !existing[key]) pairs[key] = val;
   }
   const spanRegex = /<span data-i18n="([^"]*_val)">([^<]+)<\/span>/g;
   while ((m = spanRegex.exec(html)) !== null) {
     const key = m[1], val = m[2].trim();
-    if (val && !existing[key]) { toTranslate.push(val); keys.push(key); }
+    if (val && !existing[key]) pairs[key] = val;
   }
 
-  if (toTranslate.length > 0) {
-    const translated = await googleTranslateBatch(toTranslate);
-    for (let i = 0; i < keys.length; i++) {
-      if (translated[i] && translated[i] !== toTranslate[i]) existing[keys[i]] = translated[i];
+  // Translate each key individually to avoid batch-split scrambling
+  let count = 0;
+  for (const [key, enVal] of Object.entries(pairs)) {
+    const translated = await googleTranslateBatch([enVal]);
+    if (translated[0] && translated[0] !== enVal) {
+      existing[key] = translated[0];
+      count++;
     }
+    await sleep(150);
   }
 
   // Set plant_name if missing
   if (!existing.plant_name) {
     const nameMatch = html.match(/<h1[^>]*>([^<]+)</);
-    if (nameMatch) existing.plant_name = nameMatch[1].trim();
+    if (nameMatch) {
+      const translated = await googleTranslateBatch([nameMatch[1].trim()]);
+      existing.plant_name = (translated[0] && translated[0] !== nameMatch[1].trim())
+        ? translated[0] : nameMatch[1].trim();
+    }
   }
 
   fs.writeFileSync(tamilFile, JSON.stringify(existing, null, 2) + '\n', 'utf8');
-  return keys.length;
+  return count;
 }
 
 // ─── Step 4: Update plants.json ───────────────────────────────────────────────
@@ -324,6 +331,38 @@ async function main() {
   // Enrich keywords
   log('🔍', 'Enriching search keywords...');
   enrichSearch();
+
+  // Sync global Tamil dict with plant_name and plant_desc for all processed plants
+  log('🌐', 'Syncing global Tamil dict...');
+  const globalTa = JSON.parse(fs.readFileSync('data/i18n-ta.json', 'utf8'));
+  const allPlants = JSON.parse(fs.readFileSync('data/plants.json', 'utf8'));
+  let syncCount = 0;
+  for (const { slug } of targets) {
+    const tamilFile = `data/i18n-ta-${slug}.json`;
+    if (!fs.existsSync(tamilFile)) continue;
+    const td = JSON.parse(fs.readFileSync(tamilFile, 'utf8'));
+    const nameKey = `plant_name_${slug}`;
+    // Only write to global if it's Tamil (not English fallback)
+    const isTamil = str => str && /[\u0B80-\u0BFF]/.test(str);
+    if (td.plant_name && isTamil(td.plant_name) && !isTamil(globalTa[nameKey] || '')) {
+      globalTa[nameKey] = td.plant_name;
+      syncCount++;
+    }
+    // Sync plant_desc from plants.json
+    const descKey = `plant_desc_${slug}`;
+    if (!globalTa[descKey]) {
+      const plant = allPlants.find(p => p.url.includes(`/${slug}.html`));
+      if (plant && plant.description) {
+        // Use existing translation if available, otherwise keep English for now
+        globalTa[descKey] = globalTa[descKey] || plant.description;
+        syncCount++;
+      }
+    }
+  }
+  if (syncCount > 0) {
+    fs.writeFileSync('data/i18n-ta.json', JSON.stringify(globalTa, null, 2), 'utf8');
+    log('🌐', `Synced ${syncCount} keys to global Tamil dict`);
+  }
 
   // Regenerate all outputs
   log('📄', 'Regenerating category pages...');

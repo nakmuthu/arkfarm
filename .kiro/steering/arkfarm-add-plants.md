@@ -152,29 +152,32 @@ Same as label keys but with `_val` suffix: `growth_habit_val`, `climate_val`, `c
 
 ## Step 4: Create Tamil Translation File
 
-### Automated (preferred for bulk):
-After creating the HTML page, run both scripts:
+### Automated (preferred — use this):
+After creating the HTML page, run:
 ```bash
-node scripts/generate-tamil.js
-node scripts/generate-tamil-fallback.js
+node scripts/add-plant.js --slug <slug>
 ```
-The first script handles pages with proper `data-i18n` attributes on value cells. The second catches any remaining pages.
+This handles Tamil generation correctly — translates each key individually (not in batch) to avoid scrambled translations. It also automatically syncs `plant_name_*` and `plant_desc_*` to the global `data/i18n-ta.json`.
+
+**CRITICAL — Known issue with old scripts:** `generate-tamil.js` and `generate-tamil-fallback.js` use batch translation which causes values to be assigned to wrong keys. Do NOT use these scripts for new plants. Use `add-plant.js` instead.
+
+If translations are scrambled (values contain `||` or wrong content), fix with:
+```bash
+node scripts/regenerate-tamil-files.js --slug <slug>
+```
+This translates each key individually and fixes the file.
 
 ### Manual (for higher quality translations):
 Create file: `data/i18n-ta-<slug>.json`
 
 Must contain:
 - `plant_name` — Tamil name of the plant (use actual Tamil name if known, e.g., "தேங்காய்" for Coconut)
-- `scientific_name` — Scientific name transliterated into Tamil script
 - All `_val` keys matching every `data-i18n` attribute in the HTML page
-- For English terms without Tamil equivalents, transliterate into Tamil script:
-  - "Compost" → "கம்போஸ்ட்"
-  - "Drip irrigation" → "டிரிப் இரிகேஷன்"
-  - "Polyphenols" → "பாலிஃபீனால்கள்"
-  - "Tropical" → "வெப்பமண்டல"
-  - "Subtropical" → "துணை வெப்பமண்டல"
 
-Alternatively, run the generation script: `node scripts/generate-tamil.js` (handles pages with proper data-i18n attributes) followed by `node scripts/generate-tamil-fallback.js` (handles remaining pages).
+After creating manually, also add to global dict:
+```bash
+node scripts/sync-global-i18n.js
+```
 
 ## Step 5: Update Search Index
 
@@ -289,25 +292,32 @@ After pushing, verify:
 
 - [ ] Research plant info from credible sources
 - [ ] Create `plants/<category>/<slug>.html` with full content and all data-i18n attributes (NO photo gallery)
-- [ ] Use ONLY standard data-i18n keys (never invent section.*, label.*, plant.* formats)
-- [ ] Run `node scripts/add-plant.js` — handles everything else automatically:
-  - Generates Tamil translations (batched Google Translate)
-  - Updates search index
-  - Enriches search keywords
-  - Rebuilds category pages
-  - Updates homepage counts
-  - Rebuilds print tags
-  - Validates i18n
+- [ ] Use ONLY standard data-i18n keys (never invent section.*, label.*, plant.* formats); if you need a new label key, add it to `data/i18n-ta.json` first
+- [ ] Write a proper one-sentence `description` in the plant entry (not keywords) — this becomes the category card description
+- [ ] Run `node scripts/add-plant.js --slug <slug>` — handles Tamil (per-key, no scrambling), search index, global dict sync, category pages, homepage counts, print tags, validation
 - [ ] Add image file to `images/categories/plants/<category>/<slug>.jpg` and run `node scripts/use-local-images.js`
-- [ ] Run `node scripts/add-plant.js --push` to also auto-push to GitHub
+- [ ] Run `node scripts/validate-i18n.js` and fix any warnings before pushing
+- [ ] `git add -A && git commit -m "..." && git push origin main`
 
 ## Recommended Order for Bulk Additions
 
-When adding multiple plants at once:
-1. Create all HTML plant pages first
-2. Run `node scripts/add-plant.js --push`
+1. Create all HTML plant pages
+2. For each plant: `node scripts/add-plant.js --slug <slug>`
+3. Add all images, then: `node scripts/use-local-images.js`
+4. `node scripts/validate-i18n.js` — fix any warnings
+5. `git add -A && git commit && git push`
 
-That's it — the master script handles all remaining steps in one command.
+## Known Issues & Fixes
+
+| Issue | Root Cause | Fix |
+|-------|-----------|-----|
+| Scrambled Tamil translations | `generate-tamil.js` batch splits incorrectly | Use `add-plant.js` (per-key translation); fix existing with `regenerate-tamil-files.js` |
+| `plant_name_*` missing from global dict | Not synced after Tamil generation | `add-plant.js` now auto-syncs; or run `sync-global-i18n.js` |
+| Category card descriptions not translating | `plant_desc_*` missing from global dict | `add-plant.js` now syncs; descriptions must be proper sentences not keywords |
+| Hero image not updating | `use-local-images.js` regex missed divs with `data-plant` attribute | Fixed in script |
+| Category cards/print tags lost images after regeneration | `generate-category-pages.js` and `generate-print-tags.js` only matched `https://` URLs | Fixed in both scripts |
+| Homepage counter missing for new categories | `update-homepage-counts.js` had hardcoded categories; homepage cards had no count element | Fixed: script uses `data-count` attribute; all category cards now have count `<p>` |
+| New category not processed by `add-plant.js` | `PLANT_DIRS` array missing the new folder | Add folder to `PLANT_DIRS` in `add-plant.js` before running |
 
 ## File Reference
 
@@ -336,11 +346,12 @@ That's it — the master script handles all remaining steps in one command.
 
 | Script | Purpose | When to run |
 |--------|---------|-------------|
-| `node scripts/enrich-search-index.js` | Extracts common/local names from HTML into search keywords | After adding plants to plants.json |
+| `node scripts/add-plant.js --slug <slug>` | Master script: Tamil (per-key), search index, global dict sync, category pages, homepage, print tags, validation | After creating each plant HTML page |
 | `node scripts/use-local-images.js` | Updates hero, category card, and name tag image paths from local image files | After adding/replacing images under `images/categories/plants/` |
-| `node scripts/generate-category-pages.js` | Rebuilds ALL category pages from plants.json | After adding/removing plants from plants.json |
-| `node scripts/update-homepage-counts.js` | Updates species counts on homepage | After adding/removing plants |
-| `node scripts/generate-print-tags.js` | Rebuilds print-tags.html with all plants and images | After adding plants, changing images, or any hero image update |
-| `node scripts/generate-tamil.js` | Generates Tamil files for pages with data-i18n on values | After creating new plant HTML pages |
-| `node scripts/generate-tamil-fallback.js` | Generates Tamil files for remaining pages | After generate-tamil.js if some pages still missing |
+| `node scripts/regenerate-tamil-files.js --slug <slug>` | Fixes scrambled Tamil translation files by retranslating per-key | When a Tamil file has wrong/mixed-up values |
+| `node scripts/sync-global-i18n.js` | Syncs plant_name_* keys from per-plant files to global dict | If global dict is missing plant names after bulk additions |
 | `node scripts/validate-i18n.js` | Validates all pages use standard i18n keys | After creating new plant pages, BEFORE pushing |
+| `node scripts/generate-category-pages.js` | Rebuilds ALL category pages from plants.json | After adding/removing plants from plants.json |
+| `node scripts/update-homepage-counts.js` | Updates species counts on homepage (uses data-count attributes) | After adding/removing plants |
+| `node scripts/generate-print-tags.js` | Rebuilds print-tags.html with all plants and images | After adding plants or changing hero images |
+| `node scripts/enrich-search-index.js` | Extracts common/local names from HTML into search keywords | After adding plants to plants.json |
