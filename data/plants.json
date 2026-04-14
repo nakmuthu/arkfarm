@@ -2948,5 +2948,181 @@
       "kani mirchi"
     ],
     "description": "Fiery small chilli with intense heat; widely used in South and Southeast Asian cooking and traditional medicine."
+  },
+  {
+    "name": "Heliconia - Golden Torch",
+    "scientific": "Heliconia psittacorum",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/golden-torch.html",
+    "keywords": [
+      "golden-torch",
+      "golden torch",
+      "parrot's beak",
+      "parrot heliconia",
+      "heliconia"
+    ],
+    "description": "Complete guide to Heliconia (Heliconia psittacorum) at ArkFarm."
+  },
+  {
+    "name": "Betel Leaf",
+    "scientific": "Piper betle",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/betel-leaf.html",
+    "keywords": [
+      "betel-leaf",
+      "betel leaf",
+      "betel vine",
+      "pan leaf",
+      "vettrilai",
+      "pan",
+      "nagavalli"
+    ],
+    "description": "Complete guide to Betel Leaf (Piper betle) at ArkFarm."
+  },
+  {
+    "name": "Vanilla",
+    "scientific": "Vanilla planifolia",
+    "category": "Spices & Herbs",
+    "url": "/arkfarm/plants/spices-herbs/vanilla.html",
+    "keywords": [
+      "vanilla",
+      "flat-leaved vanilla",
+      "bourbon vanilla",
+      "vaanilla"
+    ],
+    "description": "Complete guide to Vanilla (Vanilla planifolia) at ArkFarm."
+  },
+  {
+    "name": "Papaya",
+    "scientific": "Carica papaya",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/papaya.html",
+    "keywords": [
+      "papaya",
+      "papaw",
+      "pawpaw",
+      "pappali",
+      "papita",
+      "omakaya"
+    ],
+    "description": "Complete guide to Papaya (Carica papaya) at ArkFarm."
+  },
+  {
+    "name": "Casuarina",
+    "scientific": "Casuarina equisetifolia",
+    "category": "Timber Trees",
+    "url": "/arkfarm/plants/timber-trees/casuarina.html",
+    "keywords": [
+      "casuarina",
+      "ironwood",
+      "she-oak",
+      "horsetail tree",
+      "beach casuarina",
+      "savukku",
+      "jangli saru",
+      "kattadi"
+    ],
+    "description": "Complete guide to Casuarina (Casuarina equisetifolia) at ArkFarm."
+  },
+  {
+    "name": "Yesterday Today and Tomorrow",
+    "scientific": "Brunfelsia pauciflora",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/yesterday-today-tomorrow.html",
+    "keywords": [
+      "yesterday-today-tomorrow",
+      "yesterday today and tomorrow",
+      "morning noon and night",
+      "kiss me quick",
+      "brunfelsia"
+    ],
+    "description": "Complete guide to Yesterday Today and Tomorrow (Brunfelsia pauciflora) at ArkFarm."
+  },
+  {
+    "name": "Blushing Philodendron",
+    "scientific": "Philodendron erubescens",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/blushing-philodendron.html",
+    "keywords": [
+      "blushing-philodendron",
+      "blushing philodendron",
+      "red-leaf philodendron",
+      "pink princess philodendron",
+      "philodendron"
+    ],
+    "description": "Complete guide to Blushing Philodendron (Philodendron erubescens) at ArkFarm."
+  },
+  {
+    "name": "Boston Fern",
+    "scientific": "Nephrolepis exaltata",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/boston-fern.html",
+    "keywords": [
+      "boston-fern",
+      "boston fern",
+      "sword fern",
+      "ladder fern",
+      "fern"
+    ],
+    "description": "Complete guide to Boston Fern (Nephrolepis exaltata) at ArkFarm."
+  },
+  {
+    "name": "Giant Pothos",
+    "scientific": "Epipremnum aureum",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/giant-pothos.html",
+    "keywords": [
+      "giant-pothos",
+      "giant pothos",
+      "golden pothos",
+      "devil's ivy",
+      "money plant",
+      "pothos"
+    ],
+    "description": "Complete guide to Giant Pothos (Epipremnum aureum) at ArkFarm."
+  },
+  {
+    "name": "Dumb Cane",
+    "scientific": "Dieffenbachia Camille",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/dumb-cane.html",
+    "keywords": [
+      "dumb-cane",
+      "dumb cane",
+      "dieffenbachia",
+      "leopard lily"
+    ],
+    "description": "Complete guide to Dumb Cane (Dieffenbachia Camille) at ArkFarm."
+  },
+  {
+    "name": "Pei Mirati",
+    "scientific": "Anisomeles malabarica",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/pei-mirati.html",
+    "keywords": [
+      "pei-mirati",
+      "pei mirati",
+      "malabar catmint",
+      "indian catmint",
+      "peimuratti",
+      "gobhi"
+    ],
+    "description": "Complete guide to Pei Mirati (Anisomeles malabarica) at ArkFarm."
+  },
+  {
+    "name": "Rain Lily",
+    "scientific": "Zephyranthes candida",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/rain-lily.html",
+    "keywords": [
+      "rain-lily",
+      "rain lily",
+      "white rain lily",
+      "zephyr lily",
+      "autumn zephyr lily",
+      "mazhai arumbu",
+      "barsati phool"
+    ],
+    "description": "Complete guide to Rain Lily (Zephyranthes candida) at ArkFarm."
   }
 ]
