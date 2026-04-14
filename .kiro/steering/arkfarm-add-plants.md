@@ -97,7 +97,7 @@ Use `#[[file:plants/fruit-trees/passion-fruit.html]]` as the reference template.
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PLANT_NAME - SCIENTIFIC_NAME | ArkFarm</title>
-  <meta name="description" content="Complete guide to PLANT_NAME (SCIENTIFIC_NAME) at ArkFarm.">
+  <meta name="description" content="One proper sentence describing the plant — e.g. 'Fast-growing tropical tree bearing large sweet orange fruit rich in papain enzyme and vitamin C.' This becomes the category card description and must NOT be the generic 'Complete guide to...' boilerplate.">
   <meta name="keywords" content="keyword1, keyword2, keyword3">
   <link rel="canonical" href="https://nakmuthu.github.io/arkfarm/plants/CATEGORY/SLUG.html">
   <link rel="stylesheet" href="../../css/style.css">

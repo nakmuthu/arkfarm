@@ -246,9 +246,9 @@ function updateSearchIndex(slug, htmlPath, dir) {
   // Use meta description for a proper sentence; fall back to common names
   const metaDesc = (html.match(/<meta name="description" content="([^"]+)"/) || [])[1] || '';
   const commonNames = (html.match(/data-i18n="common_names_val">([^<]+)</) || [])[1] || '';
-  const desc = metaDesc
-    ? metaDesc.replace(/^Complete guide to [^-]+ - /, '').replace(/^Complete guide to [^(]+\([^)]+\) - /, '')
-    : commonNames;
+  // Strip any generic "Complete guide to ..." boilerplate regardless of format
+  const cleanedMeta = metaDesc.replace(/^Complete guide to .+?(?:at ArkFarm\.?)?$/i, '').trim();
+  const desc = cleanedMeta || commonNames;
 
   plants.push({ name: name.trim(), scientific: scientific.trim(), category, url, keywords: [slug], description: desc.trim() });
   fs.writeFileSync('data/plants.json', JSON.stringify(plants, null, 2) + '\n', 'utf8');
@@ -353,14 +353,28 @@ async function main() {
       globalTa[nameKey] = td.plant_name;
       syncCount++;
     }
-    // Sync plant_desc from plants.json
+    // Sync plant_desc from plants.json — translate to Tamil if not already present
     const descKey = `plant_desc_${slug}`;
-    if (!globalTa[descKey]) {
+    if (!isTamil(globalTa[descKey] || '')) {
       const plant = allPlants.find(p => p.url.includes(`/${slug}.html`));
       if (plant && plant.description) {
-        // Use existing translation if available, otherwise keep English for now
-        globalTa[descKey] = globalTa[descKey] || plant.description;
-        syncCount++;
+        try {
+          const translated = await httpGet(
+            'https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ta&dt=t&q=' +
+            encodeURIComponent(plant.description), 8000
+          );
+          const parsed = JSON.parse(translated);
+          const ta = parsed[0].map(x => x[0]).join('');
+          if (isTamil(ta)) {
+            globalTa[descKey] = ta;
+            syncCount++;
+          }
+        } catch (e) {
+          // fallback: store English so card at least has text
+          globalTa[descKey] = plant.description;
+          syncCount++;
+        }
+        await sleep(300);
       }
     }
   }
