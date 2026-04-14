@@ -4,34 +4,38 @@ Admin URL: https://nakmuthu.github.io/arkfarm/admin/
 
 ## One-time GitHub OAuth Setup
 
+Sveltia CMS handles auth directly via GitHub — no external proxy needed.
+
 1. Go to https://github.com/settings/developers → "OAuth Apps" → "New OAuth App"
 2. Fill in:
    - Application name: `ArkFarm CMS`
    - Homepage URL: `https://nakmuthu.github.io/arkfarm/`
-   - Authorization callback URL: `https://sveltia-cms-auth.pages.dev/callback`
+   - Authorization callback URL: `https://nakmuthu.github.io/arkfarm/admin/`
 3. Click "Register application"
 4. Copy the **Client ID**
 5. Generate a **Client Secret** and copy it
-6. Go to https://sveltia-cms-auth.pages.dev and follow instructions to deploy your own auth worker with those credentials (free on Cloudflare Workers)
-   - Or use the shared proxy by updating `base_url` in `admin/config.yml` with your deployed worker URL
+6. In `admin/config.yml`, add under `backend`:
+   ```yaml
+   backend:
+     name: github
+     repo: nakmuthu/arkfarm
+     branch: main
+     app_id: YOUR_CLIENT_ID
+   ```
+7. Commit and push
 
 ## Usage
 
 - Visit https://nakmuthu.github.io/arkfarm/admin/
-- Log in with your GitHub account (must have write access to nakmuthu/arkfarm)
-- Select a plant from the list
-- Edit Tamil translation fields
-- Click "Publish" — changes are committed directly to GitHub and go live after ~1 minute
+- Click "Login with GitHub" — opens GitHub's own login page
+- Must have write access to nakmuthu/arkfarm repo
+- Select a plant, edit Tamil fields, click "Publish"
+- Changes commit directly to GitHub and go live in ~1 minute
 
-## What can be edited
+## Adding new admins
 
-Each plant's Tamil translation file (`data/i18n-ta-<slug>.json`) — all field values shown in Tamil on the plant pages and category cards.
+Add them as a collaborator in GitHub repo Settings → Collaborators. They can then log in from any device.
 
-## What cannot be edited here
+## After adding new plants
 
-- Plant HTML structure
-- English content values
-- Images
-- Search index (plants.json)
-
-Use the existing scripts for those.
+Run `node scripts/generate-cms-config.js` to update the CMS plant list, then commit and push.

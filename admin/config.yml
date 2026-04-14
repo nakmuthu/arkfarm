@@ -2,8 +2,6 @@ backend:
   name: github
   repo: nakmuthu/arkfarm
   branch: main
-  auth_endpoint: auth
-  base_url: https://sveltia-cms-auth.pages.dev
 
 media_folder: images/categories/plants
 public_folder: /arkfarm/images/categories/plants
