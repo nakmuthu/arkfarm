@@ -2,6 +2,7 @@ backend:
   name: github
   repo: nakmuthu/arkfarm
   branch: main
+  app_id: Ov23lifDIsbFM0AFvBG6
 
 media_folder: images/categories/plants
 public_folder: /arkfarm/images/categories/plants
