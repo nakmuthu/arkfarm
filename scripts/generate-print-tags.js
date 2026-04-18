@@ -47,7 +47,8 @@ const plantEntries = plants.map(p => {
     scientific: p.scientific,
     category: p.category,
     url: 'https://nakmuthu.github.io' + p.url,
-    image
+    image,
+    keywords: (p.keywords || []).join(' ').toLowerCase()
   };
 });
 
@@ -253,9 +254,16 @@ const html = `<!DOCTYPE html>
       var search = document.getElementById('tag-search').value.toLowerCase().trim();
       document.querySelectorAll('.tag-wrapper').forEach(function(w) {
         var name = w.dataset.name.toLowerCase();
+        var tamil = (w.dataset.tamil || '').toLowerCase();
+        var scientific = (w.dataset.scientific || '').toLowerCase();
+        var keywords = (w.dataset.keywords || '').toLowerCase();
         var wCat = w.dataset.category;
         var matchCat = cat === 'all' || wCat === cat;
-        var matchSearch = !search || name.includes(search);
+        var matchSearch = !search ||
+          name.includes(search) ||
+          tamil.includes(search) ||
+          scientific.includes(search) ||
+          keywords.includes(search);
         w.style.display = (matchCat && matchSearch) ? '' : 'none';
       });
       updateCount();
@@ -267,6 +275,9 @@ const html = `<!DOCTYPE html>
         var wrapper = document.createElement('div');
         wrapper.className = 'tag-wrapper';
         wrapper.dataset.name = p.name;
+        wrapper.dataset.tamil = p.tamilName || '';
+        wrapper.dataset.scientific = p.scientific || '';
+        wrapper.dataset.keywords = p.keywords || '';
         wrapper.dataset.category = p.category;
 
         var imgHtml = p.image
