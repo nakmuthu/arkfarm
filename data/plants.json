@@ -3124,5 +3124,228 @@
       "barsati phool"
     ],
     "description": "Bulbous perennial that bursts into white flowers within days of rainfall, naturalizing into dense clumps."
+  },
+  {
+    "name": "Red Ponnanganni",
+    "scientific": "Alternanthera sessilis",
+    "category": "Greens",
+    "url": "/arkfarm/plants/greens/red-ponnanganni.html",
+    "keywords": [
+      "red-ponnanganni",
+      "red sessile joyweed",
+      "dwarf copperleaf",
+      "joyweed",
+      "ponnanganni keerai",
+      "mukunuwenna",
+      "gudrisag"
+    ],
+    "description": "Nutritious creeping herb with reddish leaves, widely used in South Indian cooking and traditional medicine."
+  },
+  {
+    "name": "Black Nightshade",
+    "scientific": "Solanum nigrum",
+    "category": "Greens",
+    "url": "/arkfarm/plants/greens/black-nightshade.html",
+    "keywords": [
+      "black-nightshade",
+      "black nightshade",
+      "garden nightshade",
+      "wonder berry",
+      "manathakkali keerai",
+      "makoi",
+      "kamanchi"
+    ],
+    "description": "Traditional edible green with small black berries, used as a leafy vegetable and medicinal herb across South Asia."
+  },
+  {
+    "name": "Pineapple",
+    "scientific": "Ananas comosus",
+    "category": "Fruit Trees",
+    "url": "/arkfarm/plants/fruit-trees/pineapple.html",
+    "keywords": [
+      "pineapple",
+      "ananas",
+      "annanasi",
+      "kaitha chakka"
+    ],
+    "description": "Tropical bromeliad producing large sweet-tart fruit rich in bromelain enzyme and vitamin C."
+  },
+  {
+    "name": "Dove Tail Orchid",
+    "scientific": "Xiphidium caeruleum",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/dove-tail-orchid.html",
+    "keywords": [
+      "dove-tail-orchid",
+      "dove tail orchid",
+      "blue xiphidium",
+      "false orchid"
+    ],
+    "description": "Striking tropical plant with blue-white flowers resembling a dove's tail, grown as a bold ornamental accent."
+  },
+  {
+    "name": "Wandering Jew",
+    "scientific": "Tradescantia zebrina",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/wandering-jew.html",
+    "keywords": [
+      "wandering-jew",
+      "wandering jew",
+      "inch plant",
+      "silver inch plant",
+      "zebrina"
+    ],
+    "description": "Fast-spreading trailing plant with striking silver-striped purple leaves, popular as a ground cover and hanging basket plant."
+  },
+  {
+    "name": "Geranium Aralia",
+    "scientific": "Polyscias guilfoylei",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/geranium-aralia.html",
+    "keywords": [
+      "geranium-aralia",
+      "geranium aralia",
+      "wild coffee",
+      "geranium-leaf aralia"
+    ],
+    "description": "Elegant tropical shrub with deeply lobed aromatic leaves resembling geranium, widely used as a hedge and ornamental foliage plant."
+  },
+  {
+    "name": "Pencil Cactus",
+    "scientific": "Euphorbia tirucalli",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/pencil-cactus.html",
+    "keywords": [
+      "pencil-cactus",
+      "pencil cactus",
+      "milk bush",
+      "fire sticks",
+      "indian tree spurge",
+      "sehund",
+      "kalli",
+      "thutha"
+    ],
+    "description": "Striking succulent shrub with pencil-thin green stems forming a dramatic architectural silhouette in tropical gardens."
+  },
+  {
+    "name": "Thuja",
+    "scientific": "Thuja occidentalis",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/thuja.html",
+    "keywords": [
+      "thuja",
+      "eastern arborvitae",
+      "white cedar",
+      "tree of life"
+    ],
+    "description": "Evergreen conifer with scale-like aromatic foliage, widely planted as a privacy hedge and ornamental accent tree."
+  },
+  {
+    "name": "Giant Taro",
+    "scientific": "Alocasia macrorrhizos",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/giant-taro.html",
+    "keywords": [
+      "giant-taro",
+      "giant taro",
+      "upright elephant ear",
+      "giant alocasia",
+      "ape",
+      "cheppankizhangu",
+      "arbi",
+      "chembu"
+    ],
+    "description": "Dramatic tropical plant with enormous upright arrow-shaped leaves, creating a bold jungle statement in gardens and interiors."
+  },
+  {
+    "name": "Moses-in-the-Cradle",
+    "scientific": "Tradescantia spathacea",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/moses-in-the-cradle.html",
+    "keywords": [
+      "moses-in-the-cradle",
+      "boat lily",
+      "oyster plant",
+      "rhoeo"
+    ],
+    "description": "Bold rosette-forming plant with sword-shaped leaves that are green on top and deep purple beneath, popular as a ground cover and border plant."
+  },
+  {
+    "name": "Golden Bamboo",
+    "scientific": "Phyllostachys aurea",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/golden-bamboo.html",
+    "keywords": [
+      "golden-bamboo",
+      "golden bamboo",
+      "fishpole bamboo",
+      "monk's belly bamboo",
+      "mungil",
+      "baans",
+      "moongil"
+    ],
+    "description": "Elegant running bamboo with golden-yellow canes, widely planted as a privacy screen, windbreak, and ornamental grove."
+  },
+  {
+    "name": "Spider Aloe",
+    "scientific": "Aloe × spinosissima",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/spider-aloe.html",
+    "keywords": [
+      "spider-aloe",
+      "spider aloe",
+      "spiny aloe",
+      "kathalai",
+      "ghritkumari"
+    ],
+    "description": "Compact hybrid aloe with densely spined rosettes and bright orange flower spikes, ideal for sunny rock gardens and containers."
+  },
+  {
+    "name": "Ribbon Bush",
+    "scientific": "Homalocladium platycladum",
+    "category": "Ornamental Plants",
+    "url": "/arkfarm/plants/ornamental-plants/ribbon-bush.html",
+    "keywords": [
+      "ribbon-bush",
+      "ribbon bush",
+      "tapeworm plant",
+      "centipede plant",
+      "solomon's island vine"
+    ],
+    "description": "Unusual ornamental shrub with flat ribbon-like jointed stems instead of leaves, creating a striking architectural texture in tropical gardens."
+  },
+  {
+    "name": "White Frangipani",
+    "scientific": "Plumeria alba",
+    "category": "Flowering Plants",
+    "url": "/arkfarm/plants/flowering-plants/white-frangipani.html",
+    "keywords": [
+      "white-frangipani",
+      "white frangipani",
+      "white plumeria",
+      "temple flower",
+      "pagoda tree",
+      "perungalli / arali",
+      "champa",
+      "chempakam"
+    ],
+    "description": "Fragrant tropical tree with pure white flowers and a golden center, widely used in temple offerings and tropical garden design."
+  },
+  {
+    "name": "Insulin Plant",
+    "scientific": "Chamaecostus cuspidatus",
+    "category": "Medicinal Plants",
+    "url": "/arkfarm/plants/medicinal-plants/insulin-plant.html",
+    "keywords": [
+      "insulin-plant",
+      "insulin plant",
+      "fiery costus",
+      "step ladder plant",
+      "spiral flag",
+      "insulin keerai",
+      "insulin patta",
+      "chamaecostus"
+    ],
+    "description": "Tropical medicinal herb widely used in Ayurvedic and Siddha medicine for managing blood sugar levels in diabetes."
   }
 ]
