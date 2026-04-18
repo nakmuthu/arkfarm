@@ -11,6 +11,13 @@
     }
   }
 
+  function getImageUrl(p) {
+    // Derive image path from plant URL: /arkfarm/plants/<cat>/<slug>.html
+    const match = p.url.match(/\/plants\/([^/]+)\/([^/]+)\.html$/);
+    if (!match) return '';
+    return '/arkfarm/images/categories/plants/' + match[1] + '/' + match[2] + '.jpg';
+  }
+
   function renderResults(results, query) {
     const list = document.getElementById('search-results');
     if (!list) return;
@@ -21,10 +28,17 @@
 
     results.forEach(function (p) {
       const li = document.createElement('li');
-      li.innerHTML = '<a href="' + p.url + '">' + p.name + '</a>' +
-        (p.scientific ? ' <em>(' + p.scientific + ')</em>' : '') +
-        '<span class="category-tag">' + p.category + '</span>' +
-        (p.description ? '<br><small>' + p.description + '</small>' : '');
+      const imgUrl = getImageUrl(p);
+      li.innerHTML =
+        '<a class="search-result-link" href="' + p.url + '">' +
+          (imgUrl ? '<img class="search-result-img" src="' + imgUrl + '" alt="' + p.name + '" onerror="this.style.display=\'none\'">' : '') +
+          '<div class="search-result-body">' +
+            '<span class="search-result-name">' + p.name + '</span>' +
+            (p.scientific ? '<em class="search-result-sci">' + p.scientific + '</em>' : '') +
+            '<span class="category-tag">' + p.category + '</span>' +
+            (p.description ? '<small class="search-result-desc">' + p.description + '</small>' : '') +
+          '</div>' +
+        '</a>';
       list.appendChild(li);
     });
   }
