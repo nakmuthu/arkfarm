@@ -13,7 +13,6 @@ const categories = {
   'Timber Trees': { file: 'categories/timber-trees.html', emoji: '🪵', slug: 'timber-trees', i18nTitle: 'cat_timber_title', i18nIntro: 'cat_timber_intro', intro: 'Valuable hardwood and timber species at ArkFarm.' },
   'Vegetables': { file: 'categories/vegetables.html', emoji: '🥬', slug: 'vegetables', i18nTitle: 'cat_vegetables_title', i18nIntro: 'cat_vegetables_intro', intro: 'Fresh organic vegetables from ArkFarm.' },
   'Greens': { file: 'categories/greens.html', emoji: '🥗', slug: 'greens', i18nTitle: 'cat_greens_title', i18nIntro: 'cat_greens_intro', intro: 'Leafy greens and nutritious garden staples.' },
-  'Cactus': { file: 'categories/cactus.html', emoji: '🌵', slug: 'cactus', i18nTitle: 'cat_cactus_title', i18nIntro: 'cat_cactus_intro', intro: 'Hardy succulents and desert beauties.' },
   'Ornamental Plants': { file: 'categories/ornamental-plants.html', emoji: '🌺', slug: 'ornamental-plants', i18nTitle: 'cat_ornamental_title', i18nIntro: 'cat_ornamental_intro', intro: 'Decorative plants for landscaping and beauty.' },
 };
 

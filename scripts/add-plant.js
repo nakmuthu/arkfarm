@@ -234,7 +234,6 @@ function updateSearchIndex(slug, htmlPath, dir) {
     : dir.includes('timber-trees') ? 'Timber Trees'
     : dir.includes('vegetables') ? 'Vegetables'
     : dir.includes('greens') ? 'Greens'
-    : dir.includes('cactus') ? 'Cactus'
     : 'Ornamental Plants';
 
   const url = '/arkfarm/' + htmlPath.replace(/\\/g, '/');
