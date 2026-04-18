@@ -276,7 +276,7 @@ const html = `<!DOCTYPE html>
         wrapper.innerHTML =
           '<input type="checkbox" class="tag-check" checked onchange="this.parentElement.classList.toggle(\\'deselected\\', !this.checked); updateCount();">' +
           '<div class="plant-tag">' +
-            '<div class="tag-side-logo">🌳 ARKFARM</div>' +
+            // '<div class="tag-side-logo">🌳 ARKFARM</div>' +
             '<div class="tag-hole"><div class="tag-hole-dot"></div></div>' +
             imgHtml +
             '<div class="tag-info">' +
