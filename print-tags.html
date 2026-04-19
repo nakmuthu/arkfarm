@@ -107,7 +107,15 @@
       .controls { display: none; }
       .tag-check { display: none; }
       .tag-wrapper.deselected { display: none !important; }
-      .tag-grid { gap: 5mm; justify-content: flex-start; padding: 5mm; }
+      .tag-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 54mm);
+        gap: 5mm;
+        justify-content: center;
+        align-content: center;
+        min-height: calc(297mm - 20mm);
+        padding: 0;
+      }
       .plant-tag { page-break-inside: avoid; width: 54mm !important; height: 85.6mm !important; }
       .tag-image { height: 28mm !important; }
       .tag-no-image { height: 28mm !important; }
@@ -309,9 +317,14 @@
       var css = document.querySelector('style').textContent;
       var extraCss = [
         'body { margin: 0; padding: 0; }',
-        '.print-page { width: 190mm; margin: 0 auto; page-break-after: always; display: flex; flex-direction: column; align-items: center; }',
+        '.print-page {',
+        '  width: 190mm; height: calc(297mm - 20mm);',
+        '  margin: 0 auto; page-break-after: always;',
+        '  display: flex; flex-direction: column;',
+        '  align-items: center; justify-content: center; gap: 5mm;',
+        '}',
         '.print-page:last-child { page-break-after: auto; }',
-        '.print-row { display: flex; justify-content: center; gap: 5mm; margin-bottom: 5mm; }',
+        '.print-row { display: flex; justify-content: center; gap: 5mm; }',
         '.print-cell { width: 54mm; height: 85.6mm; flex-shrink: 0; }',
         '.plant-tag { width: 54mm !important; height: 85.6mm !important; }',
         '.tag-image { height: 28mm !important; }',
@@ -325,18 +338,15 @@
 
       var bodyHtml = '';
 
-      // Front pages — English
+      // Interleaved: front page N (English) then back page N (Tamil, rows reversed)
       pages.forEach(function(page) {
-        var cells = page.map(function(w) { return tagHtml(w, 'en'); });
-        while (cells.length < PER_PAGE) cells.push('');
-        bodyHtml += buildGrid(cells, false);
-      });
+        var frontCells = page.map(function(w) { return tagHtml(w, 'en'); });
+        while (frontCells.length < PER_PAGE) frontCells.push('');
+        bodyHtml += buildGrid(frontCells, false);
 
-      // Back pages — Tamil, rows reversed for long-edge duplex alignment
-      pages.forEach(function(page) {
-        var cells = page.map(function(w) { return tagHtml(w, 'ta'); });
-        while (cells.length < PER_PAGE) cells.push('');
-        bodyHtml += buildGrid(cells, true);
+        var backCells = page.map(function(w) { return tagHtml(w, 'ta'); });
+        while (backCells.length < PER_PAGE) backCells.push('');
+        bodyHtml += buildGrid(backCells, true);
       });
 
       var win = window.open('', '_blank');
