@@ -19,11 +19,11 @@ function renderHeader() {
   var btnLabel = lang === 'en' ? 'தமிழ்' : 'English';
   return '<header class="site-header">' +
     '<div class="container">' +
+    '<button class="nav-toggle" aria-label="Toggle navigation">☰</button>' +
     '<a href="' + base + '/index.html" class="logo">🌳 Ark<span>Farm</span></a>' +
     '<div class="nav-right">' +
     '<a href="' + base + '/search.html" class="header-search" aria-label="Search">🔍</a>' +
     '<button id="lang-toggle" class="lang-toggle" onclick="window.ArkI18n.setLang(window.ArkI18n.getLang()===\'en\'?\'ta\':\'en\')">' + btnLabel + '</button>' +
-    '<button class="nav-toggle" aria-label="Toggle navigation">☰</button>' +
     '</div>' +
     '</div></header>' +
     '<div class="nav-overlay" id="nav-overlay"></div>' +
