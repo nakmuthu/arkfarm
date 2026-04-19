@@ -291,8 +291,7 @@
       // vPad: top margin to vertically center the rows
       // 277mm printable height, 3 rows × 85.6mm + 2 gaps × 5mm = 266.8mm content
       // vPad = (277 - 266.8) / 2 = 5.1mm — but we use margin-top only (not bottom) to avoid overflow
-      var CONTENT_H = ROWS * 85.6 + (ROWS - 1) * 5; // 266.8mm
-      var V_MARGIN = ((277 - CONTENT_H) / 2).toFixed(1); // 5.1mm
+      var CONTENT_H = ROWS * 85.6 + (ROWS - 1) * 5; // 266.8mm — kept for reference
 
       function buildPage(cells, reversed) {
         var html = '<div class="print-page">';
@@ -309,11 +308,13 @@
       }
 
       var css = document.querySelector('style').textContent;
+      // Vertical centering via @page margins:
+      // A4=297mm, content=3×85.6+2×5=266.8mm, side margins=10mm each
+      // top/bottom margin = (297-266.8)/2 = 15.1mm
       var extraCss = [
         'body{margin:0;padding:0;}',
         '.print-page{',
         '  width:190mm;',
-        '  padding-top:' + V_MARGIN + 'mm;',
         '  display:flex;flex-direction:column;align-items:center;gap:5mm;',
         '  page-break-before:always;break-before:page;',
         '}',
@@ -327,7 +328,7 @@
         '.tag-qr{width:22mm!important;height:22mm!important;}',
         '.tag-name{font-size:15pt!important;}',
         '.tag-scientific{font-size:7.5pt!important;}',
-        '@page{size:A4;margin:10mm;}'
+        '@page{size:A4;margin:15.1mm 10mm;}'
       ].join('\n');
 
       var bodyHtml = '';
