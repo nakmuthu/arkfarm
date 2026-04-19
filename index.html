@@ -19,80 +19,96 @@
   </section>
 
   <div class="container">
-    <h2 style="color:#2e7d32; margin: 20px 0 10px;" data-i18n="browse_category">Browse by Category</h2>
-    <div class="card-grid">
-      <a class="card" href="categories/aquatic-plants.html">
-        <img src="images/categories/aquatic-plants.jpg" alt="Aquatic Plants" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>💧 <span data-i18n="aquatic_plants">Aquatic Plants</span></h3>
-          <p data-i18n="cat_aquatic_desc">Water-loving and aquatic plants grown at ArkFarm.</p>
-          <p style="font-size:11px;color:#999;margin-top:2px" data-count="Aquatic Plants">0 species</p>
-        </div>
-      </a>
-      <a class="card" href="categories/flowering-plants.html">
-        <img src="images/categories/flowering-plants.jpg" alt="Flowering Plants" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3 data-i18n="cat_flowering_title">🌸 Flowering Plants</h3>
-          <p data-i18n="cat_flowering_desc">Jasmine, Rose, and fragrant garden favorites.</p>
-          <p style="font-size:11px;color:#999;margin-top:2px" data-count="Flowering Plants">18 species</p>
-        </div>
-      </a>
-      <a class="card" href="categories/fruit-trees.html">
-        <img src="images/categories/fruit-trees.jpg" alt="Fruit Trees" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3 data-i18n="cat_fruit_title">🍎 Fruit Trees</h3>
-          <p data-i18n="cat_fruit_desc">Mango, Passion Fruit, and more tropical fruit varieties.</p>
-          <p style="font-size:11px;color:#999;margin-top:2px" data-count="Fruit Trees">122 species</p>
-        </div>
-      </a>
-      <a class="card" href="categories/greens.html">
-        <img src="images/categories/greens.jpg" alt="Greens" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>🥗 <span data-i18n="greens">Greens</span></h3>
-          <p data-i18n="cat_greens_desc">Leafy greens and nutritious garden staples.</p>
-          <p style="font-size:11px;color:#999;margin-top:2px" data-count="Greens">2 species</p>
-        </div>
-      </a>
-      <a class="card" href="categories/medicinal-plants.html">
-        <img src="images/categories/medicinal-plants.jpg" alt="Medicinal Plants" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3 data-i18n="cat_medicinal_title">🌿 Medicinal Plants</h3>
-          <p data-i18n="cat_medicinal_desc">Moringa, Tulsi, and other healing plants.</p>
-          <p style="font-size:11px;color:#999;margin-top:2px" data-count="Medicinal Plants">20 species</p>
-        </div>
-      </a>
-      <a class="card" href="categories/ornamental-plants.html">
-        <img src="images/categories/ornamental-plants.jpg" alt="Ornamental Plants" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>🌺 <span data-i18n="ornamental_plants">Ornamental Plants</span></h3>
-          <p data-i18n="cat_ornamental_desc">Decorative plants for landscaping and beauty.</p>
-          <p style="font-size:11px;color:#999;margin-top:2px" data-count="Ornamental Plants">22 species</p>
-        </div>
-      </a>
-      <a class="card" href="categories/spices-herbs.html">
-        <img src="images/categories/spices-herbs.jpg" alt="Spices & Herbs" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3 data-i18n="cat_spices_title">🌶️ Spices & Herbs</h3>
-          <p data-i18n="cat_spices_desc">Pepper, Cardamom, Cinnamon, and aromatic herbs.</p>
-          <p style="font-size:11px;color:#999;margin-top:2px" data-count="Spices & Herbs">21 species</p>
-        </div>
-      </a>
-      <a class="card" href="categories/timber-trees.html">
-        <img src="images/categories/timber-trees.jpg" alt="Timber Trees" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>🪵 <span data-i18n="timber_trees">Timber Trees</span></h3>
-          <p data-i18n="cat_timber_desc">Valuable hardwood and timber species.</p>
-          <p style="font-size:11px;color:#999;margin-top:2px" data-count="Timber Trees">3 species</p>
-        </div>
-      </a>
-      <a class="card" href="categories/vegetables.html">
-        <img src="images/categories/vegetables.jpg" alt="Vegetables" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>🥬 <span data-i18n="vegetables">Vegetables</span></h3>
-          <p data-i18n="cat_vegetables_desc">Fresh organic vegetables from the farm.</p>
-          <p style="font-size:11px;color:#999;margin-top:2px" data-count="Vegetables">0 species</p>
-        </div>
-      </a>
+    <h2 style="color:#2e7d32; margin: 20px 0 0;" data-i18n="browse_category">Browse by Category</h2>
+
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('flora', this)">🌿 Flora</button>
+      <button class="tab-btn" onclick="switchTab('fauna', this)">🦋 Fauna</button>
+    </div>
+
+    <div id="tab-flora" class="tab-panel active">
+      <div class="card-grid">
+        <a class="card" href="categories/aquatic-plants.html">
+          <img src="images/categories/aquatic-plants.jpg" alt="Aquatic Plants" onerror="this.style.display='none'">
+          <div class="card-body">
+            <h3>💧 <span data-i18n="aquatic_plants">Aquatic Plants</span></h3>
+            <p data-i18n="cat_aquatic_desc">Water-loving and aquatic plants grown at ArkFarm.</p>
+            <p style="font-size:11px;color:#999;margin-top:2px" data-count="Aquatic Plants">0 species</p>
+          </div>
+        </a>
+        <a class="card" href="categories/flowering-plants.html">
+          <img src="images/categories/flowering-plants.jpg" alt="Flowering Plants" onerror="this.style.display='none'">
+          <div class="card-body">
+            <h3 data-i18n="cat_flowering_title">🌸 Flowering Plants</h3>
+            <p data-i18n="cat_flowering_desc">Jasmine, Rose, and fragrant garden favorites.</p>
+            <p style="font-size:11px;color:#999;margin-top:2px" data-count="Flowering Plants">18 species</p>
+          </div>
+        </a>
+        <a class="card" href="categories/fruit-trees.html">
+          <img src="images/categories/fruit-trees.jpg" alt="Fruit Trees" onerror="this.style.display='none'">
+          <div class="card-body">
+            <h3 data-i18n="cat_fruit_title">🍎 Fruit Trees</h3>
+            <p data-i18n="cat_fruit_desc">Mango, Passion Fruit, and more tropical fruit varieties.</p>
+            <p style="font-size:11px;color:#999;margin-top:2px" data-count="Fruit Trees">122 species</p>
+          </div>
+        </a>
+        <a class="card" href="categories/greens.html">
+          <img src="images/categories/greens.jpg" alt="Greens" onerror="this.style.display='none'">
+          <div class="card-body">
+            <h3>🥗 <span data-i18n="greens">Greens</span></h3>
+            <p data-i18n="cat_greens_desc">Leafy greens and nutritious garden staples.</p>
+            <p style="font-size:11px;color:#999;margin-top:2px" data-count="Greens">2 species</p>
+          </div>
+        </a>
+        <a class="card" href="categories/medicinal-plants.html">
+          <img src="images/categories/medicinal-plants.jpg" alt="Medicinal Plants" onerror="this.style.display='none'">
+          <div class="card-body">
+            <h3 data-i18n="cat_medicinal_title">🌿 Medicinal Plants</h3>
+            <p data-i18n="cat_medicinal_desc">Moringa, Tulsi, and other healing plants.</p>
+            <p style="font-size:11px;color:#999;margin-top:2px" data-count="Medicinal Plants">20 species</p>
+          </div>
+        </a>
+        <a class="card" href="categories/ornamental-plants.html">
+          <img src="images/categories/ornamental-plants.jpg" alt="Ornamental Plants" onerror="this.style.display='none'">
+          <div class="card-body">
+            <h3>🌺 <span data-i18n="ornamental_plants">Ornamental Plants</span></h3>
+            <p data-i18n="cat_ornamental_desc">Decorative plants for landscaping and beauty.</p>
+            <p style="font-size:11px;color:#999;margin-top:2px" data-count="Ornamental Plants">22 species</p>
+          </div>
+        </a>
+        <a class="card" href="categories/spices-herbs.html">
+          <img src="images/categories/spices-herbs.jpg" alt="Spices & Herbs" onerror="this.style.display='none'">
+          <div class="card-body">
+            <h3 data-i18n="cat_spices_title">🌶️ Spices & Herbs</h3>
+            <p data-i18n="cat_spices_desc">Pepper, Cardamom, Cinnamon, and aromatic herbs.</p>
+            <p style="font-size:11px;color:#999;margin-top:2px" data-count="Spices & Herbs">21 species</p>
+          </div>
+        </a>
+        <a class="card" href="categories/timber-trees.html">
+          <img src="images/categories/timber-trees.jpg" alt="Timber Trees" onerror="this.style.display='none'">
+          <div class="card-body">
+            <h3>🪵 <span data-i18n="timber_trees">Timber Trees</span></h3>
+            <p data-i18n="cat_timber_desc">Valuable hardwood and timber species.</p>
+            <p style="font-size:11px;color:#999;margin-top:2px" data-count="Timber Trees">3 species</p>
+          </div>
+        </a>
+        <a class="card" href="categories/vegetables.html">
+          <img src="images/categories/vegetables.jpg" alt="Vegetables" onerror="this.style.display='none'">
+          <div class="card-body">
+            <h3>🥬 <span data-i18n="vegetables">Vegetables</span></h3>
+            <p data-i18n="cat_vegetables_desc">Fresh organic vegetables from the farm.</p>
+            <p style="font-size:11px;color:#999;margin-top:2px" data-count="Vegetables">0 species</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div id="tab-fauna" class="tab-panel">
+      <div style="text-align:center; padding: 60px 20px; color: #888;">
+        <p style="font-size:48px; margin-bottom:16px;">🦋</p>
+        <p style="font-size:16px; font-weight:600; color:#555;">Fauna documentation coming soon.</p>
+        <p style="font-size:13px; margin-top:8px;">Birds, insects, and wildlife observed at ArkFarm will be documented here.</p>
+      </div>
     </div>
 
     <div class="section" style="text-align:center; margin-top:20px;">
@@ -101,6 +117,15 @@
       <a href="search.html" style="display:inline-block; margin-top:10px; padding:12px 30px; background:#2e7d32; color:#fff; border-radius:8px; font-weight:600;" data-i18n="search_all">Search All Plants</a>
     </div>
   </div>
+
+  <script>
+    function switchTab(id, btn) {
+      document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.getElementById('tab-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
 
   <div id="site-footer"></div>
   <script src="js/i18n.js?v=2"></script>
