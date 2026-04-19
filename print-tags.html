@@ -264,8 +264,8 @@
       var css = document.querySelector('style').textContent;
       var extraCss = [
         'body { margin: 0; padding: 0; }',
-        '.print-page { width: 190mm; page-break-after: always; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5mm; box-sizing: border-box; }',
-        '.print-page:last-child { page-break-after: auto; }',
+        '.print-page { width: 190mm; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5mm; box-sizing: border-box; }',
+        '.page-break { page-break-before: always; break-before: page; }',
         '.print-row { display: flex; justify-content: center; gap: 5mm; }',
         '.print-cell { width: 54mm; height: 85.6mm; flex-shrink: 0; }',
         '.plant-tag { width: 54mm !important; height: 85.6mm !important; }',
@@ -279,11 +279,13 @@
       ].join('\n');
 
       var bodyHtml = '';
-      pages.forEach(function(page) {
+      pages.forEach(function(page, pageIdx) {
         var numRows = Math.ceil(page.length / COLS);
         var contentHeight = numRows * 85.6 + (numRows - 1) * 5;
         var vPad = Math.max(0, (277 - contentHeight) / 2).toFixed(1);
-        var html = '<div class="print-page" style="padding-top:' + vPad + 'mm;padding-bottom:' + vPad + 'mm;">';
+        // Insert page break before every page except the first
+        var breakDiv = pageIdx > 0 ? '<div class="page-break"></div>' : '';
+        var html = breakDiv + '<div class="print-page" style="padding-top:' + vPad + 'mm;padding-bottom:' + vPad + 'mm;">';
         for (var r = 0; r < numRows; r++) {
           var row = page.slice(r * COLS, r * COLS + COLS);
           html += '<div class="print-row">';
@@ -354,17 +356,17 @@
         '</div>';
       }
 
+      var pageCount = 0;
       // Build a grid of cells, padding last page with blanks
       function buildGrid(cells, reversed) {
-        // Calculate vertical padding to center rows on the page
-        // A4 printable height = 277mm, each row = 85.6mm, gap = 5mm
-        var numRows = Math.ceil(cells.length / COLS);
+        var numRows = Math.ceil(cells.filter(Boolean).length / COLS) || ROWS;
         var contentHeight = numRows * 85.6 + (numRows - 1) * 5;
         var vPad = Math.max(0, (277 - contentHeight) / 2);
-        var html = '<div class="print-page" style="padding-top:' + vPad.toFixed(1) + 'mm; padding-bottom:' + vPad.toFixed(1) + 'mm;">';
+        var breakDiv = pageCount > 0 ? '<div class="page-break"></div>' : '';
+        pageCount++;
+        var html = breakDiv + '<div class="print-page" style="padding-top:' + vPad.toFixed(1) + 'mm;padding-bottom:' + vPad.toFixed(1) + 'mm;">';
         for (var r = 0; r < ROWS; r++) {
           var row = cells.slice(r * COLS, r * COLS + COLS);
-          // Pad row to COLS with blanks
           while (row.length < COLS) row.push(null);
           if (reversed) row = row.slice().reverse();
           html += '<div class="print-row">';
@@ -380,18 +382,8 @@
       var css = document.querySelector('style').textContent;
       var extraCss = [
         'body { margin: 0; padding: 0; }',
-        /* Each print-page is exactly one A4 page — use flex to center content */
-        '.print-page {',
-        '  width: 190mm;',
-        '  page-break-after: always;',
-        '  display: flex; flex-direction: column;',
-        '  align-items: center; justify-content: center;',
-        '  gap: 5mm;',
-        /* 277mm = 297mm page - 20mm margins; subtract row heights to get padding */
-        '  padding-top: 0; padding-bottom: 0;',
-        '  box-sizing: border-box;',
-        '}',
-        '.print-page:last-child { page-break-after: auto; }',
+        '.print-page { width: 190mm; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5mm; box-sizing: border-box; }',
+        '.page-break { page-break-before: always; break-before: page; }',
         '.print-row { display: flex; justify-content: center; gap: 5mm; }',
         '.print-cell { width: 54mm; height: 85.6mm; flex-shrink: 0; }',
         '.plant-tag { width: 54mm !important; height: 85.6mm !important; }',
