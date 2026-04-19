@@ -309,9 +309,9 @@
       var css = document.querySelector('style').textContent;
       var extraCss = [
         'body { margin: 0; padding: 0; }',
-        '.print-page { width: 190mm; margin: 0 auto; page-break-after: always; }',
+        '.print-page { width: 190mm; margin: 0 auto; page-break-after: always; display: flex; flex-direction: column; align-items: center; }',
         '.print-page:last-child { page-break-after: auto; }',
-        '.print-row { display: flex; gap: 5mm; margin-bottom: 5mm; }',
+        '.print-row { display: flex; justify-content: center; gap: 5mm; margin-bottom: 5mm; }',
         '.print-cell { width: 54mm; height: 85.6mm; flex-shrink: 0; }',
         '.plant-tag { width: 54mm !important; height: 85.6mm !important; }',
         '.tag-image { height: 28mm !important; }',
