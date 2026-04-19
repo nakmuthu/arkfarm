@@ -21,15 +21,15 @@ function renderHeader() {
     '</div>' +
     '<ul class="nav-links">' +
     '<li><a href="' + base + '/index.html" data-i18n="home">Home</a></li>' +
-    '<li><a href="' + base + '/categories/fruit-trees.html" data-i18n="fruit_trees">Fruit Trees</a></li>' +
-    '<li><a href="' + base + '/categories/spices-herbs.html" data-i18n="spices_herbs">Spices & Herbs</a></li>' +
-    '<li><a href="' + base + '/categories/medicinal-plants.html" data-i18n="medicinal_plants">Medicinal Plants</a></li>' +
-    '<li><a href="' + base + '/categories/flowering-plants.html" data-i18n="flowering_plants">Flowering Plants</a></li>' +
-    '<li><a href="' + base + '/categories/vegetables.html" data-i18n="vegetables">Vegetables</a></li>' +
-    '<li><a href="' + base + '/categories/greens.html" data-i18n="greens">Greens</a></li>' +
     '<li><a href="' + base + '/categories/aquatic-plants.html" data-i18n="aquatic_plants">Aquatic Plants</a></li>' +
+    '<li><a href="' + base + '/categories/flowering-plants.html" data-i18n="flowering_plants">Flowering Plants</a></li>' +
+    '<li><a href="' + base + '/categories/fruit-trees.html" data-i18n="fruit_trees">Fruit Trees</a></li>' +
+    '<li><a href="' + base + '/categories/greens.html" data-i18n="greens">Greens</a></li>' +
+    '<li><a href="' + base + '/categories/medicinal-plants.html" data-i18n="medicinal_plants">Medicinal Plants</a></li>' +
     '<li><a href="' + base + '/categories/ornamental-plants.html" data-i18n="ornamental_plants">Ornamental Plants</a></li>' +
+    '<li><a href="' + base + '/categories/spices-herbs.html" data-i18n="spices_herbs">Spices & Herbs</a></li>' +
     '<li><a href="' + base + '/categories/timber-trees.html" data-i18n="timber_trees">Timber Trees</a></li>' +
+    '<li><a href="' + base + '/categories/vegetables.html" data-i18n="vegetables">Vegetables</a></li>' +
     '</ul>' +
     '</div></header>';
 }
