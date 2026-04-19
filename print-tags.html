@@ -143,6 +143,7 @@
     <button class="btn-outline" onclick="selectAll()">All</button>
     <button class="btn-outline" onclick="deselectAll()">None</button>
     <button class="btn" onclick="window.print()">🖨️ Print</button>
+    <button class="btn-outline" onclick="printDuplex()">🖨️ Duplex</button>
     <span class="count-label" id="count-label"></span>
     <a href="index.html" class="back-link">← Back</a>
   </div>
@@ -246,6 +247,107 @@
         grid.appendChild(wrapper);
       });
       updateCount();
+    }
+
+    function printDuplex() {
+      // Collect selected, visible tags
+      var wrappers = Array.from(document.querySelectorAll('.tag-wrapper'))
+        .filter(function(w) {
+          return w.style.display !== 'none' && !w.classList.contains('deselected');
+        });
+
+      var COLS = 3; // cards per row on A4 with 10mm margins
+      var ROWS = 3; // rows per page
+      var PER_PAGE = COLS * ROWS;
+
+      // Split into pages
+      var pages = [];
+      for (var i = 0; i < wrappers.length; i += PER_PAGE) {
+        pages.push(wrappers.slice(i, i + PER_PAGE));
+      }
+
+      // Build tag HTML (English or Tamil based on current lang)
+      function tagHtml(w, lang) {
+        var p_name = lang === 'ta' ? (w.dataset.tamil || w.dataset.name) : w.dataset.name;
+        var p_sci  = w.dataset.scientific || '';
+        var tag = w.querySelector('.plant-tag');
+        var imgEl = tag.querySelector('.tag-image');
+        var imgHtml = imgEl
+          ? '<img class="tag-image" src="' + imgEl.src + '" alt="">'
+          : '<div class="tag-no-image">🌱</div>';
+        var qrEl = tag.querySelector('.tag-qr');
+        var qrHtml = qrEl ? qrEl.innerHTML : '';
+        return '<div class="plant-tag">' +
+          '<div class="tag-hole"><div class="tag-hole-dot"></div></div>' +
+          imgHtml +
+          '<div class="tag-info">' +
+            '<div class="tag-name">' + p_name + '</div>' +
+            '<div class="tag-scientific">' + p_sci + '</div>' +
+          '</div>' +
+          '<div class="tag-bottom"><div class="tag-qr">' + qrHtml + '</div></div>' +
+        '</div>';
+      }
+
+      // Build a grid of cells, padding last page with blanks
+      function buildGrid(cells, reversed) {
+        var html = '<div class="print-page">';
+        for (var r = 0; r < ROWS; r++) {
+          var row = cells.slice(r * COLS, r * COLS + COLS);
+          // Pad row to COLS with blanks
+          while (row.length < COLS) row.push(null);
+          if (reversed) row = row.slice().reverse();
+          html += '<div class="print-row">';
+          row.forEach(function(cell) {
+            html += '<div class="print-cell">' + (cell || '') + '</div>';
+          });
+          html += '</div>';
+        }
+        html += '</div>';
+        return html;
+      }
+
+      var css = document.querySelector('style').textContent;
+      var extraCss = [
+        'body { margin: 0; padding: 0; }',
+        '.print-page { width: 190mm; margin: 0 auto; page-break-after: always; }',
+        '.print-page:last-child { page-break-after: auto; }',
+        '.print-row { display: flex; gap: 5mm; margin-bottom: 5mm; }',
+        '.print-cell { width: 54mm; height: 85.6mm; flex-shrink: 0; }',
+        '.plant-tag { width: 54mm !important; height: 85.6mm !important; }',
+        '.tag-image { height: 28mm !important; }',
+        '.tag-no-image { height: 28mm !important; }',
+        '.tag-hole { height: 8mm !important; }',
+        '.tag-qr { width: 22mm !important; height: 22mm !important; }',
+        '.tag-name { font-size: 15pt !important; }',
+        '.tag-scientific { font-size: 7.5pt !important; }',
+        '@page { size: A4; margin: 10mm; }'
+      ].join('\n');
+
+      var bodyHtml = '';
+
+      // Front pages — English
+      pages.forEach(function(page) {
+        var cells = page.map(function(w) { return tagHtml(w, 'en'); });
+        while (cells.length < PER_PAGE) cells.push('');
+        bodyHtml += buildGrid(cells, false);
+      });
+
+      // Back pages — Tamil, rows reversed for long-edge duplex alignment
+      pages.forEach(function(page) {
+        var cells = page.map(function(w) { return tagHtml(w, 'ta'); });
+        while (cells.length < PER_PAGE) cells.push('');
+        bodyHtml += buildGrid(cells, true);
+      });
+
+      var win = window.open('', '_blank');
+      win.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8">' +
+        '<title>ArkFarm Duplex Tags</title>' +
+        '<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"><\/script>' +
+        '<style>' + css + extraCss + '</style>' +
+        '</head><body>' + bodyHtml +
+        '<script>window.onload=function(){window.print();}<\/script>' +
+        '</body></html>');
+      win.document.close();
     }
 
     document.addEventListener('DOMContentLoaded', renderTags);
