@@ -25,7 +25,13 @@ function renderHeader() {
     '<button id="lang-toggle" class="lang-toggle" onclick="window.ArkI18n.setLang(window.ArkI18n.getLang()===\'en\'?\'ta\':\'en\')">' + btnLabel + '</button>' +
     '<button class="nav-toggle" aria-label="Toggle navigation">☰</button>' +
     '</div>' +
-    '<ul class="nav-links">' +
+    '</div></header>' +
+    '<div class="nav-overlay" id="nav-overlay"></div>' +
+    '<ul class="nav-links" id="nav-links">' +
+    '<div class="nav-drawer-header">' +
+      '<span class="nav-drawer-title">🌳 ArkFarm</span>' +
+      '<button class="nav-close-btn" aria-label="Close menu">✕</button>' +
+    '</div>' +
     '<li class="nav-home-link"><a href="' + base + '/index.html" data-i18n="home">Home</a></li>' +
 
     '<li>' +
@@ -56,8 +62,7 @@ function renderHeader() {
       '</ul>' +
     '</li>' +
 
-    '</ul>' +
-    '</div></header>';
+    '</ul>';
 }
 
 function renderFooter() {
@@ -71,20 +76,27 @@ function renderHeaderNav() {
   var footerEl = document.getElementById('site-footer');
   if (headerEl) headerEl.innerHTML = renderHeader();
   if (footerEl) footerEl.innerHTML = renderFooter();
+  wireNav();
+  // Do NOT call applyTranslations here — it's called by i18n.js after this
+}
+
+function wireNav() {
   var btn = document.querySelector('.nav-toggle');
-  var nav = document.querySelector('.nav-links');
-  if (btn && nav) {
-    btn.addEventListener('click', function () {
-      nav.classList.toggle('open');
-    });
-  }
-  // Close menu when any nav link is clicked
+  var nav = document.getElementById('nav-links');
+  var overlay = document.getElementById('nav-overlay');
+  var closeBtn = document.querySelector('.nav-close-btn');
+
+  function openNav() { nav.classList.add('open'); overlay.classList.add('open'); }
+  function closeNav() { nav.classList.remove('open'); overlay.classList.remove('open'); }
+
+  if (btn) btn.addEventListener('click', openNav);
+  if (overlay) overlay.addEventListener('click', closeNav);
+  if (closeBtn) closeBtn.addEventListener('click', closeNav);
   if (nav) {
     nav.querySelectorAll('a').forEach(function(a) {
-      a.addEventListener('click', function() { nav.classList.remove('open'); });
+      a.addEventListener('click', closeNav);
     });
   }
-  // Do NOT call applyTranslations here — it's called by i18n.js after this
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -92,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var footerEl = document.getElementById('site-footer');
   if (headerEl) headerEl.innerHTML = renderHeader();
   if (footerEl) footerEl.innerHTML = renderFooter();
+  wireNav();
 
   // Add share button on plant pages (pages with data-plant attribute)
   if (document.querySelector('[data-plant]')) {
