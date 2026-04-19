@@ -1,4 +1,10 @@
 /* Shared header and footer components */
+function toggleNavGroup(el) {
+  el.classList.toggle('open');
+  var items = el.nextElementSibling;
+  if (items) items.classList.toggle('open');
+}
+
 function getBasePath() {
   var path = window.location.pathname;
   var parts = path.replace('/arkfarm/', '').split('/').filter(Boolean);
@@ -20,16 +26,36 @@ function renderHeader() {
     '<button class="nav-toggle" aria-label="Toggle navigation">☰</button>' +
     '</div>' +
     '<ul class="nav-links">' +
-    '<li><a href="' + base + '/index.html" data-i18n="home">Home</a></li>' +
-    '<li><a href="' + base + '/categories/aquatic-plants.html" data-i18n="aquatic_plants">Aquatic Plants</a></li>' +
-    '<li><a href="' + base + '/categories/flowering-plants.html" data-i18n="flowering_plants">Flowering Plants</a></li>' +
-    '<li><a href="' + base + '/categories/fruit-trees.html" data-i18n="fruit_trees">Fruit Trees</a></li>' +
-    '<li><a href="' + base + '/categories/greens.html" data-i18n="greens">Greens</a></li>' +
-    '<li><a href="' + base + '/categories/medicinal-plants.html" data-i18n="medicinal_plants">Medicinal Plants</a></li>' +
-    '<li><a href="' + base + '/categories/ornamental-plants.html" data-i18n="ornamental_plants">Ornamental Plants</a></li>' +
-    '<li><a href="' + base + '/categories/spices-herbs.html" data-i18n="spices_herbs">Spices & Herbs</a></li>' +
-    '<li><a href="' + base + '/categories/timber-trees.html" data-i18n="timber_trees">Timber Trees</a></li>' +
-    '<li><a href="' + base + '/categories/vegetables.html" data-i18n="vegetables">Vegetables</a></li>' +
+    '<li class="nav-home-link"><a href="' + base + '/index.html" data-i18n="home">Home</a></li>' +
+
+    '<li>' +
+      '<div class="nav-group-toggle" onclick="toggleNavGroup(this)"><span>🌿 Flora</span><span class="nav-arrow">▼</span></div>' +
+      '<ul class="nav-group-items">' +
+        '<li><a href="' + base + '/categories/aquatic-plants.html" data-i18n="aquatic_plants">Aquatic Plants</a></li>' +
+        '<li><a href="' + base + '/categories/flowering-plants.html" data-i18n="flowering_plants">Flowering Plants</a></li>' +
+        '<li><a href="' + base + '/categories/fruit-trees.html" data-i18n="fruit_trees">Fruit Trees</a></li>' +
+        '<li><a href="' + base + '/categories/greens.html" data-i18n="greens">Greens</a></li>' +
+        '<li><a href="' + base + '/categories/medicinal-plants.html" data-i18n="medicinal_plants">Medicinal Plants</a></li>' +
+        '<li><a href="' + base + '/categories/ornamental-plants.html" data-i18n="ornamental_plants">Ornamental Plants</a></li>' +
+        '<li><a href="' + base + '/categories/spices-herbs.html" data-i18n="spices_herbs">Spices & Herbs</a></li>' +
+        '<li><a href="' + base + '/categories/timber-trees.html" data-i18n="timber_trees">Timber Trees</a></li>' +
+        '<li><a href="' + base + '/categories/vegetables.html" data-i18n="vegetables">Vegetables</a></li>' +
+      '</ul>' +
+    '</li>' +
+
+    '<li>' +
+      '<div class="nav-group-toggle" onclick="toggleNavGroup(this)"><span>🦋 Fauna</span><span class="nav-arrow">▼</span></div>' +
+      '<ul class="nav-group-items">' +
+        '<li><a href="' + base + '/categories/arachnids.html">Arachnids</a></li>' +
+        '<li><a href="' + base + '/categories/aquatic-fauna.html">Aquatic Fauna</a></li>' +
+        '<li><a href="' + base + '/categories/birds.html">Birds</a></li>' +
+        '<li><a href="' + base + '/categories/insects-pollinators.html">Insects & Pollinators</a></li>' +
+        '<li><a href="' + base + '/categories/mammals.html">Mammals</a></li>' +
+        '<li><a href="' + base + '/categories/reptiles-amphibians.html">Reptiles & Amphibians</a></li>' +
+        '<li><a href="' + base + '/categories/soil-decomposers.html">Soil & Decomposers</a></li>' +
+      '</ul>' +
+    '</li>' +
+
     '</ul>' +
     '</div></header>';
 }
@@ -50,6 +76,12 @@ function renderHeaderNav() {
   if (btn && nav) {
     btn.addEventListener('click', function () {
       nav.classList.toggle('open');
+    });
+  }
+  // Close menu when any nav link is clicked
+  if (nav) {
+    nav.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() { nav.classList.remove('open'); });
     });
   }
   // Do NOT call applyTranslations here — it's called by i18n.js after this
