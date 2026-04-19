@@ -294,7 +294,7 @@
       var CONTENT_H = ROWS * 85.6 + (ROWS - 1) * 5; // 266.8mm — kept for reference
 
       function buildPage(cells, reversed) {
-        var html = '<div class="print-page">';
+        var html = '<div class="print-page"><div class="print-page-inner">';
         for (var r = 0; r < ROWS; r++) {
           var row = cells.slice(r * COLS, r * COLS + COLS);
           while (row.length < COLS) row.push('');
@@ -303,24 +303,29 @@
           row.forEach(function(cell) { html += '<div class="print-cell">' + cell + '</div>'; });
           html += '</div>';
         }
-        html += '</div>';
+        html += '</div></div>';
         return html;
       }
 
       var css = document.querySelector('style').textContent;
-      // Vertical centering via @page margins:
-      // A4=297mm, content=3×85.6+2×5=266.8mm, side margins=10mm each
-      // top/bottom margin = (297-266.8)/2 = 15.1mm
+      // Use table-cell vertical-align for reliable cross-page centering
+      // @page margin 10mm → printable area = 190mm × 277mm
       var extraCss = [
         'body{margin:0;padding:0;}',
         '.print-page{',
-        '  width:190mm;',
-        '  display:flex;flex-direction:column;align-items:center;gap:5mm;',
+        '  display:table;',
+        '  width:190mm;height:277mm;',
         '  page-break-before:always;break-before:page;',
         '}',
         '.print-page:first-child{page-break-before:auto;break-before:auto;}',
-        '.print-row{display:flex;justify-content:center;gap:5mm;}',
-        '.print-cell{width:54mm;height:85.6mm;flex-shrink:0;}',
+        '.print-page-inner{',
+        '  display:table-cell;',
+        '  vertical-align:middle;',
+        '  text-align:center;',
+        '}',
+        '.print-row{display:flex;justify-content:center;gap:5mm;margin-bottom:5mm;}',
+        '.print-row:last-child{margin-bottom:0;}',
+        '.print-cell{width:54mm;height:85.6mm;flex-shrink:0;display:inline-block;}',
         '.plant-tag{width:54mm!important;height:85.6mm!important;}',
         '.tag-image{height:28mm!important;}',
         '.tag-no-image{height:28mm!important;}',
@@ -328,7 +333,7 @@
         '.tag-qr{width:22mm!important;height:22mm!important;}',
         '.tag-name{font-size:15pt!important;}',
         '.tag-scientific{font-size:7.5pt!important;}',
-        '@page{size:A4;margin:15.1mm 10mm;}'
+        '@page{size:A4;margin:10mm;}'
       ].join('\n');
 
       var bodyHtml = '';
