@@ -251,82 +251,18 @@
 
     function printRegular() {
       var wrappers = Array.from(document.querySelectorAll('.tag-wrapper'))
-        .filter(function(w) {
-          return w.style.display !== 'none' && !w.classList.contains('deselected');
-        });
-
-      var COLS = 3, ROWS = 3, PER_PAGE = COLS * ROWS;
-      var pages = [];
-      for (var i = 0; i < wrappers.length; i += PER_PAGE) {
-        pages.push(wrappers.slice(i, i + PER_PAGE));
-      }
-
-      var css = document.querySelector('style').textContent;
-      var extraCss = [
-        'body { margin: 0; padding: 0; }',
-        '.print-page { width: 190mm; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5mm; box-sizing: border-box; }',
-        '.page-break { page-break-before: always; break-before: page; }',
-        '.print-row { display: flex; justify-content: center; gap: 5mm; }',
-        '.print-cell { width: 54mm; height: 85.6mm; flex-shrink: 0; }',
-        '.plant-tag { width: 54mm !important; height: 85.6mm !important; }',
-        '.tag-image { height: 28mm !important; }',
-        '.tag-no-image { height: 28mm !important; }',
-        '.tag-hole { height: 8mm !important; }',
-        '.tag-qr { width: 22mm !important; height: 22mm !important; }',
-        '.tag-name { font-size: 15pt !important; }',
-        '.tag-scientific { font-size: 7.5pt !important; }',
-        '@page { size: A4; margin: 10mm; }'
-      ].join('\n');
-
-      var bodyHtml = '';
-      pages.forEach(function(page, pageIdx) {
-        var numRows = Math.ceil(page.length / COLS);
-        var contentHeight = numRows * 85.6 + (numRows - 1) * 5;
-        var vPad = Math.max(0, (277 - contentHeight) / 2).toFixed(1);
-        // Insert page break before every page except the first
-        var breakDiv = pageIdx > 0 ? '<div class="page-break"></div>' : '';
-        var html = breakDiv + '<div class="print-page" style="padding-top:' + vPad + 'mm;padding-bottom:' + vPad + 'mm;">';
-        for (var r = 0; r < numRows; r++) {
-          var row = page.slice(r * COLS, r * COLS + COLS);
-          html += '<div class="print-row">';
-          row.forEach(function(w) {
-            var tag = w.querySelector('.plant-tag');
-            var imgEl = tag.querySelector('.tag-image');
-            var imgHtml = imgEl ? '<img class="tag-image" src="' + imgEl.src + '" alt="">' : '<div class="tag-no-image">🌱</div>';
-            var nameEl = tag.querySelector('.tag-name');
-            var name = currentLang === 'ta' ? (nameEl.getAttribute('data-ta') || nameEl.getAttribute('data-en')) : nameEl.getAttribute('data-en');
-            var sci = tag.querySelector('.tag-scientific').textContent;
-            var qrHtml = tag.querySelector('.tag-qr').innerHTML;
-            html += '<div class="print-cell"><div class="plant-tag">' +
-              '<div class="tag-hole"><div class="tag-hole-dot"></div></div>' +
-              imgHtml +
-              '<div class="tag-info"><div class="tag-name">' + name + '</div><div class="tag-scientific">' + sci + '</div></div>' +
-              '<div class="tag-bottom"><div class="tag-qr">' + qrHtml + '</div></div>' +
-              '</div></div>';
-          });
-          html += '</div>';
-        }
-        html += '</div>';
-        bodyHtml += html;
-      });
-
-      var win = window.open('', '_blank');
-      win.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>ArkFarm Tags</title>' +
-        '<style>' + css + extraCss + '</style></head><body>' + bodyHtml +
-        '<script>window.onload=function(){window.print();}<\/script></body></html>');
-      win.document.close();
+        .filter(function(w) { return w.style.display !== 'none' && !w.classList.contains('deselected'); });
+      openPrintWindow(wrappers, false);
     }
 
     function printDuplex() {
-      // Collect selected, visible tags
       var wrappers = Array.from(document.querySelectorAll('.tag-wrapper'))
-        .filter(function(w) {
-          return w.style.display !== 'none' && !w.classList.contains('deselected');
-        });
+        .filter(function(w) { return w.style.display !== 'none' && !w.classList.contains('deselected'); });
+      openPrintWindow(wrappers, true);
+    }
 
-      var COLS = 3; // cards per row on A4 with 10mm margins
-      var ROWS = 3; // rows per page
-      var PER_PAGE = COLS * ROWS;
+    function openPrintWindow(wrappers, duplex) {
+      var COLS = 3, ROWS = 3, PER_PAGE = COLS * ROWS;
 
       // Split into pages
       var pages = [];
@@ -334,45 +270,39 @@
         pages.push(wrappers.slice(i, i + PER_PAGE));
       }
 
-      // Build tag HTML (English or Tamil based on current lang)
+      // Build a single tag's HTML
       function tagHtml(w, lang) {
-        var p_name = lang === 'ta' ? (w.dataset.tamil || w.dataset.name) : w.dataset.name;
-        var p_sci  = w.dataset.scientific || '';
         var tag = w.querySelector('.plant-tag');
         var imgEl = tag.querySelector('.tag-image');
-        var imgHtml = imgEl
-          ? '<img class="tag-image" src="' + imgEl.src + '" alt="">'
-          : '<div class="tag-no-image">🌱</div>';
-        var qrEl = tag.querySelector('.tag-qr');
-        var qrHtml = qrEl ? qrEl.innerHTML : '';
+        var imgHtml = imgEl ? '<img class="tag-image" src="' + imgEl.src + '" alt="">' : '<div class="tag-no-image">🌱</div>';
+        var nameEl = tag.querySelector('.tag-name');
+        var name = lang === 'ta' ? (nameEl.getAttribute('data-ta') || nameEl.getAttribute('data-en')) : nameEl.getAttribute('data-en');
+        var sci = tag.querySelector('.tag-scientific').textContent;
+        var qrHtml = tag.querySelector('.tag-qr').innerHTML;
         return '<div class="plant-tag">' +
           '<div class="tag-hole"><div class="tag-hole-dot"></div></div>' +
           imgHtml +
-          '<div class="tag-info">' +
-            '<div class="tag-name">' + p_name + '</div>' +
-            '<div class="tag-scientific">' + p_sci + '</div>' +
-          '</div>' +
+          '<div class="tag-info"><div class="tag-name">' + name + '</div><div class="tag-scientific">' + sci + '</div></div>' +
           '<div class="tag-bottom"><div class="tag-qr">' + qrHtml + '</div></div>' +
-        '</div>';
+          '</div>';
       }
 
-      var pageCount = 0;
-      // Build a grid of cells, padding last page with blanks
-      function buildGrid(cells, reversed) {
-        var numRows = Math.ceil(cells.filter(Boolean).length / COLS) || ROWS;
-        var contentHeight = numRows * 85.6 + (numRows - 1) * 5;
-        var vPad = Math.max(0, (277 - contentHeight) / 2);
-        var breakDiv = pageCount > 0 ? '<div class="page-break"></div>' : '';
-        pageCount++;
-        var html = breakDiv + '<div class="print-page" style="padding-top:' + vPad.toFixed(1) + 'mm;padding-bottom:' + vPad.toFixed(1) + 'mm;">';
+      // Build one page of tags
+      // vPad: top margin to vertically center the rows
+      // 277mm printable height, 3 rows × 85.6mm + 2 gaps × 5mm = 266.8mm content
+      // vPad = (277 - 266.8) / 2 = 5.1mm — but we use margin-top only (not bottom) to avoid overflow
+      var CONTENT_H = ROWS * 85.6 + (ROWS - 1) * 5; // 266.8mm
+      var V_MARGIN = ((277 - CONTENT_H) / 2).toFixed(1); // 5.1mm
+
+      function buildPage(cells, reversed, isFirst) {
+        var breakDiv = isFirst ? '' : '<div style="page-break-before:always;break-before:page;height:0;"></div>';
+        var html = breakDiv + '<div class="print-page" style="margin-top:' + V_MARGIN + 'mm;">';
         for (var r = 0; r < ROWS; r++) {
           var row = cells.slice(r * COLS, r * COLS + COLS);
-          while (row.length < COLS) row.push(null);
+          while (row.length < COLS) row.push('');
           if (reversed) row = row.slice().reverse();
           html += '<div class="print-row">';
-          row.forEach(function(cell) {
-            html += '<div class="print-cell">' + (cell || '') + '</div>';
-          });
+          row.forEach(function(cell) { html += '<div class="print-cell">' + cell + '</div>'; });
           html += '</div>';
         }
         html += '</div>';
@@ -381,42 +311,48 @@
 
       var css = document.querySelector('style').textContent;
       var extraCss = [
-        'body { margin: 0; padding: 0; }',
-        '.print-page { width: 190mm; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5mm; box-sizing: border-box; }',
-        '.page-break { page-break-before: always; break-before: page; }',
-        '.print-row { display: flex; justify-content: center; gap: 5mm; }',
-        '.print-cell { width: 54mm; height: 85.6mm; flex-shrink: 0; }',
-        '.plant-tag { width: 54mm !important; height: 85.6mm !important; }',
-        '.tag-image { height: 28mm !important; }',
-        '.tag-no-image { height: 28mm !important; }',
-        '.tag-hole { height: 8mm !important; }',
-        '.tag-qr { width: 22mm !important; height: 22mm !important; }',
-        '.tag-name { font-size: 15pt !important; }',
-        '.tag-scientific { font-size: 7.5pt !important; }',
-        '@page { size: A4; margin: 10mm; }'
+        'body{margin:0;padding:0;}',
+        '.print-page{width:190mm;display:flex;flex-direction:column;align-items:center;gap:5mm;}',
+        '.print-row{display:flex;justify-content:center;gap:5mm;}',
+        '.print-cell{width:54mm;height:85.6mm;flex-shrink:0;}',
+        '.plant-tag{width:54mm!important;height:85.6mm!important;}',
+        '.tag-image{height:28mm!important;}',
+        '.tag-no-image{height:28mm!important;}',
+        '.tag-hole{height:8mm!important;}',
+        '.tag-qr{width:22mm!important;height:22mm!important;}',
+        '.tag-name{font-size:15pt!important;}',
+        '.tag-scientific{font-size:7.5pt!important;}',
+        '@page{size:A4;margin:10mm;}'
       ].join('\n');
 
       var bodyHtml = '';
+      var pageIndex = 0;
 
-      // Interleaved: front page N (English) then back page N (Tamil, rows reversed)
-      pages.forEach(function(page) {
-        var frontCells = page.map(function(w) { return tagHtml(w, 'en'); });
-        while (frontCells.length < PER_PAGE) frontCells.push('');
-        bodyHtml += buildGrid(frontCells, false);
+      if (duplex) {
+        pages.forEach(function(page) {
+          var enCells = page.map(function(w) { return tagHtml(w, 'en'); });
+          while (enCells.length < PER_PAGE) enCells.push('');
+          bodyHtml += buildPage(enCells, false, pageIndex++ === 0);
 
-        var backCells = page.map(function(w) { return tagHtml(w, 'ta'); });
-        while (backCells.length < PER_PAGE) backCells.push('');
-        bodyHtml += buildGrid(backCells, true);
-      });
+          var taCells = page.map(function(w) { return tagHtml(w, 'ta'); });
+          while (taCells.length < PER_PAGE) taCells.push('');
+          bodyHtml += buildPage(taCells, true, pageIndex++ === 0);
+        });
+      } else {
+        var lang = currentLang;
+        pages.forEach(function(page) {
+          var cells = page.map(function(w) { return tagHtml(w, lang); });
+          while (cells.length < PER_PAGE) cells.push('');
+          bodyHtml += buildPage(cells, false, pageIndex++ === 0);
+        });
+      }
 
+      var title = duplex ? 'ArkFarm Duplex Tags' : 'ArkFarm Tags';
+      var qrScript = duplex ? '<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"><\/script>' : '';
       var win = window.open('', '_blank');
-      win.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8">' +
-        '<title>ArkFarm Duplex Tags</title>' +
-        '<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"><\/script>' +
-        '<style>' + css + extraCss + '</style>' +
-        '</head><body>' + bodyHtml +
-        '<script>window.onload=function(){window.print();}<\/script>' +
-        '</body></html>');
+      win.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' + title + '</title>' +
+        qrScript + '<style>' + css + extraCss + '</style></head><body>' + bodyHtml +
+        '<script>window.onload=function(){window.print();}<\/script></body></html>');
       win.document.close();
     }
 
