@@ -25,6 +25,7 @@ When the user provides plant names, follow ALL steps below for EACH plant. Do no
 | Flowering Plants | `plants/flowering-plants/` | `categories/flowering-plants.html` |
 | Vegetables | `plants/vegetables/` | `categories/vegetables.html` |
 | Greens | `plants/greens/` | `categories/greens.html` |
+| Aquatic Plants | `plants/aquatic-plants/` | `categories/aquatic-plants.html` |
 | Ornamental Plants | `plants/ornamental-plants/` | `categories/ornamental-plants.html` |
 | Timber Trees | `plants/timber-trees/` | `categories/timber-trees.html` |
 

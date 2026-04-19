@@ -27,7 +27,7 @@ function renderHeader() {
     '<li><a href="' + base + '/categories/flowering-plants.html" data-i18n="flowering_plants">Flowering Plants</a></li>' +
     '<li><a href="' + base + '/categories/vegetables.html" data-i18n="vegetables">Vegetables</a></li>' +
     '<li><a href="' + base + '/categories/greens.html" data-i18n="greens">Greens</a></li>' +
-    '<li><a href="' + base + '/categories/cactus.html" data-i18n="cactus">Cactus</a></li>' +
+    '<li><a href="' + base + '/categories/aquatic-plants.html" data-i18n="aquatic_plants">Aquatic Plants</a></li>' +
     '<li><a href="' + base + '/categories/ornamental-plants.html" data-i18n="ornamental_plants">Ornamental Plants</a></li>' +
     '<li><a href="' + base + '/categories/timber-trees.html" data-i18n="timber_trees">Timber Trees</a></li>' +
     '</ul>' +
