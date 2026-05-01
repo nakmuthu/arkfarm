@@ -15,15 +15,15 @@
   <section class="hero">
     <h1 data-i18n="welcome">Welcome to ArkFarm</h1>
     <p data-i18n="welcome_desc">A living digital archive of our orchard — documenting every tree, plant, and bloom with care.</p>
-    <p style="font-size:13px;opacity:0.8;margin-top:8px">🌱 208 species documented</p>
+    <p style="font-size:13px;opacity:0.8;margin-top:8px">🌱 <span id="flora-count">208</span> flora · 🦋 <span id="fauna-count">5</span> fauna documented</p>
   </section>
 
   <div class="container">
     <h2 style="color:#2e7d32; margin: 20px 0 0;" data-i18n="browse_category">Browse by Category</h2>
 
     <div class="tab-bar">
-      <button class="tab-btn active" onclick="switchTab('flora', this)">🌿 Flora</button>
-      <button class="tab-btn" onclick="switchTab('fauna', this)">🦋 Fauna</button>
+      <button class="tab-btn active" onclick="switchTab('flora', this)">🌿 <span data-i18n="flora">Flora</span></button>
+      <button class="tab-btn" onclick="switchTab('fauna', this)">🦋 <span data-i18n="fauna">Fauna</span></button>
     </div>
 
     <div id="tab-flora" class="tab-panel active">
@@ -108,50 +108,57 @@
         <a class="card" href="categories/arachnids.html">
           <img src="images/categories/arachnids.jpg" alt="Arachnids" onerror="this.style.display='none'">
           <div class="card-body">
-            <h3>🕷️ Arachnids</h3>
-            <p>Spiders, scorpions, mites, and ticks observed at ArkFarm.</p>
+            <h3>🕷️ <span data-i18n="arachnids">Arachnids</span></h3>
+            <p data-i18n="cat_arachnids_desc">Spiders, scorpions, mites, and ticks observed at ArkFarm.</p>
+            <p style="font-size:11px;color:#999;margin-top:2px" data-fauna-count="arachnids">0 species</p>
           </div>
         </a>
         <a class="card" href="categories/aquatic-fauna.html">
           <img src="images/categories/aquatic-fauna.jpg" alt="Aquatic Fauna" onerror="this.style.display='none'">
           <div class="card-body">
-            <h3>🐟 Aquatic Fauna</h3>
-            <p>Fish, frogs, water insects, and other aquatic creatures.</p>
+            <h3>🐟 <span data-i18n="aquatic_fauna">Aquatic Fauna</span></h3>
+            <p data-i18n="cat_aquatic_fauna_desc">Fish, frogs, water insects, and other aquatic creatures.</p>
+            <p style="font-size:11px;color:#999;margin-top:2px" data-fauna-count="aquatic-fauna">0 species</p>
           </div>
         </a>
         <a class="card" href="categories/birds.html">
           <img src="images/categories/birds.jpg" alt="Birds" onerror="this.style.display='none'">
           <div class="card-body">
-            <h3>🐦 Birds</h3>
-            <p>Resident and migratory birds observed at ArkFarm.</p>
+            <h3>🐦 <span data-i18n="birds">Birds</span></h3>
+            <p data-i18n="cat_birds_desc">Resident and migratory birds observed at ArkFarm.</p>
+            <p style="font-size:11px;color:#999;margin-top:2px" data-fauna-count="birds">0 species</p>
           </div>
         </a>
         <a class="card" href="categories/insects-pollinators.html">
           <img src="images/categories/insects-pollinators.jpg" alt="Insects & Pollinators" onerror="this.style.display='none'">
           <div class="card-body">
-            <h3>🦋 Insects & Pollinators</h3>
-            <p>Butterflies, bees, beetles, and dragonflies.</p>
+            <h3>🦋 <span data-i18n="insects_pollinators">Insects & Pollinators</span></h3>
+            <p data-i18n="cat_insects_desc">Butterflies, bees, beetles, and dragonflies.</p>
+            <p style="font-size:11px;color:#999;margin-top:2px" data-fauna-count="insects-pollinators">5 species</p>
           </div>
         </a>
         <a class="card" href="categories/mammals.html">
           <img src="images/categories/mammals.jpg" alt="Mammals" onerror="this.style.display='none'">
           <div class="card-body">
-            <h3>🐿️ Mammals</h3>
-            <p>Squirrels, bats, mongooses, and other mammals.</p>
+            <h3>🐿️ <span data-i18n="mammals">Mammals</span></h3>
+            <p data-i18n="cat_mammals_desc">Squirrels, bats, mongooses, and other mammals.</p>
+            <p style="font-size:11px;color:#999;margin-top:2px" data-fauna-count="mammals">0 species</p>
           </div>
         </a>
         <a class="card" href="categories/reptiles-amphibians.html">
           <img src="images/categories/reptiles-amphibians.jpg" alt="Reptiles & Amphibians" onerror="this.style.display='none'">
           <div class="card-body">
-            <h3>🦎 Reptiles & Amphibians</h3>
-            <p>Lizards, geckos, frogs, toads, and snakes.</p>
+            <h3>🦎 <span data-i18n="reptiles_amphibians">Reptiles & Amphibians</span></h3>
+            <p data-i18n="cat_reptiles_desc">Lizards, geckos, frogs, toads, and snakes.</p>
+            <p style="font-size:11px;color:#999;margin-top:2px" data-fauna-count="reptiles-amphibians">0 species</p>
           </div>
         </a>
         <a class="card" href="categories/soil-decomposers.html">
           <img src="images/categories/soil-decomposers.jpg" alt="Soil & Decomposers" onerror="this.style.display='none'">
           <div class="card-body">
-            <h3>🪱 Soil & Decomposers</h3>
-            <p>Earthworms, millipedes, centipedes, and soil organisms.</p>
+            <h3>🪱 <span data-i18n="soil_decomposers">Soil & Decomposers</span></h3>
+            <p data-i18n="cat_soil_desc">Earthworms, millipedes, centipedes, and soil organisms.</p>
+            <p style="font-size:11px;color:#999;margin-top:2px" data-fauna-count="soil-decomposers">0 species</p>
           </div>
         </a>
       </div>
