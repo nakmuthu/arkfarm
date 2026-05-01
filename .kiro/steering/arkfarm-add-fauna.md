@@ -192,6 +192,14 @@ This updates:
 - Per-category fauna species counts (`data-fauna-count` on homepage)
 - Total flora and fauna counts in the hero section
 
+## Step 7b: Regenerate Print Tags
+
+Run:
+```bash
+node scripts/generate-print-tags.js
+```
+This regenerates `print-tags.html` with both flora AND fauna species. Fauna categories are prefixed with 🦋 in the dropdown filter. This script automatically scans all `fauna/` directories for HTML files.
+
 ## Step 8: Push to GitHub
 
 ```bash
@@ -213,6 +221,7 @@ git push origin main
 - [ ] Add species to `scripts/sync-fauna-global.js` SPECIES array, then run `node scripts/sync-fauna-global.js`
 - [ ] Update `categories/<category>.html` with new card (with `data-i18n` + `data-en` on name and description)
 - [ ] Run `node scripts/update-fauna-counts.js` to update homepage counts
+- [ ] Run `node scripts/generate-print-tags.js` to include fauna in print tags
 - [ ] `git add -A && git commit -m "..." && git push origin main`
 
 ## Utility Scripts
@@ -224,6 +233,7 @@ git push origin main
 | `node scripts/sync-fauna-global.js` | Syncs `fauna_name_*` and `fauna_desc_*` to global Tamil dict | After generating translations |
 | `node scripts/add-fauna-i18n.js` | Adds new fauna label keys to global Tamil dict | Only when adding new section/label types |
 | `node scripts/update-fauna-counts.js` | Updates homepage fauna counts and flora/fauna totals | After adding/removing fauna species |
+| `node scripts/generate-print-tags.js` | Regenerates print-tags.html with all flora AND fauna species | After adding/removing any species |
 
 ## File Structure
 

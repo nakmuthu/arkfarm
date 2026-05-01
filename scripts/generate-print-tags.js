@@ -52,6 +52,64 @@ const plantEntries = plants.map(p => {
   };
 });
 
+// ─── Fauna entries (scanned from fauna/ directories) ─────────────────────────
+const FAUNA_DIRS = {
+  'insects-pollinators': 'Insects & Pollinators',
+  'birds': 'Birds',
+  'reptiles-amphibians': 'Reptiles & Amphibians',
+  'mammals': 'Mammals',
+  'arachnids': 'Arachnids',
+  'soil-decomposers': 'Soil & Decomposers',
+  'aquatic-fauna': 'Aquatic Fauna',
+};
+
+for (const [dir, category] of Object.entries(FAUNA_DIRS)) {
+  const faunaDir = 'fauna/' + dir;
+  if (!fs.existsSync(faunaDir)) continue;
+  for (const file of fs.readdirSync(faunaDir).filter(f => f.endsWith('.html'))) {
+    const slug = file.replace('.html', '');
+    const htmlPath = faunaDir + '/' + file;
+    const html = fs.readFileSync(htmlPath, 'utf8');
+
+    // Extract name from <h1>
+    const nameMatch = html.match(/<h1[^>]*>([^<]+)</);
+    const name = nameMatch ? nameMatch[1].trim() : slug;
+
+    // Extract scientific name from <em> after h1
+    const sciMatch = html.match(/<h1[^>]*>[^<]*<\/h1>\s*<p><em>([^<]+)/);
+    const scientific = sciMatch ? sciMatch[1].trim() : '';
+
+    // Extract image
+    let image = '';
+    const imgMatch = html.match(/class="section top-card[^"]*"[^>]*>[\s\S]{0,100}<img\s+src="([^"]+)"/i);
+    if (imgMatch) {
+      let imgSrc = imgMatch[1];
+      if (imgSrc.startsWith('../../')) imgSrc = 'https://nakmuthu.github.io/arkfarm/' + imgSrc.replace('../../', '');
+      image = imgSrc;
+    }
+
+    // Tamil name — from per-fauna file or global dict
+    let tamilName = globalTa['fauna_name_' + slug] || '';
+    if (!tamilName) {
+      const tamilFile = 'data/i18n-fauna-' + slug + '.json';
+      if (fs.existsSync(tamilFile)) {
+        const td = JSON.parse(fs.readFileSync(tamilFile, 'utf8'));
+        tamilName = td.fauna_name || '';
+      }
+    }
+
+    plantEntries.push({
+      name: name,
+      tamilName: tamilName,
+      scientific: scientific,
+      category: '🦋 ' + category,
+      url: 'https://nakmuthu.github.io/arkfarm/' + htmlPath,
+      image,
+      keywords: [slug, name.toLowerCase(), scientific.toLowerCase(), category.toLowerCase()].join(' ')
+    });
+  }
+}
+
 const categories = [...new Set(plantEntries.map(p => p.category))].sort();
 
 // Sort by name
