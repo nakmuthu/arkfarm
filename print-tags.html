@@ -142,7 +142,8 @@
     <button class="btn-outline" id="lang-btn" onclick="toggleLang()">தமிழ்</button>
     <button class="btn-outline" onclick="selectAll()">All</button>
     <button class="btn-outline" onclick="deselectAll()">None</button>
-    <button class="btn" onclick="window.print()">🖨️ Print</button>
+    <button class="btn" onclick="printRegular()">🖨️ Print</button>
+    <button class="btn-outline" onclick="printDuplex()">🖨️ Duplex EN/TA</button>
     <span class="count-label" id="count-label"></span>
     <a href="index.html" class="back-link">← Back</a>
   </div>
@@ -246,6 +247,93 @@
         grid.appendChild(wrapper);
       });
       updateCount();
+    }
+
+    function printRegular() { openPrintWindow(false); }
+    function printDuplex()  { openPrintWindow(true);  }
+
+    function openPrintWindow(duplex) {
+      var wrappers = Array.from(document.querySelectorAll('.tag-wrapper'))
+        .filter(function(w) { return w.style.display !== 'none' && !w.classList.contains('deselected'); });
+
+      var COLS = 3, ROWS = 3, PER_PAGE = COLS * ROWS;
+      var pages = [];
+      for (var i = 0; i < wrappers.length; i += PER_PAGE) pages.push(wrappers.slice(i, i + PER_PAGE));
+
+      function tagHtml(w, lang) {
+        var tag = w.querySelector('.plant-tag');
+        var imgEl = tag.querySelector('.tag-image');
+        var imgHtml = imgEl ? '<img class="tag-image" src="' + imgEl.src + '" alt="">' : '<div class="tag-no-image">🌱</div>';
+        var nameEl = tag.querySelector('.tag-name');
+        var name = lang === 'ta' ? (nameEl.getAttribute('data-ta') || nameEl.getAttribute('data-en')) : nameEl.getAttribute('data-en');
+        var sci = tag.querySelector('.tag-scientific').textContent;
+        var qrHtml = tag.querySelector('.tag-qr').innerHTML;
+        return '<div class="plant-tag">' +
+          '<div class="tag-hole"><div class="tag-hole-dot"></div></div>' +
+          imgHtml +
+          '<div class="tag-info"><div class="tag-name">' + name + '</div><div class="tag-scientific">' + sci + '</div></div>' +
+          '<div class="tag-bottom"><div class="tag-qr">' + qrHtml + '</div></div>' +
+          '</div>';
+      }
+
+      function buildPage(cells, reversed) {
+        var html = '<div class="print-page">';
+        for (var r = 0; r < ROWS; r++) {
+          var row = cells.slice(r * COLS, r * COLS + COLS);
+          while (row.length < COLS) row.push('');
+          if (reversed) row = row.slice().reverse();
+          html += '<div class="print-row">';
+          row.forEach(function(cell) { html += '<div class="print-cell">' + cell + '</div>'; });
+          html += '</div>';
+        }
+        return html + '</div>';
+      }
+
+      var extraCss = [
+        'body{margin:0;padding:0;}',
+        '#pages .print-page{width:190mm;display:flex;flex-direction:column;align-items:center;padding-top:5.1mm;page-break-before:always;break-before:page;}',
+        '#pages .print-page:first-child{page-break-before:avoid;break-before:avoid;}',
+        '.print-row{display:flex;justify-content:center;gap:5mm;margin-bottom:5mm;}',
+        '.print-row:last-child{margin-bottom:0;}',
+        '.print-cell{width:54mm;height:85.6mm;flex-shrink:0;}',
+        '.plant-tag{width:54mm!important;height:85.6mm!important;}',
+        '.tag-image{height:28mm!important;}',
+        '.tag-no-image{height:28mm!important;}',
+        '.tag-hole{height:8mm!important;}',
+        '.tag-qr{width:22mm!important;height:22mm!important;}',
+        '.tag-name{font-size:15pt!important;}',
+        '.tag-scientific{font-size:7.5pt!important;}',
+        '@page{size:A4;margin:10mm;}'
+      ].join('\n');
+
+      var bodyHtml = '';
+      var pageIdx = 0;
+      if (duplex) {
+        pages.forEach(function(page) {
+          var en = page.map(function(w) { return tagHtml(w, 'en'); });
+          while (en.length < PER_PAGE) en.push('');
+          bodyHtml += buildPage(en, false);
+          var ta = page.map(function(w) { return tagHtml(w, 'ta'); });
+          while (ta.length < PER_PAGE) ta.push('');
+          bodyHtml += buildPage(ta, true);
+        });
+      } else {
+        pages.forEach(function(page) {
+          var cells = page.map(function(w) { return tagHtml(w, currentLang); });
+          while (cells.length < PER_PAGE) cells.push('');
+          bodyHtml += buildPage(cells, false);
+        });
+      }
+
+      var css = document.querySelector('style').textContent;
+      var title = duplex ? 'ArkFarm Duplex Tags' : 'ArkFarm Tags';
+      var win = window.open('', '_blank');
+      win.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' + title + '</title>' +
+        '<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"><\/script>' +
+        '<style>' + css + extraCss + '</style></head>' +
+        '<body><div id="pages">' + bodyHtml + '</div>' +
+        '<script>window.onload=function(){window.print();}<\/script></body></html>');
+      win.document.close();
     }
 
     document.addEventListener('DOMContentLoaded', renderTags);
