@@ -37,15 +37,17 @@
 
   async function loadPlantDict() {
     if (plantDict) return plantDict;
-    var plantEl = document.querySelector('[data-plant]');
-    if (!plantEl) return null;
-    var plantSlug = plantEl.getAttribute('data-plant');
-    if (!plantSlug) return null;
+    // Support both data-plant (flora) and data-fauna (fauna)
+    var el = document.querySelector('[data-plant]') || document.querySelector('[data-fauna]');
+    if (!el) return null;
+    var slug = el.getAttribute('data-plant') || el.getAttribute('data-fauna');
+    if (!slug) return null;
+    var prefix = el.hasAttribute('data-fauna') ? 'i18n-fauna-' : 'i18n-ta-';
     try {
-      var res = await fetch('/arkfarm/data/i18n-ta-' + plantSlug + '.json');
+      var res = await fetch('/arkfarm/data/' + prefix + slug + '.json');
       plantDict = await res.json();
     } catch (e) {
-      console.warn('No Tamil plant file for: ' + plantSlug);
+      console.warn('No Tamil file for: ' + slug);
       plantDict = {};
     }
     return plantDict;
