@@ -7,6 +7,18 @@
   <meta name="description" content="Spiders, scorpions, and other arachnids observed at ArkFarm.">
   <link rel="canonical" href="https://nakmuthu.github.io/arkfarm/categories/arachnids.html">
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .status-badge {
+      display: inline-block;
+      padding: 2px 8px; border-radius: 12px;
+      font-size: 11px; font-weight: 600; margin-right: 4px;
+    }
+    .badge-pest     { background:#ffebee; color:#c62828; }
+    .badge-beneficial { background:#e8f5e9; color:#2e7d32; }
+    .badge-neutral  { background:#e3f2fd; color:#1565c0; }
+    .badge-danger   { background:#fff3e0; color:#e65100; }
+    .badge-high     { background:#fce4ec; color:#880e4f; }
+  </style>
 </head>
 <body>
   <div id="site-header"></div>
@@ -15,7 +27,20 @@
     <h1 style="color:#2e7d32;">🕷️ Arachnids</h1>
     <p style="margin-bottom:20px;">Spiders, scorpions, mites, and ticks observed at ArkFarm.</p>
     <div class="card-grid">
-      <p>Coming soon.</p>
+
+      <a class="card" href="../fauna/arachnids/indian-black-scorpion.html">
+        <img src="../images/categories/fauna/arachnids/indian-black-scorpion.jpg" alt="Indian Black Scorpion">
+        <div class="card-body">
+          <h3 data-i18n="fauna_name_indian-black-scorpion" data-en="Indian Black Scorpion">Indian Black Scorpion</h3>
+          <p><em>Deccanometrus bengalensis</em></p>
+          <p style="margin-top:4px;">
+            <span class="status-badge badge-danger" data-i18n="badge_medium_risk">⚠️ Medium Risk</span>
+            <span class="status-badge badge-neutral" data-i18n="badge_neutral">🔵 Neutral</span>
+          </p>
+          <p style="font-size:12px;color:#555;margin-top:4px;" data-i18n="fauna_desc_indian-black-scorpion" data-en="Large Indian scorpion with a painful sting; preys on pest insects in orchards.">Large Indian scorpion with a painful sting; preys on pest insects in orchards.</p>
+        </div>
+      </a>
+
     </div>
   </div>
   <div id="site-footer"></div>

@@ -26,6 +26,11 @@ const SPECIES = [
   { slug: 'speckled-bush-cricket',      desc: 'Nocturnal cricket; indicator of a healthy low-pesticide orchard.' },
   { slug: 'lime-butterfly',             desc: 'Larvae defoliate citrus; adults are important pollinators.' },
   { slug: 'red-spotted-assassin-bug',   desc: 'Controls pest insects; delivers a very painful bite if disturbed.' },
+  { slug: 'sandalwood-defoliator-moth', desc: 'Day-flying wasp moth whose larvae defoliate sandalwood and pulse crops.' },
+  { slug: 'lychee-shield-bug',          desc: 'Brilliantly coloured jewel bug that feeds on pigeon pea, pongamia, and other crops.' },
+  { slug: 'red-cotton-stainer',         desc: 'Serious pest of cotton that stains lint by transmitting fungi while feeding.' },
+  { slug: 'brown-stink-bug',            desc: 'Shield-shaped pest that damages fruit, grain, and nut crops by piercing and feeding.' },
+  { slug: 'indian-black-scorpion',      desc: 'Large Indian scorpion with a painful sting; preys on pest insects in orchards.' },
 ];
 
 async function main() {
