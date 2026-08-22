@@ -224,6 +224,7 @@ git push origin main
 | `node scripts/sync-fauna-global.js` | Syncs `fauna_name_*` and `fauna_desc_*` to global Tamil dict | After generating translations |
 | `node scripts/add-fauna-i18n.js` | Adds new fauna label keys to global Tamil dict | Only when adding new section/label types |
 | `node scripts/update-fauna-counts.js` | Updates homepage fauna counts and flora/fauna totals | After adding/removing fauna species |
+| `node scripts/hide-species.js` | Adds/removes `data-hidden="true"` on category cards based on `data/hidden-species.json` | After updating hidden species list |
 
 ## File Structure
 
@@ -245,6 +246,7 @@ images/categories/fauna/
 data/
   i18n-fauna-<slug>.json     # Per-species Tamil translations
   i18n-ta.json               # Global Tamil dict (fauna_name_*, fauna_desc_*, badges, labels)
+  hidden-species.json        # Slugs of species to hide (died / no longer on farm)
 ```
 
 ## How Tamil Translation Works for Fauna
@@ -275,3 +277,33 @@ data/
 ## Reference Template
 
 Use `#[[file:fauna/insects-pollinators/wandering-violin-mantis.html]]` as the reference template for new fauna species pages.
+
+## Hiding Species (Died / No Longer on Farm)
+
+To hide a species from the site without deleting its page or data:
+
+### Via Admin UI
+1. Go to `/admin/` → **🚫 Hidden Species** → **Hidden Species List**
+2. Add the slug (e.g. `lime-butterfly`, `passion-fruit`) to the list
+3. Save (commits to GitHub)
+4. Run: `node scripts/hide-species.js`
+5. Run: `node scripts/update-fauna-counts.js`
+
+### Via JSON directly
+1. Edit `data/hidden-species.json` — add the slug to the `"hidden"` array:
+   ```json
+   { "hidden": ["lime-butterfly", "passion-fruit"] }
+   ```
+2. Run: `node scripts/hide-species.js`
+3. Run: `node scripts/update-fauna-counts.js`
+
+### To unhide (species returns / replanted)
+1. Remove the slug from `data/hidden-species.json` (or via admin UI)
+2. Run: `node scripts/hide-species.js`
+3. Run: `node scripts/update-fauna-counts.js`
+
+### How it works
+- `hide-species.js` reads `data/hidden-species.json` and adds/removes `data-hidden="true"` on matching `<a class="card">` elements in category pages
+- CSS rule `.card[data-hidden="true"] { display: none; }` hides the card visually
+- The species detail page, images, and translations remain untouched (archival)
+- `update-fauna-counts.js` excludes hidden species from homepage counts

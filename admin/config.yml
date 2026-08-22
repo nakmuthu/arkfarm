@@ -9064,3 +9064,17 @@ collections:
           - {label: "Medicinal - Anti-inflammatory (Tamil)", name: anti_inflammatory_val, widget: text, required: false}
           - {label: "Medicinal - Immune Support (Tamil)", name: immune_val, widget: text, required: false}
           - {label: "Observation Notes (Tamil)", name: observation_placeholder, widget: text, required: false}
+
+  - name: hidden_species
+    label: "🚫 Hidden Species"
+    description: "Manage species that are dead or no longer on the farm. Add the slug (e.g. lime-butterfly, abiu) to hide from the site."
+    files:
+      - label: "Hidden Species List"
+        name: hidden
+        file: data/hidden-species.json
+        fields:
+          - label: "Hidden Slugs"
+            name: hidden
+            widget: list
+            allow_add: true
+            field: {label: "Species Slug", name: slug, widget: string, hint: "The slug from the URL, e.g. lime-butterfly or passion-fruit"}

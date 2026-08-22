@@ -15,14 +15,21 @@ const FAUNA_DIRS = {
   'soil-decomposers':    'fauna/soil-decomposers',
 };
 
+// Load hidden species list
+const HIDDEN_FILE = path.join(__dirname, '..', 'data', 'hidden-species.json');
+const hiddenSet = new Set(
+  fs.existsSync(HIDDEN_FILE) ? JSON.parse(fs.readFileSync(HIDDEN_FILE, 'utf8')).hidden || [] : []
+);
+
 const counts = {};
 let totalFauna = 0;
 
 for (const [key, dir] of Object.entries(FAUNA_DIRS)) {
   if (!fs.existsSync(dir)) { counts[key] = 0; continue; }
-  const n = fs.readdirSync(dir).filter(f => f.endsWith('.html')).length;
-  counts[key] = n;
-  totalFauna += n;
+  const species = fs.readdirSync(dir).filter(f => f.endsWith('.html'));
+  const visible = species.filter(f => !hiddenSet.has(f.replace('.html', '')));
+  counts[key] = visible.length;
+  totalFauna += visible.length;
 }
 
 // Update index.html
@@ -41,9 +48,13 @@ for (const [key, count] of Object.entries(counts)) {
 // Update fauna-count span in hero
 html = html.replace(/<span id="fauna-count">[^<]*<\/span>/, '<span id="fauna-count">' + totalFauna + '</span>');
 
-// Update flora-count span using plants.json
+// Update flora-count span using plants.json (excluding hidden)
 const plants = JSON.parse(fs.readFileSync('data/plants.json', 'utf8'));
-const totalFlora = plants.length;
+const totalFlora = plants.filter(p => {
+  // Extract slug from url: /arkfarm/plants/category/SLUG.html
+  const match = p.url && p.url.match(/\/([^/]+)\.html$/);
+  return !match || !hiddenSet.has(match[1]);
+}).length;
 html = html.replace(/<span id="flora-count">[^<]*<\/span>/, '<span id="flora-count">' + totalFlora + '</span>');
 
 fs.writeFileSync('index.html', html);

@@ -12,6 +12,9 @@
   --radius: 12px;
 }
 
+/* Hidden species (died / no longer on farm) */
+.card[data-hidden="true"] { display: none; }
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
