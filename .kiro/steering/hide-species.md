@@ -13,8 +13,9 @@ When the user asks to hide a species (died, removed, no longer on farm) or unhid
 3. Run: `node scripts/hide-species.js`
 4. Run: `node scripts/update-fauna-counts.js`
 5. Run: `node scripts/update-homepage-counts.js`
-6. Commit and push: `git add -A && git commit -m "Hide <slug> (no longer on farm)" && git push origin main`
-7. Confirm to the user which species was hidden and from which category page.
+6. Run: `node scripts/generate-print-tags.js`
+7. Commit and push: `git add -A && git commit -m "Hide <slug> (no longer on farm)" && git push origin main`
+8. Confirm to the user which species was hidden and from which category page.
 
 ## To Unhide a Species
 
@@ -23,8 +24,9 @@ When the user asks to hide a species (died, removed, no longer on farm) or unhid
 3. Run: `node scripts/hide-species.js`
 4. Run: `node scripts/update-fauna-counts.js`
 5. Run: `node scripts/update-homepage-counts.js`
-6. Commit and push: `git add -A && git commit -m "Unhide <slug> (returned to farm)" && git push origin main`
-7. Confirm to the user which species was restored.
+6. Run: `node scripts/generate-print-tags.js`
+7. Commit and push: `git add -A && git commit -m "Unhide <slug> (returned to farm)" && git push origin main`
+8. Confirm to the user which species was restored.
 
 ## To List Currently Hidden Species
 
