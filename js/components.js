@@ -130,4 +130,34 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     document.body.appendChild(shareBtn);
   }
+
+  // Hidden species toggle on category pages
+  var hiddenCards = document.querySelectorAll('.card[data-hidden="true"]');
+  if (hiddenCards.length > 0) {
+    var cardGrid = document.querySelector('.card-grid');
+    if (cardGrid) {
+      var toolbar = document.createElement('div');
+      toolbar.style.cssText = 'display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap;';
+      var toggleBtn = document.createElement('button');
+      toggleBtn.style.cssText = 'background:#f5f5f5;border:1px solid #ddd;border-radius:8px;padding:6px 14px;font-size:13px;cursor:pointer;';
+      var hidden = localStorage.getItem('arkfarm-hide-hidden') !== 'false';
+      function updateToggle() {
+        if (hidden) {
+          document.body.classList.add('hide-hidden');
+          toggleBtn.textContent = '👁️ Show hidden (' + hiddenCards.length + ')';
+        } else {
+          document.body.classList.remove('hide-hidden');
+          toggleBtn.textContent = '🙈 Hide hidden (' + hiddenCards.length + ')';
+        }
+      }
+      toggleBtn.onclick = function () {
+        hidden = !hidden;
+        localStorage.setItem('arkfarm-hide-hidden', hidden);
+        updateToggle();
+      };
+      updateToggle();
+      toolbar.appendChild(toggleBtn);
+      cardGrid.parentNode.insertBefore(toolbar, cardGrid);
+    }
+  }
 });

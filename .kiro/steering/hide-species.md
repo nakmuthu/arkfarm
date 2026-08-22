@@ -12,7 +12,9 @@ When the user asks to hide a species (died, removed, no longer on farm) or unhid
 2. Edit `data/hidden-species.json` — add the slug to the `"hidden"` array (keep sorted alphabetically).
 3. Run: `node scripts/hide-species.js`
 4. Run: `node scripts/update-fauna-counts.js`
-5. Confirm to the user which species was hidden and from which category page.
+5. Run: `node scripts/update-homepage-counts.js`
+6. Commit and push: `git add -A && git commit -m "Hide <slug> (no longer on farm)" && git push origin main`
+7. Confirm to the user which species was hidden and from which category page.
 
 ## To Unhide a Species
 
@@ -20,7 +22,9 @@ When the user asks to hide a species (died, removed, no longer on farm) or unhid
 2. Edit `data/hidden-species.json` — remove the slug from the `"hidden"` array.
 3. Run: `node scripts/hide-species.js`
 4. Run: `node scripts/update-fauna-counts.js`
-5. Confirm to the user which species was restored.
+5. Run: `node scripts/update-homepage-counts.js`
+6. Commit and push: `git add -A && git commit -m "Unhide <slug> (returned to farm)" && git push origin main`
+7. Confirm to the user which species was restored.
 
 ## To List Currently Hidden Species
 
