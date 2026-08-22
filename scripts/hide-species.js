@@ -65,3 +65,4 @@ for (const file of categoryFiles) {
 
 console.log(`\nDone. Hidden: ${totalHidden} cards, Unhidden: ${totalUnhidden} cards.`);
 console.log('Remember to also run: node scripts/update-fauna-counts.js');
+console.log('Remember to also run: node scripts/generate-print-tags.js');

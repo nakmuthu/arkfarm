@@ -12,6 +12,12 @@ const path = require('path');
 
 const plants = JSON.parse(fs.readFileSync('data/plants.json', 'utf8'));
 
+// Load hidden species list
+const HIDDEN_FILE = path.join(__dirname, '..', 'data', 'hidden-species.json');
+const hiddenSet = new Set(
+  fs.existsSync(HIDDEN_FILE) ? JSON.parse(fs.readFileSync(HIDDEN_FILE, 'utf8')).hidden || [] : []
+);
+
 // Load Tamil names from per-plant files and global dict
 const globalTa = JSON.parse(fs.readFileSync('data/i18n-ta.json', 'utf8'));
 
@@ -48,7 +54,8 @@ const plantEntries = plants.map(p => {
     category: p.category,
     url: 'https://nakmuthu.github.io' + p.url,
     image,
-    keywords: (p.keywords || []).join(' ').toLowerCase()
+    keywords: (p.keywords || []).join(' ').toLowerCase(),
+    hidden: hiddenSet.has(slug)
   };
 });
 
@@ -101,6 +108,15 @@ const html = `<!DOCTYPE html>
     .btn-outline.active { background: #2e7d32; color: #fff; }
     .count-label { font-size: 12px; color: #666; margin-left: auto; white-space: nowrap; }
     .back-link { font-size: 12px; color: #2e7d32; white-space: nowrap; }
+
+    /* Hidden species */
+    .tag-wrapper.is-hidden { opacity: 0.35; position: relative; }
+    .tag-wrapper.is-hidden::after {
+      content: "⛔ Hidden"; position: absolute; top: 8px; left: 8px;
+      background: #c62828; color: #fff; font-size: 9px; font-weight: 700;
+      padding: 2px 6px; border-radius: 8px; z-index: 10;
+    }
+    body.hide-hidden .tag-wrapper.is-hidden { display: none; }
 
     /* Tag grid */
     .tag-grid {
@@ -166,6 +182,7 @@ const html = `<!DOCTYPE html>
       .controls { display: none; }
       .tag-check { display: none; }
       .tag-wrapper.deselected { display: none !important; }
+      .tag-wrapper.is-hidden { display: none !important; }
       .tag-grid { gap: 5mm; justify-content: flex-start; padding: 5mm; }
       .plant-tag { page-break-inside: avoid; width: 54mm !important; height: 85.6mm !important; }
       .tag-image { height: 28mm !important; }
@@ -196,6 +213,7 @@ const html = `<!DOCTYPE html>
     </select>
     <input type="search" id="tag-search" placeholder="Filter..." oninput="applyFilters()">
     <button class="btn-outline" id="lang-btn" onclick="toggleLang()">தமிழ்</button>
+    <button class="btn-outline" id="hide-toggle" onclick="toggleHidden()">👁️ Show Hidden</button>
     <button class="btn-outline" onclick="selectAll()">All</button>
     <button class="btn-outline" onclick="deselectAll()">None</button>
     <button class="btn" onclick="printRegular()">🖨️ Print</button>
@@ -209,6 +227,14 @@ const html = `<!DOCTYPE html>
   <script>
     var plants = ${JSON.stringify(plantEntries)};
     var currentLang = 'en';
+    var hiddenVisible = false;
+
+    function toggleHidden() {
+      hiddenVisible = !hiddenVisible;
+      document.body.classList.toggle('hide-hidden', !hiddenVisible);
+      document.getElementById('hide-toggle').textContent = hiddenVisible ? '🙈 Hide Hidden' : '👁️ Show Hidden';
+      updateCount();
+    }
 
     function generateQR(text) {
       var qr = qrcode(0, 'M');
@@ -272,9 +298,10 @@ const html = `<!DOCTYPE html>
 
     function renderTags() {
       var grid = document.getElementById('tag-grid');
+      document.body.classList.add('hide-hidden');
       plants.forEach(function(p) {
         var wrapper = document.createElement('div');
-        wrapper.className = 'tag-wrapper';
+        wrapper.className = 'tag-wrapper' + (p.hidden ? ' is-hidden' : '');
         wrapper.dataset.name = p.name;
         wrapper.dataset.tamil = p.tamilName || '';
         wrapper.dataset.scientific = p.scientific || '';
@@ -310,7 +337,7 @@ const html = `<!DOCTYPE html>
 
     function openPrintWindow(duplex) {
       var wrappers = Array.from(document.querySelectorAll('.tag-wrapper'))
-        .filter(function(w) { return w.style.display !== 'none' && !w.classList.contains('deselected'); });
+        .filter(function(w) { return w.style.display !== 'none' && !w.classList.contains('deselected') && !w.classList.contains('is-hidden'); });
 
       var COLS = 3, ROWS = 3, PER_PAGE = COLS * ROWS;
       var pages = [];
